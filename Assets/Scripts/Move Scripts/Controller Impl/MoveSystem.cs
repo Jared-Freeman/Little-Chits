@@ -362,6 +362,8 @@ public class MoveSystem : MonoBehaviour
     }
     private bool GroundedAnywhere()
     {
+        //return false; //TODO: Make this less bad. Please this is painful whyyyyy
+
         Vector3 bt = controller.transform.position;
         bt.y -= (controller.height / 2) - controller.radius + groundedDistanceTolerance;
         

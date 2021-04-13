@@ -4424,8 +4424,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 279167420098524805, guid: 0260da24df26e64409f3e9b36cf4deaf,
         type: 3}
+      propertyPath: maxSlideAngle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 279167420098524805, guid: 0260da24df26e64409f3e9b36cf4deaf,
+        type: 3}
       propertyPath: jumpCooldownBase
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 279167420098524807, guid: 0260da24df26e64409f3e9b36cf4deaf,
+        type: 3}
+      propertyPath: aspectEnabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 279167420098524809, guid: 0260da24df26e64409f3e9b36cf4deaf,
         type: 3}
