@@ -8,9 +8,9 @@ using UnityEngine;
 // Simple gameobject manipulator that pitches attached gameobject and yaws transform of player
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
-    public float lowerLookBoundary = -90f;
-    public float upperLookBoundary =  90f;
+    public float mouseSensitivity;
+    public float lowerLookBoundary;
+    public float upperLookBoundary;
 
     public Transform playerBody;
     float xRotation = 0f;

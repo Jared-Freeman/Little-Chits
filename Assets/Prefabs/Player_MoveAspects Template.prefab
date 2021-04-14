@@ -695,7 +695,7 @@ MonoBehaviour:
   canBeInterrupted: 0
   smoothMouse: 0
   clampSmoothUpper: 0
-  mouseSensitivity: 150
+  mouseSensitivity: 200
   lowerLookBoundary: -90
   upperLookBoundary: 90
   smoothFrames: 3
@@ -1471,7 +1471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 8d802a372c7c15746bf2bc418e96685c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 8d802a372c7c15746bf2bc418e96685c, type: 3}
       propertyPath: m_LocalRotation.w

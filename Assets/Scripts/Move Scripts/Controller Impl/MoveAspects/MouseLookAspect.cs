@@ -10,14 +10,14 @@ public class MouseLookAspect : MoveAspect
     [Header("MouseLook Aspect Settings")]
     public bool smoothMouse;
     public bool clampSmoothUpper;
-    public float mouseSensitivity = 100f;
-    [Range(-90f,0f)]
-    public float lowerLookBoundary = -90f;
-    [Range(0f,90f)]
-    public float upperLookBoundary = 90f;
-    [Range(1,6)]
+    public float mouseSensitivity;
+    [Range(-90f, 0f)]
+    public float lowerLookBoundary;
+    [Range(0f, 90f)]
+    public float upperLookBoundary;
+    [Range(1, 6)]
     [Tooltip("Number of frames we average. DO NOT SET BELOW 1")]
-    public int smoothFrames = 3;
+    public int smoothFrames;
 
     //private members
     private float xRotation = 0f;
