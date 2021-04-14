@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Name: JumpAspect
+// Author: Jared Freeman
+// Desc: 
+// Implements jumping in MoveSystem hierarchy. Supports jump cooldowns, fatigue, slide detection, and a few other fancy features
+
 public class JumpAspect : MoveAspect
 {
     #region ctor
@@ -25,7 +30,9 @@ public class JumpAspect : MoveAspect
     [Range(.25f, 3f)]
     public float jumpHeight = 1.333333f; //alteration of jump height during runtime is allowed
     [SerializeField]
-    private float maxSlideAngle; //deg
+    private float maxSlideAngle; //deg    
+    [SerializeField]
+    private bool flag_ignore_ground; //bandaid to fix dumb ground detection scheme I foolishly wrote...
 
 
     //private members
@@ -75,6 +82,7 @@ public class JumpAspect : MoveAspect
         jumpHeightDefault = jumpHeight;
         maxSlideAngle = moveSystem.controller.slopeLimit;
         remainingSlideJumps = slideJumps;
+        flag_ignore_ground = false;
     }
 
     public override void DoUpdate(  )
@@ -87,9 +95,11 @@ public class JumpAspect : MoveAspect
         float jumpCooldownTotal = (jumpCooldownBase + jumpCooldownExtra);
         bool isJumping = Input.GetButtonDown("Jump");
 
+        //Can fix jump losses by adding " || jump_happened_super_recently "
+        //But I want something better than a bandaid...
         if (moveSystem.IsGrounded())
         {
-            if(isJumping) Debug.Log("Should be jumping!"); //works from here, still bug appearing
+            //if(isJumping) Debug.Log("Should be jumping!"); //works from here, still bug appearing
 
             if (jumpTimer <= jumpCooldownTotal)
             {
@@ -98,18 +108,22 @@ public class JumpAspect : MoveAspect
                 moveSystem.AppendDynamicSpeedMultiplier(-1f * (jumpCooldownTotal - jumpTimer));
             }
 
+            ///////////////// BUG IS HERE /////////////////
+            /*
+            */
             //jumpNormalVector.x = 0;
             //jumpNormalVector.z = 0;
-            if (!isSliding)
+            if (!isSliding && (flag_ignore_ground == false))
             {
                 jumpNormalVector.y = 0f;
                 vertSpeed = 0f;
                 if(moveSystem.IsGrounded()) remainingSlideJumps = slideJumps;
             }
+            ///////////////// BUG IS HERE /////////////////
 
             DoGroundedUpdate(isJumping, jumpCooldownTotal);
 
-            
+
 
             /*
 
@@ -207,13 +221,16 @@ public class JumpAspect : MoveAspect
         //jump
         if (isJumping && jumpTimer >= jumpCooldownTotal)
         {
-            Debug.Log("JumpEvent!");
+            //Debug.Log("JumpEvent!");
+
+            IgnoreGroundForSeconds(.25f); //This MIGHT fix
+
             SendMessage("OnJumpEvent", SendMessageOptions.DontRequireReceiver);
             ResetJumpCooldownTimer();
             if (jumpNormal)
             {
 
-                Debug.Log("JumpNormal!");
+                //Debug.Log("JumpNormal!");
                 jumpSpeed = Mathf.Sqrt(jumpHeight * -2f * moveSystem.gravity * moveSystem.gravityScale);
                 jumpNormalVector = Vector3.up; //TODO: project on plane
                 jumpNormalVector *= jumpSpeed;
@@ -230,7 +247,7 @@ public class JumpAspect : MoveAspect
 
     private void DoGroundedUpdate(bool isJumping, float jumpCooldownTotal)
     {
-        if(isJumping) Debug.Log("DoGroundedUpdate! sliding: " + isSliding); //sliding isnt causing it
+        //if(isJumping) Debug.Log("DoGroundedUpdate! sliding: " + isSliding); //sliding isnt causing it
         if (isSliding) //5f is arbitrary tolerance. it was being weird otherwise
         {
             DoAirtimeUpdate(); //uh yeah lol
@@ -246,5 +263,26 @@ public class JumpAspect : MoveAspect
     {
         DecrementJumpCooldownTimer();
         vertSpeed = Mathf.Clamp(vertSpeed + moveSystem.gravityScale * moveSystem.gravity * Time.deltaTime, -1f * moveSystem.maxFallSpeed, Mathf.Infinity); //adjust vertSpeed
+    }
+
+    private void IgnoreGroundForSeconds(float duration)
+    {
+        StopCoroutine("ContinueIgnoreGroundForSeconds");
+        StartCoroutine(ContinueIgnoreGroundForSeconds(duration)); //This MIGHT fix
+    }
+
+    private IEnumerator ContinueIgnoreGroundForSeconds(float duration)
+    {
+        flag_ignore_ground = true;
+
+        float start_time = Time.time;
+        float cur_time = Time.time;
+        while(Mathf.Abs(cur_time - start_time) < duration)
+        {
+            cur_time = Time.time;
+            yield return null;
+        }
+
+        flag_ignore_ground = false;
     }
 }

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Name: Mouselook
+// Author: Jared Freeman
+// Desc: 
+// Simple gameobject manipulator that pitches attached gameobject and yaws transform of player
 public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 100f;

@@ -6,7 +6,8 @@ using System.Linq;
 
 [RequireComponent(typeof(CharacterController))]
 
-/* MoveSystem:
+/* Author: Jared Freeman
+ * MoveSystem:
  * Aspects will transmit their desired movement to the desiredMovement vector, or modify the camera position via its reference. 
  * MoveSystem SHOULD authoritatively Move() the controller (currently all CAN but this could be changed if we wanted)
  * 
