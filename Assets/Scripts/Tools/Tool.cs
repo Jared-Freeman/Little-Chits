@@ -35,6 +35,8 @@ public abstract class Tool : Interactable
     {
         base.Awake();
         rb = transform.GetComponent<Rigidbody>();
+        rb.interpolation = RigidbodyInterpolation.Extrapolate;
+
         collider = transform.GetComponent<Collider>();
 
         if (collider == null)
