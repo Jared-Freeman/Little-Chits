@@ -47,16 +47,13 @@ public abstract class Tool : Interactable
 
     public void OnDrop()
     {
+        EndAction();
         rb.isKinematic = false;
         rb.velocity = Vector3.zero;
 
         collider.enabled = true;
 
-        if (pickupSound != null)
-        {
-            audioSource.clip = pickupSound;
-            audioSource.Play();
-        }
+        OnUnequip();
     }
 
     public virtual void OnPickup(GameObject player)
@@ -88,6 +85,7 @@ public abstract class Tool : Interactable
 
     public void OnUnequip()
     {
+        EndAction();
         if (pickupSound != null)
         {
             audioSource.clip = pickupSound;
