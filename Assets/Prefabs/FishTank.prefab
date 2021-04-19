@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1925308064975917938}
   - component: {fileID: 4421662053404862392}
   - component: {fileID: 7062035432645375842}
-  - component: {fileID: 2764113158655886956}
   m_Layer: 0
   m_Name: FishTank
   m_TagString: Untagged
@@ -94,24 +93,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.2043471, y: 2.2000709, z: 1.6636655}
-  m_Center: {x: -0.012173412, y: 0.010035158, z: -0.2581679}
---- !u!54 &2764113158655886956
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2764113158655886957}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Size: {x: 2.204347, y: 2.2000709, z: 2.1800005}
+  m_Center: {x: -0.012173414, y: 0.01003516, z: 1.1091495e-11}
 --- !u!1 &3070737602404704541
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +107,7 @@ GameObject:
   - component: {fileID: 3070737602404704536}
   - component: {fileID: 3070737602404704539}
   - component: {fileID: 3070737602404704538}
+  - component: {fileID: 5573449843301093401}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -205,3 +189,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.2843711, z: 1}
   m_Center: {x: 0.000010621158, y: 0.1421859, z: 0.00016011133}
+--- !u!114 &5573449843301093401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3070737602404704541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0da44df9d63a94ea8f5c10e6e50342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

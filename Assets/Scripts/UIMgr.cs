@@ -6,11 +6,20 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 public class UIMgr : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static UIMgr inst;
+    private void Awake()
     {
-
+        inst = this;
     }
+    //Timer 
+    public Text timerText;
+    public float time;
+
+    public Text chitsCountTxt;
+    public float numChit;
+
+   
+    
     public void LaunchScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -22,4 +31,14 @@ public class UIMgr : MonoBehaviour
         Debug.Log("Exit");
         Application.Quit();
     }
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
 }

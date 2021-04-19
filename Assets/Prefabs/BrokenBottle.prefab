@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 184145939824769585}
   - component: {fileID: 5083435269594370871}
   - component: {fileID: 7490612364676177332}
-  - component: {fileID: 8325623612659431952}
+  - component: {fileID: 1614531027863373092}
+  - component: {fileID: 1161871340890897110}
   m_Layer: 0
   m_Name: Cylinder_cell.001
   m_TagString: Untagged
@@ -60,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 195f4173979b6e242a5fd3e3868e85dc, type: 3}
+  - {fileID: 2100000, guid: 3ac3bbeddf50a45449bd0a41d2e0eba4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,8 +98,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &8325623612659431952
-MeshCollider:
+--- !u!114 &1614531027863373092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2346538625938933405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusText: 
+--- !u!65 &1161871340890897110
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -107,10 +121,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5347289312786552597, guid: 195f4173979b6e242a5fd3e3868e85dc, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.8715659, y: 1.8726777, z: 4.0276613}
+  m_Center: {x: -0.06175512, y: -0.044082753, z: 0.4788324}
 --- !u!1 &3281328516996956649
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +166,8 @@ GameObject:
   - component: {fileID: 2314283377830259541}
   - component: {fileID: 4825958179960577309}
   - component: {fileID: 2390680430688203804}
-  - component: {fileID: 8122007775701765831}
+  - component: {fileID: 785478577612702020}
+  - component: {fileID: 8234153441039380128}
   m_Layer: 0
   m_Name: Cylinder_cell
   m_TagString: Untagged
@@ -201,7 +215,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 195f4173979b6e242a5fd3e3868e85dc, type: 3}
+  - {fileID: 2100000, guid: 3ac3bbeddf50a45449bd0a41d2e0eba4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -238,8 +252,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &8122007775701765831
-MeshCollider:
+--- !u!114 &785478577612702020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5220906624474052453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusText: 
+--- !u!65 &8234153441039380128
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -248,10 +275,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4048681700449303063, guid: 195f4173979b6e242a5fd3e3868e85dc, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.5837014, y: 1.6199558, z: 4.2392273}
+  m_Center: {x: 0.05423653, y: -0.01023039, z: -0.82736444}
 --- !u!1 &6567449936158995580
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +324,8 @@ GameObject:
   - component: {fileID: 40616651954910452}
   - component: {fileID: 4794945467046254898}
   - component: {fileID: 5267678325442181293}
-  - component: {fileID: 3771916778644872498}
+  - component: {fileID: 6113793375873345424}
+  - component: {fileID: 8804029663656612062}
   m_Layer: 0
   m_Name: Cylinder_cell.002
   m_TagString: Untagged
@@ -346,7 +373,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 195f4173979b6e242a5fd3e3868e85dc, type: 3}
+  - {fileID: 2100000, guid: 3ac3bbeddf50a45449bd0a41d2e0eba4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -383,8 +410,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &3771916778644872498
-MeshCollider:
+--- !u!114 &6113793375873345424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8967222093738853806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusText: 
+--- !u!65 &8804029663656612062
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -393,7 +433,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -707910119647850408, guid: 195f4173979b6e242a5fd3e3868e85dc, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.410176, y: 1.7783488, z: 2.5798666}
+  m_Center: {x: 0.23334992, y: 0.07944642, z: -0.15723261}

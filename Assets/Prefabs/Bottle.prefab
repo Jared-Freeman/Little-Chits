@@ -44,8 +44,9 @@ GameObject:
   - component: {fileID: 8323798277660372067}
   - component: {fileID: 5733483206332707448}
   - component: {fileID: 1231997157737921951}
+  - component: {fileID: 1938752333792435114}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,6 +155,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusText: 
+--- !u!114 &1938752333792435114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700977321748896254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9fa17ce861e2c439af91cf3b0b9890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyedVersion: {fileID: 6567449936158995580, guid: 77bceab9d25c0054fa9930072c6f9291,
+    type: 3}
 --- !u!1 &9170872277385128623
 GameObject:
   m_ObjectHideFlags: 0
