@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5916822225771556285}
   - component: {fileID: 5916822225771556284}
   - component: {fileID: 1217952988}
+  - component: {fileID: 6305351161060936514}
   m_Layer: 0
   m_Name: Cushion
   m_TagString: Untagged
@@ -140,6 +141,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6305351161060936514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916822225771556258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusText: 
 --- !u!1 &5916822225921582009
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,8 +165,9 @@ GameObject:
   - component: {fileID: 5916822225921582010}
   - component: {fileID: 5916822225921582005}
   - component: {fileID: 5916822225921582004}
-  - component: {fileID: 5916822225921582011}
   - component: {fileID: 170538324}
+  - component: {fileID: 562401525189328019}
+  - component: {fileID: 847177353665045804}
   m_Layer: 0
   m_Name: Pillow (1)
   m_TagString: Untagged
@@ -221,20 +236,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &5916822225921582011
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5916822225921582009}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!54 &170538324
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -251,6 +252,33 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &562401525189328019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916822225921582009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusText: 
+--- !u!64 &847177353665045804
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916822225921582009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5916822226026350768
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,8 +290,9 @@ GameObject:
   - component: {fileID: 5916822226026350769}
   - component: {fileID: 5916822226026350732}
   - component: {fileID: 5916822226026350771}
-  - component: {fileID: 5916822226026350770}
   - component: {fileID: 1848905479}
+  - component: {fileID: 1290097072569359062}
+  - component: {fileID: 8347927908074414304}
   m_Layer: 0
   m_Name: Pillow
   m_TagString: Untagged
@@ -332,20 +361,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &5916822226026350770
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5916822226026350768}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!54 &1848905479
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -362,6 +377,33 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1290097072569359062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916822226026350768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusText: 
+--- !u!64 &8347927908074414304
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916822226026350768}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5916822226921767293
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +417,7 @@ GameObject:
   - component: {fileID: 5916822226921767288}
   - component: {fileID: 5916822226921767295}
   - component: {fileID: 1062043933}
+  - component: {fileID: 4164729150586934480}
   m_Layer: 0
   m_Name: Cushion
   m_TagString: Untagged
@@ -472,6 +515,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4164729150586934480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916822226921767293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusText: 
 --- !u!1 &6453840764659127806
 GameObject:
   m_ObjectHideFlags: 0

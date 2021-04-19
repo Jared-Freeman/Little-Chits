@@ -26,21 +26,21 @@ public class Interactable : MonoBehaviour
 
     public void OnFocus()
     {
-        if (focusHighlight == null)
+/*        if (focusHighlight == null)
         {
             focusHighlight = gameObject.AddComponent<Outline>();
         } else
         {
             focusHighlight.enabled = true;
-        }
+        }*/
     }
 
     public void OnFocusLost()
     {
-        if (focusHighlight != null)
+/*        if (focusHighlight != null)
         {
             focusHighlight.enabled = false;
-        }
+        }*/
     }
 
     public virtual void OnInteract(GameObject player)
