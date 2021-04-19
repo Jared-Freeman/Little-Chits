@@ -52,8 +52,7 @@ public class GravityTool : Tool
         {
             if (interactable is InteractableChit)
             {
-                InteractableChit inter = (InteractableChit) playerInteractionSystem.focusedInteractable;
-                inter.DisableChit();
+                interactable.transform.gameObject.AddComponent<ChitDisabler>();
             }
             gi = interactable.gameObject.AddComponent<GravityInterceptor>();
             gi.target = cameraInterceptTarget.transform;
@@ -68,13 +67,6 @@ public class GravityTool : Tool
         base.EndAction();
         if (gi != null)
         {
-
-            if (interactable is InteractableChit)
-            {
-                InteractableChit inter = (InteractableChit)playerInteractionSystem.focusedInteractable;
-                inter.EnableChit();
-            }
-
             Destroy(gi);
         }
     }
