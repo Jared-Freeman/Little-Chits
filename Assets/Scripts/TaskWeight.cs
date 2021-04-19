@@ -16,7 +16,9 @@ public class TaskWeight : MonoBehaviour
     public float DistMultiplier = 10;
     public bool beingUsed;
     private float distanceSq;
+    public float RandomWeight;
     public int distInt;
+    public bool isRandom;
     public float rsq = 4;
     // Start is called before the first frame update
     void Start()
@@ -42,12 +44,16 @@ public class TaskWeight : MonoBehaviour
         TimeWeight = temptation * Mathf.Log10(timeSince);
         distInt = (int) Mathf.Sqrt(distanceSq);
         DistWeight = 5 * 10/ Mathf.Sqrt(distInt/10+1);
+        if (isRandom)
+            RandomWeight = Random.value * 50;
+        else
+            RandomWeight = 0;
         if (AtTask())
         {
             timeSince = 0;
             TimeWeight = 0;
         }
-        weight = HappinessWeight + TimeWeight + DistWeight + AtTaskWeight;
+        weight = HappinessWeight + TimeWeight + DistWeight + AtTaskWeight + RandomWeight;
         return timeSince;
     }
 

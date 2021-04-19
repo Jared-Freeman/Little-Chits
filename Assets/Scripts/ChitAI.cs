@@ -12,6 +12,7 @@ public class ChitAI : MonoBehaviour
     public float decisionTime;
     public float timePassed;
     public float bestWeight;
+    public bool isGrabbed;
     //private GameObject chit;
     private NavMeshAgent agent;
 
@@ -33,11 +34,14 @@ public class ChitAI : MonoBehaviour
         timePassed += Time.deltaTime;
         for (int i = 0; i < timeSince.Length; i++)
             timeSince[i] += Time.deltaTime;
-        if (decisionTime < timePassed)
+        if (!isGrabbed)
         {
-            NewTask();
-            MoveToLocation(task[newTask].GetComponent<Transform>().position);
-            timePassed = 0;
+            if (decisionTime < timePassed)
+            {
+                NewTask();
+                MoveToLocation(task[newTask].GetComponent<Transform>().position);
+                timePassed = 0;
+            }
         }
     }
 

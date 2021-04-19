@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5916822225771556284}
   - component: {fileID: 1217952988}
   - component: {fileID: 6305351161060936514}
+  - component: {fileID: 8200469900545908747}
   m_Layer: 0
   m_Name: Cushion
   m_TagString: Untagged
@@ -154,6 +155,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusText: 
+--- !u!208 &8200469900545908747
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916822225771556258}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5916822225921582009
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +185,7 @@ GameObject:
   - component: {fileID: 170538324}
   - component: {fileID: 562401525189328019}
   - component: {fileID: 847177353665045804}
+  - component: {fileID: 5956012211144943663}
   m_Layer: 0
   m_Name: Pillow (1)
   m_TagString: Untagged
@@ -279,6 +297,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &5956012211144943663
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916822225921582009}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5916822226026350768
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +327,7 @@ GameObject:
   - component: {fileID: 1848905479}
   - component: {fileID: 1290097072569359062}
   - component: {fileID: 8347927908074414304}
+  - component: {fileID: 1549339863687640294}
   m_Layer: 0
   m_Name: Pillow
   m_TagString: Untagged
@@ -404,6 +439,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1549339863687640294
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916822226026350768}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5916822226921767293
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +469,7 @@ GameObject:
   - component: {fileID: 5916822226921767295}
   - component: {fileID: 1062043933}
   - component: {fileID: 4164729150586934480}
+  - component: {fileID: 1102764097181342842}
   m_Layer: 0
   m_Name: Cushion
   m_TagString: Untagged
@@ -528,6 +580,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusText: 
+--- !u!208 &1102764097181342842
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916822226921767293}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6453840764659127806
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +611,7 @@ GameObject:
   - component: {fileID: 294311259}
   - component: {fileID: 294311260}
   - component: {fileID: 294311261}
+  - component: {fileID: 467159311847884702}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -663,6 +732,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.44195947, y: 4.3212714, z: 1.7909541}
   m_Center: {x: 0.17819452, y: 1.5855143, z: 0.6038822}
+--- !u!114 &467159311847884702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453840764659127806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.083333336
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &6835812939736177355
 GameObject:
   m_ObjectHideFlags: 0
