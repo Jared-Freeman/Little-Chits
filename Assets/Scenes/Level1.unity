@@ -12852,9 +12852,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &402956445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13635,25 +13635,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1998241550}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &534935107 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5489236322435457664, guid: 3ba4387f9ad139f488170e440f6f2e54,
-    type: 3}
-  m_PrefabInstance: {fileID: 482447371}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &534935115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534935107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 573c39d45a0f58b49a7f735e836a9b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  focusText: 
 --- !u!43 &554653597
 Mesh:
   m_ObjectHideFlags: 0
@@ -20905,25 +20886,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &964447264 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5489236322435457664, guid: 3ba4387f9ad139f488170e440f6f2e54,
-    type: 3}
-  m_PrefabInstance: {fileID: 285074124}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &964447272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964447264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 573c39d45a0f58b49a7f735e836a9b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  focusText: 
 --- !u!1 &969322318
 GameObject:
   m_ObjectHideFlags: 0
@@ -34510,25 +34472,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aaddec98dde6314392526a655450553, type: 3}
---- !u!1 &1527922228 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5489236322435457664, guid: 3ba4387f9ad139f488170e440f6f2e54,
-    type: 3}
-  m_PrefabInstance: {fileID: 1834069258}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1527922229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527922228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 573c39d45a0f58b49a7f735e836a9b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  focusText: 
 --- !u!43 &1539066241
 Mesh:
   m_ObjectHideFlags: 0
@@ -41159,9 +41102,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1546537087
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42702,9 +42645,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1712133085
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45234,9 +45177,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1981159462
 BoxCollider:
   m_ObjectHideFlags: 0
