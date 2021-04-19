@@ -50,9 +50,11 @@ public class GravityTool : Tool
         Interactable interactable = playerInteractionSystem.focusedInteractable;
         if (interactable)
         {
-            otherRB = interactable.GetComponent<Rigidbody>();
-            otherRB.mass = 1;
-
+            if (interactable is InteractableChit)
+            {
+                InteractableChit inter = (InteractableChit) playerInteractionSystem.focusedInteractable;
+                inter.DisableChit();
+            }
             gi = interactable.gameObject.AddComponent<GravityInterceptor>();
             gi.target = cameraInterceptTarget.transform;
         }
@@ -60,10 +62,18 @@ public class GravityTool : Tool
 
     public override void EndAction()
     {
+
+        Interactable interactable = playerInteractionSystem.focusedInteractable;
+
         base.EndAction();
         if (gi != null)
         {
-            otherRB.mass = 1;
+
+            if (interactable is InteractableChit)
+            {
+                InteractableChit inter = (InteractableChit)playerInteractionSystem.focusedInteractable;
+                inter.EnableChit();
+            }
 
             Destroy(gi);
         }
