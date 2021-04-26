@@ -12,8 +12,7 @@ public class ChitCounter : MonoBehaviour
         {
             if(gameObject.tag == "Kill")
             {
-                Destroy(other.gameObject);
-                Debug.Log("AHHH");
+                Destroy(other.gameObject);                
             }
       
             UIMgr.inst.numChit -= 1; 
@@ -26,8 +25,7 @@ public class ChitCounter : MonoBehaviour
         {
             if (gameObject.tag != "Kill")
             {
-                UIMgr.inst.numChit += 1;
-                Debug.Log("Jeez");
+                UIMgr.inst.numChit += 1;               
             }
         }
     }
