@@ -52,12 +52,9 @@ public class FreezeTool : Tool
         interactable = playerInteractionSystem.focusedInteractable;
         if (interactable)
         {
-            if (interactable is ToolInteractable)
-            {
-                toolInteractable = (ToolInteractable) interactable;
-                toolInteractable.onToolInteraction.Invoke();
-            }
-        } 
+            print("FREEZING");
+            interactable.gameObject.AddComponent<Freeze>();
+        }
     }
 
     public override void EndAction()

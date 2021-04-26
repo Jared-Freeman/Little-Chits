@@ -175,9 +175,9 @@ MonoBehaviour:
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
-  pickupSound: {fileID: 0}
-  putDownSound: {fileID: 0}
-  actionSound: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 912409a6b0ff6cd4db3ed0af828d6f1b, type: 3}
+  putDownSound: {fileID: 8300000, guid: 912409a6b0ff6cd4db3ed0af828d6f1b, type: 3}
+  actionSound: {fileID: 8300000, guid: e1c60f03ed508bf4dbafa7ed04c00160, type: 3}
   audioLoopStart: 0
   audioLoopEnd: 0
   coolDown: 0
