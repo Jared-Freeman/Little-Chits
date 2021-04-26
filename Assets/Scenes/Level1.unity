@@ -1213,7 +1213,7 @@ PrefabInstance:
     - target: {fileID: 5607815857755878776, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: temptation
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5607815857755878776, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
@@ -1288,7 +1288,17 @@ PrefabInstance:
     - target: {fileID: 6701435449032271453, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: compTime
-      value: 8
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701435449032271453, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
+        type: 3}
+      propertyPath: childTask
+      value: 
+      objectReference: {fileID: 1170563545}
+    - target: {fileID: 6701435449032271453, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
+        type: 3}
+      propertyPath: assignment
+      value: newTask
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db158cdab7ac0e143b8dcfc2f9d0116c, type: 3}
@@ -14173,7 +14183,7 @@ PrefabInstance:
     - target: {fileID: 5489236322435457664, guid: 3ba4387f9ad139f488170e440f6f2e54,
         type: 3}
       propertyPath: m_Name
-      value: 'Chit '
+      value: Chit2
       objectReference: {fileID: 0}
     - target: {fileID: 5489236322435457664, guid: 3ba4387f9ad139f488170e440f6f2e54,
         type: 3}
@@ -15913,8 +15923,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_StartPoint: {x: 0.0000002432669, y: -2.4856083, z: -2.5000002}
-  m_EndPoint: {x: 0.0000015092633, y: -0.45419142, z: 0.35893875}
+  m_StartPoint: {x: 0.0000011255461, y: -2.0937526, z: -2.1092587}
+  m_EndPoint: {x: 0.0000018203866, y: -0.3895463, z: 0.35893875}
   m_Width: 0.44184503
   m_CostModifier: -1
   m_Bidirectional: 1
@@ -24140,6 +24150,18 @@ MonoBehaviour:
   assignment: 
   chit: {fileID: 0}
   childTask: {fileID: 0}
+--- !u!114 &1170563545 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6701435449032271453, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1170563541}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170563543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a5b774f615c284cbabdf61799fe6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1221056918
 Mesh:
   m_ObjectHideFlags: 0
@@ -43547,7 +43569,7 @@ PrefabInstance:
     - target: {fileID: 6701435449032271453, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: compTime
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6701435449032271453, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
@@ -44467,7 +44489,7 @@ PrefabInstance:
     - target: {fileID: 5489236322435457664, guid: 3ba4387f9ad139f488170e440f6f2e54,
         type: 3}
       propertyPath: m_Name
-      value: Chit
+      value: Chit1
       objectReference: {fileID: 0}
     - target: {fileID: 5489236322435457664, guid: 3ba4387f9ad139f488170e440f6f2e54,
         type: 3}
@@ -64015,7 +64037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
   m_StartPoint: {x: 1.3841988, y: -0.48248994, z: 2.069639}
-  m_EndPoint: {x: 1.3798405, y: 0.5714154, z: 1.0395103}
+  m_EndPoint: {x: 1.3798405, y: 0.35251093, z: 1.0395103}
   m_Width: 0.8730162
   m_CostModifier: -1
   m_Bidirectional: 1
@@ -64035,7 +64057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
   m_StartPoint: {x: 1.3841987, y: -0.48248994, z: -2.4504898}
-  m_EndPoint: {x: 1.3798414, y: 0.5204854, z: -1.5842212}
+  m_EndPoint: {x: 1.3798414, y: 0.39099336, z: -1.5842212}
   m_Width: 0.9343913
   m_CostModifier: -1
   m_Bidirectional: 1
@@ -64055,7 +64077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
   m_StartPoint: {x: 2.8987172, y: -0.48248994, z: -0.3000003}
-  m_EndPoint: {x: 1.9598643, y: 0.5063875, z: -0.30000016}
+  m_EndPoint: {x: 1.9598643, y: 0.363142, z: -0.30000016}
   m_Width: 1.5122638
   m_CostModifier: -1
   m_Bidirectional: 1
@@ -64075,7 +64097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
   m_StartPoint: {x: -0.17013872, y: -0.48248994, z: -0.3000004}
-  m_EndPoint: {x: 0.86942816, y: 0.5095484, z: -0.30000025}
+  m_EndPoint: {x: 0.86942816, y: 0.4004588, z: -0.30000025}
   m_Width: 2.7481086
   m_CostModifier: -1
   m_Bidirectional: 1
@@ -64211,6 +64233,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070737602404704541, guid: 92f4a9cd65ffbd74782751f6f4ee3ee7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Kill
       objectReference: {fileID: 0}
     - target: {fileID: 3249288759423442135, guid: 92f4a9cd65ffbd74782751f6f4ee3ee7,
         type: 3}

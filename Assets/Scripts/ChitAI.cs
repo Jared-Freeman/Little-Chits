@@ -54,11 +54,12 @@ public class ChitAI : MonoBehaviour
                         chitHappiness++;
                         isObsessed = false;
                     }
-                    if (assignment == "newTask")
+                    else if (assignment == "newTask")
                     {
+                        Debug.Log("moving to " + childTask);
                         MoveToLocation(childTask.transform.position);
                     }
-                    if (assignment == "die")
+                    else if (assignment == "die")
                     {
                         Destroy(gameObject);
                         UIMgr.inst.numChit--;
@@ -85,7 +86,7 @@ public class ChitAI : MonoBehaviour
                     chitAttention += 5;
                 }
                 timePassed = 0;
-                    decisionTime = Random.value * 7 + 3;
+                    decisionTime = Random.value * 4 + 1;
                 }
         }
         if (depressTime > depression)
@@ -103,7 +104,7 @@ public class ChitAI : MonoBehaviour
             timeSince[i] = task[i].UpdateTaskWeight(this.gameObject, timeSince[i]);
             if (task[i].GetWeight() > bestWeight)
             {
-                if (task[i].BeingUsed() == false || task[i].CheckOccupant(gameObject))
+                if (!task[i].GetComponent<Task>().taskResume || task[i].CheckOccupant(gameObject))
                 {
                     bestWeight = task[i].GetWeight();
                     newTask = i;
