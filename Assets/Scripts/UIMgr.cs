@@ -13,13 +13,29 @@ public class UIMgr : MonoBehaviour
     }
     //Timer 
     public Text timerText;
+    public Text timerText2;
     public float time;
 
     public Text chitsCountTxt;
     public float numChit;
 
-   
-    
+    public GameObject menuPanel;
+    public GameObject menuButtonPanel;
+    public GameObject mmWaningPanel;
+    public GameObject lbWaningPanel;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            menuPanel.gameObject.SetActive(!menuPanel.gameObject.activeSelf);
+            menuButtonPanel.gameObject.SetActive(true);
+            timerText2.gameObject.SetActive(true);
+            mmWaningPanel.gameObject.SetActive(false);
+            lbWaningPanel.gameObject.SetActive(false);            
+            MenuPopUpFunctions();
+        }
+    }
+
     public void LaunchScene(string sceneName)
     {
         if (sceneName != "Level1")
@@ -44,5 +60,18 @@ public class UIMgr : MonoBehaviour
     {
         Time.timeScale = 1;
     }
-
+    public void MenuPopUpFunctions()
+    {        
+        if (menuPanel.gameObject == menuPanel.gameObject.activeSelf)
+        {
+            PauseGame();
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if (menuPanel.gameObject == !menuPanel.gameObject.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            ResumeGame();
+            
+        }
+    }
 }

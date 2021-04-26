@@ -41,6 +41,7 @@ public class Timer : MonoBehaviour
             string minutes = Mathf.Floor(UIMgr.inst.time / 60).ToString("00");
             string seconds = (UIMgr.inst.time % 60).ToString("00");
         UIMgr.inst.timerText.text = minutes + ":" + seconds;
+        UIMgr.inst.timerText2.text = minutes + ":" + seconds;
         }
     }
 
