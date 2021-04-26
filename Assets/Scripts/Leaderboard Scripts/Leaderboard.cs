@@ -93,24 +93,24 @@ public class Leaderboard : MonoBehaviour
     public void IncrementCurrentLevelIndex()
     {
         current_level_index++;
-        current_level_index = Mathf.Clamp(current_level_index, 0, LeaderboardStaticList.leaderboard_lists.Count);
+        current_level_index = Mathf.Clamp(current_level_index, 0, LeaderboardStaticList.leaderboard_lists.Count-1);
         UpdateDisplayElements();
     }
     public void DecrementCurrentLevelIndex()
     {
         current_level_index--;
-        current_level_index = Mathf.Clamp(current_level_index, 0, LeaderboardStaticList.leaderboard_lists.Count);
+        current_level_index = Mathf.Clamp(current_level_index, 0, LeaderboardStaticList.leaderboard_lists.Count-1);
         UpdateDisplayElements();
     }
     //this works VV
     public void UpdateDisplayElements()
     {
         //if (flag_debug) PrintLeaderboard();
-
+        
         if (LeaderboardStaticList.leaderboard_lists != null && LeaderboardStaticList.leaderboard_lists.Count > current_level_index) // fix edge case methinks
         {
             //fancy lambda expression that I only partially know how to use
-            LeaderboardStaticList.leaderboard_lists[current_level_index].OrderBy(x => x.score);
+            LeaderboardStaticList.leaderboard_lists[current_level_index] = LeaderboardStaticList.leaderboard_lists[current_level_index].OrderByDescending(x => x.score).ToList();
         }
 
         string score_text = "Score: ";
@@ -119,6 +119,45 @@ public class Leaderboard : MonoBehaviour
             display_cur_level.text = (current_level_index + 1).ToString();
             display_gold_name.text = "Jared";
             display_gold_score.text = score_text + "33";
+        }
+        else //ugly but it works
+        {
+            display_cur_level.text = (current_level_index + 1).ToString();
+
+            if(LeaderboardStaticList.leaderboard_lists[current_level_index].Count > 0)
+            {
+                display_gold_name.text = LeaderboardStaticList.leaderboard_lists[current_level_index][0].player_name;
+                display_gold_score.text = score_text + LeaderboardStaticList.leaderboard_lists[current_level_index][0].score.ToString();
+            }
+            else
+            {
+                display_gold_name.text = "";
+                display_gold_score.text = "";
+            }
+
+            if (LeaderboardStaticList.leaderboard_lists[current_level_index].Count > 1)
+            {
+                display_silver_name.text = LeaderboardStaticList.leaderboard_lists[current_level_index][1].player_name;
+                display_silver_score.text = score_text + LeaderboardStaticList.leaderboard_lists[current_level_index][1].score.ToString();
+            }
+            else
+            {
+                display_silver_name.text = "";
+                display_silver_score.text = "";
+            }
+
+
+            if (LeaderboardStaticList.leaderboard_lists[current_level_index].Count > 2)
+            {
+                display_copper_name.text = LeaderboardStaticList.leaderboard_lists[current_level_index][2].player_name;
+                display_copper_score.text = score_text + LeaderboardStaticList.leaderboard_lists[current_level_index][2].score.ToString();
+            }
+            else
+            {
+                display_copper_name.text = "";
+                display_copper_score.text = "";
+            }
+
         }
     }
 }

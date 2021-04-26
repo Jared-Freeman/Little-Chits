@@ -6,8 +6,11 @@ using UnityEngine;
 //Idea: Track leaderboard stats across entire game. Allow for easy entry additions via a static class
 public static class LeaderboardStaticList
 {
+    private static bool flag_dev = true;
+
     public static int num_levels = 2; //hardcoded for now...
     public static List<List<LeaderboardAttributes>> leaderboard_lists; //stored across scenes. Eventually want to initialize this with some text file data or smthn
+    
 
     //init
     static LeaderboardStaticList()
@@ -16,9 +19,19 @@ public static class LeaderboardStaticList
         if (leaderboard_lists == null)
         {
             leaderboard_lists = new List<List<LeaderboardAttributes>>();
-            for (int i = 1; i < num_levels; i++)
+            for (int i = 0; i < num_levels; i++)
             {
-                leaderboard_lists.Add(new List<LeaderboardAttributes>());
+                List<LeaderboardAttributes> new_list = new List<LeaderboardAttributes>();
+
+                if(flag_dev)
+                {
+                    new_list.Add(new LeaderboardAttributes("Quinn", 10 + (int)(10 * Random.value)));
+                    new_list.Add(new LeaderboardAttributes("Elizabeth", 10 + (int)(10 * Random.value)));
+                    new_list.Add(new LeaderboardAttributes("Bryan", 10 + (int)(10 * Random.value)));
+                    new_list.Add(new LeaderboardAttributes("Jared", 10 + (int)(10 * Random.value)));
+                }
+
+                leaderboard_lists.Add(new_list);
             }
         }
 
