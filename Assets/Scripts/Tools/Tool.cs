@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /* 
  * Author: Bryan Dedeurwaerder
@@ -15,7 +16,10 @@ public abstract class Tool : Interactable
 
     public AudioClip pickupSound;
     public AudioClip putDownSound;
+
     public AudioClip actionSound;
+    public float audioLoopStart;
+    public float audioLoopEnd;
 
     public float coolDown;
 
@@ -27,13 +31,15 @@ public abstract class Tool : Interactable
     private Collider collider;
     private GameObject inventorySystem;
 
-    private AudioSource audioSource;
+    protected AudioSource audioSource;
 
     #endregion
 
     public override void Awake()
     {
         base.Awake();
+
+        focusText = "[e] to pickup " + gameObject.name;
         rb = transform.GetComponent<Rigidbody>();
         rb.interpolation = RigidbodyInterpolation.Extrapolate;
 
@@ -47,18 +53,11 @@ public abstract class Tool : Interactable
         audioSource = gameObject.AddComponent<AudioSource>();
     }
 
-    public void OnDrop()
-    {
-        EndAction();
-        rb.isKinematic = false;
-        rb.velocity = Vector3.zero;
+    [System.Serializable]
+    public class PickupEvent : UnityEvent { }
+    public PickupEvent onPickup = new PickupEvent();
 
-        collider.enabled = true;
-
-        OnUnequip();
-    }
-
-    public virtual void OnPickup(GameObject player)
+    public virtual void Pickup(GameObject player)
     {
         rb.isKinematic = true;
         collider.enabled = false;
@@ -68,9 +67,30 @@ public abstract class Tool : Interactable
             audioSource.clip = pickupSound;
             audioSource.Play();
         }
+
+        onPickup.Invoke();
     }
 
-    public void OnEquip()
+    public class DropEvent : UnityEvent { }
+    public DropEvent onDrop = new DropEvent();
+
+    public virtual void Drop()
+    {
+        EndAction();
+        rb.isKinematic = false;
+        rb.velocity = Vector3.zero;
+
+        collider.enabled = true;
+
+        OnUnequip();
+
+        onDrop.Invoke();
+    }
+
+    public class EquipEvent : UnityEvent { }
+    public EquipEvent onEquip = new EquipEvent();
+
+    public virtual void Equip()
     {
         rb.isKinematic = true;
         collider.enabled = false;
@@ -83,15 +103,32 @@ public abstract class Tool : Interactable
             audioSource.clip = pickupSound;
             audioSource.Play();
         }
+
+        onEquip.Invoke();
     }
 
-    public void OnUnequip()
+    public class UnequipEvent : UnityEvent { }
+    public UnequipEvent onUnequip = new UnequipEvent();
+
+    public virtual void OnUnequip()
     {
         EndAction();
         if (pickupSound != null)
         {
             audioSource.clip = pickupSound;
             audioSource.Play();
+        }
+
+        onUnequip.Invoke();
+    }
+    public override void Interact(GameObject player)
+    {
+        base.Interact(player);
+
+        InventorySystem invSys = player.GetComponentInChildren<InventorySystem>();
+        if (invSys != null)
+        {
+            invSys.Pickup(this);
         }
     }
 
@@ -100,18 +137,14 @@ public abstract class Tool : Interactable
         audioSource.clip = actionSound;
         audioSource.Play();
     }
+
+    public virtual void ContinueAction()
+    {
+        
+    }
+
     public virtual void EndAction()
     {
         audioSource.Stop();
-    }
-
-
-    public override void OnInteract(GameObject player)
-    {
-        InventorySystem invSys = player.GetComponentInChildren<InventorySystem>();
-        if (invSys != null)
-        {
-            invSys.Pickup(this);
-        }
     }
 }
