@@ -492,6 +492,8 @@ MonoBehaviour:
   DistWeight: 0
   DistMultiplier: 10
   beingUsed: 0
+  occupant: {fileID: 0}
+  task: {fileID: 0}
   RandomWeight: 0
   distInt: 0
   isRandom: 0
@@ -562,7 +564,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15806
+  m_Name: pb_Mesh32508
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -979,9 +981,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
+  timerText2: {fileID: 0}
   time: 0
   chitsCountTxt: {fileID: 0}
   numChit: 0
+  menuPanel: {fileID: 0}
+  menuButtonPanel: {fileID: 0}
+  mmWaningPanel: {fileID: 0}
+  lbWaningPanel: {fileID: 0}
 --- !u!114 &279286506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3609,6 +3616,8 @@ MonoBehaviour:
   DistWeight: 0
   DistMultiplier: 10
   beingUsed: 0
+  occupant: {fileID: 0}
+  task: {fileID: 0}
   RandomWeight: 0
   distInt: 0
   isRandom: 0
@@ -3729,6 +3738,8 @@ MonoBehaviour:
   DistWeight: 0
   DistMultiplier: 10
   beingUsed: 0
+  occupant: {fileID: 0}
+  task: {fileID: 0}
   RandomWeight: 0
   distInt: 0
   isRandom: 0
@@ -4021,7 +4032,11 @@ MonoBehaviour:
   decisionTime: 5
   timePassed: 0
   bestWeight: 0
+  wander: {x: 0, y: 0, z: 0}
   isGrabbed: 0
+  isObsessed: 0
+  isWandering: 0
+  chitAttention: 0
 --- !u!54 &1203499261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4779,6 +4794,7 @@ MonoBehaviour:
   snapTarget: {fileID: 1657417968}
   snapDistance: 1
   debounceSeconds: 1
+  holdSeconds: 1
 --- !u!4 &1364032297 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6014169769114139098, guid: 9ff8ade47662a924a9c89ef671af9aca,
@@ -8556,6 +8572,8 @@ MonoBehaviour:
   DistWeight: 0
   DistMultiplier: 10
   beingUsed: 0
+  occupant: {fileID: 0}
+  task: {fileID: 0}
   RandomWeight: 0
   distInt: 0
   isRandom: 0
@@ -8845,8 +8863,8 @@ GameObject:
   - component: {fileID: 2135669893}
   - component: {fileID: 2135669892}
   - component: {fileID: 2135669891}
-  - component: {fileID: 2135669890}
   - component: {fileID: 2135669889}
+  - component: {fileID: 2135669890}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -8879,11 +8897,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2135669888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 73b82f02736b15c45acf368fcda1caa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   focusText: 
   onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+  onToolInteraction:
     m_PersistentCalls:
       m_Calls: []
 --- !u!135 &2135669891
