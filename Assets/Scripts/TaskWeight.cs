@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TaskWeight : MonoBehaviour
 {
-
+    //bruh
     public float weight;
     public float happinessMultiplier;
     public float temptation;
