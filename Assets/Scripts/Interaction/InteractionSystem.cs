@@ -29,12 +29,18 @@ public class InteractionSystem : MonoBehaviour
     public Interactable focusedInteractable;
     public Transform focusedTransform;
 
+    private bool canInteract = true;
+
     private Image crosshairImage;
     private RectTransform crosshairRectTransform;
     private int interactableLayerMask = 1 << 10;
     private Camera camera; // for raycasting
 
     private bool newInteractableFound;
+
+    private Vector3 centerScreen = new Vector3(0.5F, 0.5F, 0);
+    private Ray ray;
+    private RaycastHit hit;
 
     #endregion
 
@@ -58,6 +64,45 @@ public class InteractionSystem : MonoBehaviour
     #endregion
 
     #region init
+    private void MakeCrossHairCanvas()
+    {
+        GameObject canvasObj = new GameObject();
+        canvasObj.name = "CrosshairCanvas";
+        canvasObj.transform.parent = transform;
+
+        Canvas canvas = canvasObj.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.pixelPerfect = true;
+
+        GameObject imageObj = new GameObject();
+        imageObj.name = "CrosshairImage";
+        imageObj.transform.parent = canvasObj.transform;
+
+        crosshairImage = imageObj.AddComponent<Image>();
+        crosshairImage.sprite = crosshairSprite;
+
+        crosshairRectTransform = imageObj.GetComponent<RectTransform>();
+        crosshairRectTransform.localPosition = Vector3.zero;
+        crosshairRectTransform.sizeDelta = new Vector2(crosshairSize, crosshairSize);
+    }
+
+    private void MakeFocusUI()
+    {
+        focusUIObject = new GameObject();
+        focusUIObject.name = "FocusUICanvas";
+        focusUIObject.transform.parent = transform;
+
+        Canvas canvas = focusUIObject.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.pixelPerfect = true;
+
+        GameObject textObj = new GameObject();
+        textObj.name = "CrosshairImage";
+        textObj.transform.parent = focusUIObject.transform;
+
+        focusUIText = textObj.AddComponent<Text>();
+    }
+
     private void Awake()
     {
         focusUIText = focusUIObject.GetComponentInChildren<Text>();
@@ -69,24 +114,12 @@ public class InteractionSystem : MonoBehaviour
 
         if (crosshairSprite != null)
         {
-            GameObject canvasObj = new GameObject();
-            canvasObj.name = "Crosshair Canvas";
-            canvasObj.transform.parent = transform;
+            MakeCrossHairCanvas();
+        }
 
-            Canvas canvas = canvasObj.AddComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            canvas.pixelPerfect = true;
-
-            GameObject imageObj = new GameObject();
-            imageObj.name = "Crosshair Image";
-            imageObj.transform.parent = canvasObj.transform;
-
-            crosshairImage = imageObj.AddComponent<Image>();
-            crosshairImage.sprite = crosshairSprite;
-
-            crosshairRectTransform = imageObj.GetComponent<RectTransform>();
-            crosshairRectTransform.localPosition = Vector3.zero;
-            crosshairRectTransform.sizeDelta = new Vector2(crosshairSize, crosshairSize);
+        if (focusUIObject == null)
+        {
+            MakeFocusUI();
         }
     }
     #endregion
@@ -101,19 +134,25 @@ public class InteractionSystem : MonoBehaviour
         crosshairSize = newSize;
         crosshairRectTransform.sizeDelta = new Vector2(newSize, newSize);
     }
-
-    public void StartFocus(Transform trans)
+    IEnumerator FindInteractable(Transform trans)
     {
         focusedInteractable = trans.gameObject.GetComponent<Interactable>();
         focusedTransform = trans;
-        focusedInteractable.OnFocus();
+        focusedInteractable.Focus();
         focusUIText.text = focusedInteractable.focusText;
         focusUIObject.gameObject.SetActive(true);
+        yield return null;
+    }
+
+
+    public void StartFocus(Transform trans)
+    {
+        StartCoroutine(FindInteractable(trans));
     }
 
     public void EndFocus()
     {
-        focusedInteractable.OnFocusLost();
+        focusedInteractable.FocusLost();
         focusedInteractable = null;
         focusedTransform = null;
         focusUIObject.gameObject.SetActive(false);
@@ -125,8 +164,7 @@ public class InteractionSystem : MonoBehaviour
         // make sure to ignore currently held interactable
         newInteractableFound = true;
 
-        Ray ray = camera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
-        RaycastHit hit;
+        ray = camera.ViewportPointToRay(centerScreen);
         if (Physics.Raycast(ray, out hit, maxInteractionDistance, interactableLayerMask))
         {
             if (hit.transform != focusedTransform)
@@ -163,7 +201,7 @@ public class InteractionSystem : MonoBehaviour
         {
             if (focusedInteractable != null)
             {
-                focusedInteractable.OnInteract(transform.parent.gameObject);
+                focusedInteractable.Interact(transform.parent.gameObject);
             }
         }
     }
@@ -172,10 +210,14 @@ public class InteractionSystem : MonoBehaviour
     {
         CheckIfInteractableInCrosshair();
 
-        if (focusedInteractable != null) // same interactable
+        if (canInteract)
         {
-            ContinueFocusing();
+            if (focusedInteractable != null) // same interactable
+            {
+                ContinueFocusing();
+            }
         }
+
 
     }
 

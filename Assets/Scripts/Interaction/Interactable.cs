@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 /* 
  * Author: Bryan Dedeurwaerder
@@ -12,39 +13,44 @@ using UnityEngine.UI;
 
 
 // Anything in the environment that can be interacted with.
+
 public class Interactable : MonoBehaviour
 {
+    
+
     public string focusText = "";
 
     private Outline focusHighlight;
 
     public virtual void Awake()
     {
-        gameObject.layer = 10; // TODO make layer masks setting more automated and user friendly
+        transform.gameObject.
+        gameObject.layer = 10; 
         focusHighlight = gameObject.GetComponent<Outline>();
     }
 
-    public void OnFocus()
+    [System.Serializable]
+    public class InteractionEvent : UnityEvent { }
+    public InteractionEvent onInteraction = new InteractionEvent();
+
+    public virtual void Interact(GameObject player)
     {
-/*        if (focusHighlight == null)
-        {
-            focusHighlight = gameObject.AddComponent<Outline>();
-        } else
-        {
-            focusHighlight.enabled = true;
-        }*/
+        onInteraction.Invoke();
     }
 
-    public void OnFocusLost()
+    public class FocusEvent : UnityEvent { }
+    public FocusEvent onFocus = new FocusEvent();
+
+    public virtual void Focus()
     {
-/*        if (focusHighlight != null)
-        {
-            focusHighlight.enabled = false;
-        }*/
+        onFocus.Invoke();
     }
 
-    public virtual void OnInteract(GameObject player)
-    {
+    public class FocusLostEvent : UnityEvent { }
+    public FocusLostEvent onFocusLost = new FocusLostEvent();
 
+    public virtual void FocusLost()
+    {
+        onFocusLost.Invoke();
     }
 }
