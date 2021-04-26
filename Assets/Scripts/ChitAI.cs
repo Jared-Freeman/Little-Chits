@@ -54,7 +54,7 @@ public class ChitAI : MonoBehaviour
                         chitHappiness++;
                         isObsessed = false;
                     }
-                    if (assignment == "fishtank")
+                    if (assignment == "newTask")
                     {
                         MoveToLocation(childTask.transform.position);
                     }
@@ -124,8 +124,7 @@ public class ChitAI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Task")
-        {
-            other.gameObject.GetComponent<Task>().taskResume = true;
+        { 
             if (other.gameObject.GetComponent<Task>().taskResume == false)
             {
                 other.gameObject.GetComponent<Task>().taskResume = true;
@@ -137,7 +136,7 @@ public class ChitAI : MonoBehaviour
     {
         if (other.gameObject.tag == "Task")
         {
-            other.gameObject.GetComponent<Task>().taskResume = false;
+          
 
             if (other.gameObject.GetComponent<TaskWeight>().CheckOccupant(this.gameObject))
             {
