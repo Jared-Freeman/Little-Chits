@@ -43,6 +43,11 @@ public class MouseLookAspect : MoveAspect
         Cursor.lockState = CursorLockMode.None;
     }
 
+    private void OnDestroy()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public override void DoUpdate( )
     {
 

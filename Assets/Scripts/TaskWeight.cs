@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TaskWeight : MonoBehaviour
 {
-
+    //bruh
     public float weight;
     public float happinessMultiplier;
     public float temptation;
@@ -64,7 +64,7 @@ public class TaskWeight : MonoBehaviour
         TimeWeight = temptation * Mathf.Log10(timeSince);
         distInt = (int) Mathf.Sqrt(distanceSq);
         DistWeight = 5 * 10/ Mathf.Sqrt(distInt/10+1);
-        AtTaskWeight = 20 *(task.taskTime / task.compTime);
+        AtTaskWeight = 30 *(task.taskTime / task.compTime);
         if (isRandom)
             RandomWeight = Random.value * 50;
         else

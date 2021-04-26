@@ -33,6 +33,7 @@ public class Timer : MonoBehaviour
         if (UIMgr.inst.time <= 0) //0 minutes terminates
         {
             SceneManager.LoadScene("GameOver");
+            DoGameOver();
         }
         UIMgr.inst.chitsCountTxt.text = UIMgr.inst.numChit.ToString("0"); ;
 
@@ -40,6 +41,7 @@ public class Timer : MonoBehaviour
         if (UIMgr.inst.numChit == 0)
         {
             SceneManager.LoadScene("GameOver");
+            DoGameOver();
         }
     }
 
@@ -56,6 +58,7 @@ public class Timer : MonoBehaviour
     }
 
     //appended code by Jared
+    //TODO: Make playername custom
     private void DoGameOver()
     {
         Event_GameOver?.Invoke(this, new LeaderboardAttributesEventArgs(new LeaderboardAttributes("Player", CalculateScore() ), level_number));

@@ -5,12 +5,15 @@ using UnityEngine.AI;
 
 public class ChitAI : MonoBehaviour
 {
+    //commit
     public TaskWeight[] task;
     public int newTask;
     public float[] timeSince;
     public float chitHappiness;
     public float decisionTime;
     public float timePassed;
+    public float depressTime;
+    public float depression;
     public float bestWeight;
     public Vector3 wander;
     public bool isGrabbed;
@@ -18,7 +21,9 @@ public class ChitAI : MonoBehaviour
     public bool isWandering;
     public float chitAttention;
     //private GameObject chit;
+    public string assignment;
     private NavMeshAgent agent;
+    public Task childTask;
 
     // Start is called before the first frame update
     void Start()
@@ -36,15 +41,40 @@ public class ChitAI : MonoBehaviour
     void Update()
     {
         timePassed += Time.deltaTime;
+        depressTime += Time.deltaTime;
         for (int i = 0; i < timeSince.Length; i++)
             timeSince[i] += Time.deltaTime;
         if (!isGrabbed)
         {
             if (decisionTime < timePassed)
-            {
-                NewTask();
-                if (isWandering)
+                if (isObsessed)
                 {
+                    if (assignment == "makeHappy")
+                    {
+                        chitHappiness++;
+                        isObsessed = false;
+                    }
+                    else if (assignment == "newTask")
+                    {
+                        Debug.Log("moving to " + childTask);
+                        MoveToLocation(childTask.transform.position);
+                    }
+                    else if (assignment == "die")
+                    {
+                        Destroy(gameObject);
+                        UIMgr.inst.numChit--;
+                    }
+                    else
+                    {
+                        isObsessed = false;
+                    }
+
+                }
+                else if (decisionTime < timePassed)
+                {
+                    NewTask();
+                    if (isWandering)
+                    {
                     wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
                     MoveToLocation(wander);
                     chitAttention -= 5;
@@ -56,8 +86,13 @@ public class ChitAI : MonoBehaviour
                     chitAttention += 5;
                 }
                 timePassed = 0;
-                decisionTime = Random.value * 7 + 3;
-            }
+                    decisionTime = Random.value * 4 + 1;
+                }
+        }
+        if (depressTime > depression)
+        {
+            chitHappiness--;
+            depressTime = 0;
         }
     }
 
@@ -69,7 +104,7 @@ public class ChitAI : MonoBehaviour
             timeSince[i] = task[i].UpdateTaskWeight(this.gameObject, timeSince[i]);
             if (task[i].GetWeight() > bestWeight)
             {
-                if (task[i].BeingUsed() == false || task[i].CheckOccupant(gameObject))
+                if (!task[i].GetComponent<Task>().taskResume || task[i].CheckOccupant(gameObject))
                 {
                     bestWeight = task[i].GetWeight();
                     newTask = i;
@@ -90,15 +125,25 @@ public class ChitAI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Task")
-        {
-            other.gameObject.GetComponent<Task>().taskResume = true;
+        { 
+            if (other.gameObject.GetComponent<Task>().taskResume == false)
+            {
+                other.gameObject.GetComponent<Task>().taskResume = true;
+                other.gameObject.GetComponent<TaskWeight>().SetOccupant(this.gameObject);
+            }
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Task")
         {
-            other.gameObject.GetComponent<Task>().taskResume = false;
+          
+
+            if (other.gameObject.GetComponent<TaskWeight>().CheckOccupant(this.gameObject))
+            {
+                other.gameObject.GetComponent<Task>().taskResume = false;
+                other.gameObject.GetComponent<TaskWeight>().SetOccupant(null);
+            }
         }
     }
 }
