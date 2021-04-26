@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Chit
   - Kill
+  - Task
   layers:
   - Default
   - TransparentFX

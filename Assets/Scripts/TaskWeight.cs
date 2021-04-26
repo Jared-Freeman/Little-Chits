@@ -15,25 +15,45 @@ public class TaskWeight : MonoBehaviour
     public float DistWeight;
     public float DistMultiplier = 10;
     public bool beingUsed;
+    public GameObject occupant;
+    public Task task;
     private float distanceSq;
     public float RandomWeight;
     public int distInt;
     public bool isRandom;
     public float rsq = 4;
+
+    private void Awake()
+    {
+        task = GetComponent<Task>();
+    }
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    public void SetOccupant(GameObject newOccupant)
+    {
+        occupant = newOccupant;
+    }
+    public bool CheckOccupant(GameObject newOccupant)
+    {
+        return occupant == newOccupant;
     }
 
     public float GetWeight()
     {
         return weight;
+    }
+    public bool BeingUsed()
+    {
+        return task.taskResume;
     }
 
     public float UpdateTaskWeight(GameObject chit, float timeSince)
@@ -44,6 +64,7 @@ public class TaskWeight : MonoBehaviour
         TimeWeight = temptation * Mathf.Log10(timeSince);
         distInt = (int) Mathf.Sqrt(distanceSq);
         DistWeight = 5 * 10/ Mathf.Sqrt(distInt/10+1);
+        AtTaskWeight = 20 *(task.taskTime / task.compTime);
         if (isRandom)
             RandomWeight = Random.value * 50;
         else
@@ -53,7 +74,7 @@ public class TaskWeight : MonoBehaviour
             timeSince = 0;
             TimeWeight = 0;
         }
-        weight = HappinessWeight + TimeWeight + DistWeight + AtTaskWeight + RandomWeight;
+        weight = HappinessWeight + TimeWeight + DistWeight + AtTaskWeight + RandomWeight + AtTaskWeight;
         return timeSince;
     }
 

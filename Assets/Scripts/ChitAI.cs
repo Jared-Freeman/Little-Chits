@@ -12,7 +12,11 @@ public class ChitAI : MonoBehaviour
     public float decisionTime;
     public float timePassed;
     public float bestWeight;
+    public Vector3 wander;
     public bool isGrabbed;
+    public bool isObsessed;
+    public bool isWandering;
+    public float chitAttention;
     //private GameObject chit;
     private NavMeshAgent agent;
 
@@ -39,8 +43,20 @@ public class ChitAI : MonoBehaviour
             if (decisionTime < timePassed)
             {
                 NewTask();
-                MoveToLocation(task[newTask].GetComponent<Transform>().position);
+                if (isWandering)
+                {
+                    wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
+                    MoveToLocation(wander);
+                    chitAttention -= 5;
+                }
+                else
+                {
+                    MoveToLocation(task[newTask].GetComponent<Transform>().position);
+                    
+                    chitAttention += 5;
+                }
                 timePassed = 0;
+                decisionTime = Random.value * 7 + 3;
             }
         }
     }
@@ -53,9 +69,16 @@ public class ChitAI : MonoBehaviour
             timeSince[i] = task[i].UpdateTaskWeight(this.gameObject, timeSince[i]);
             if (task[i].GetWeight() > bestWeight)
             {
-                bestWeight = task[i].GetWeight();
-                newTask = i;
+                if (task[i].BeingUsed() == false || task[i].CheckOccupant(gameObject))
+                {
+                    bestWeight = task[i].GetWeight();
+                    newTask = i;
+                }
             }
+            if(bestWeight < chitAttention)
+                isWandering = true;
+            else
+                isWandering = false;
 
         }
     }
@@ -63,5 +86,19 @@ public class ChitAI : MonoBehaviour
     {
         agent.destination = targetPoint;
         agent.isStopped = false;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Task")
+        {
+            other.gameObject.GetComponent<Task>().taskResume = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Task")
+        {
+            other.gameObject.GetComponent<Task>().taskResume = false;
+        }
     }
 }
