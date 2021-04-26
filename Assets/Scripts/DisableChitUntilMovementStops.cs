@@ -4,47 +4,56 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class ChitDisabler : MonoBehaviour
+public class DisableChitUntilMovementStops : MonoBehaviour
 {
+    [Range(.01f, 20f)]
+    public float secondsBeforeEnableAttempt = 2f;
+
+    [Range(0.01f, 5f)]
+    public float minSpeedBeforeEnable = 1f;
+
     private Rigidbody rb;
     private ChitAI chitAI;
     private NavMeshAgent navAgent;
-    private float timer = 2f;
+    private float timer = 0;
+    private bool active = false;
 
     public void Awake()
     {
         rb = GetComponent<Rigidbody>();
         chitAI = GetComponent<ChitAI>();
         navAgent = GetComponent<NavMeshAgent>();
-        DisableChit();
     }
 
-    public void DisableChit()
+    public void Disable()
     {
         rb.isKinematic = false;
         chitAI.enabled = false;
         navAgent.enabled = false;
+        active = true;
+        timer = secondsBeforeEnableAttempt;
     }
 
-    public void EnableChit()
+    private void Enable()
     {
         rb.isKinematic = true;
         chitAI.enabled = true;
         navAgent.enabled = true;
+        active = false;
     }
 
     public void FixedUpdate()
     {
-        if (timer < 0)
+        if (active)
         {
-            if (rb.velocity.magnitude < 1f)
+            if (timer < 0)
             {
-                EnableChit();
-                Destroy(this);
+                if (rb.velocity.magnitude < minSpeedBeforeEnable)
+                {
+                    Enable();
+                }
             }
+            timer -= Time.deltaTime;
         }
-
-        timer -= Time.deltaTime;
-
     }
 }
