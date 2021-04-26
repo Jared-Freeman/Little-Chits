@@ -4,20 +4,31 @@ using UnityEngine;
 
 public class ChitCounter : MonoBehaviour
 {
-    public GameObject capturedVersion;
-    int i = 3;
+      
     private void OnTriggerEnter(Collider other)
     {
         //Change Bottle to Chits. Done for testing purposes.
         if (other.gameObject.tag == "Chit")
         {
-            Debug.Log("AHHH");
-            Destroy(other.gameObject);
-          
-                //Instantiate(capturedVersion, new Vector3(7.377F, 0.186f, -5.051f), transform.rotation);
-
-            
+            if(gameObject.tag == "Kill")
+            {
+                Destroy(other.gameObject);
+                Debug.Log("AHHH");
+            }
+      
             UIMgr.inst.numChit -= 1; 
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        //Change Bottle to Chits. Done for testing purposes.
+        if (other.gameObject.tag == "Chit")
+        {
+            if (gameObject.tag != "Kill")
+            {
+                UIMgr.inst.numChit += 1;
+                Debug.Log("Jeez");
+            }
         }
     }
 }

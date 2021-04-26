@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bottle
   - Chit
+  - Kill
   layers:
   - Default
   - TransparentFX
