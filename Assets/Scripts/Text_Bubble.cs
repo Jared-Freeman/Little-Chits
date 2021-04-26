@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//@auth: Jared Freeman
 //Idea: Instantiate these text bubbles to present strings in 3D space rather than on the HUD
 //Motivation: Damage numbers, Resource income indicator, Status and info numbers, etc
 

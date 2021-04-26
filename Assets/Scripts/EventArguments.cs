@@ -14,3 +14,13 @@ public class MonobehaviourEventArgs : System.EventArgs
         mono = mo;
     }
 }
+
+public class LeaderboardAttributesEventArgs : System.EventArgs
+{
+    public LeaderboardAttributes la_arg;
+
+    public LeaderboardAttributesEventArgs(LeaderboardAttributes a)
+    {
+        la_arg = a;
+    }
+}
