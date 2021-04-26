@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 5733483206332707448}
   - component: {fileID: 1231997157737921951}
   - component: {fileID: 1938752333792435114}
+  - component: {fileID: 1663497065996056975}
   m_Layer: 0
   m_Name: Bottle
   m_TagString: Untagged
@@ -169,6 +170,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyedVersion: {fileID: 6567449936158995580, guid: 77bceab9d25c0054fa9930072c6f9291,
     type: 3}
+--- !u!208 &1663497065996056975
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700977321748896254}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.95900005, y: 0.966, z: 3.9080002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 2.6320002}
+  m_TimeToStationary: 0.5
 --- !u!1 &9170872277385128623
 GameObject:
   m_ObjectHideFlags: 0

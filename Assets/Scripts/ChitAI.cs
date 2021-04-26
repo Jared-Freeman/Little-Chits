@@ -11,17 +11,14 @@ public class ChitAI : MonoBehaviour
     public float chitHappiness;
     public float decisionTime;
     public float timePassed;
-    public float depressTime;
-    public float depression;
     public float bestWeight;
     public Vector3 wander;
     public bool isGrabbed;
     public bool isObsessed;
     public bool isWandering;
     public float chitAttention;
-    public string assignment;
+    //private GameObject chit;
     private NavMeshAgent agent;
-    public Task childTask;
 
     // Start is called before the first frame update
     void Start()
@@ -39,34 +36,11 @@ public class ChitAI : MonoBehaviour
     void Update()
     {
         timePassed += Time.deltaTime;
-        depressTime += Time.deltaTime;
         for (int i = 0; i < timeSince.Length; i++)
             timeSince[i] += Time.deltaTime;
         if (!isGrabbed)
         {
-            if (isObsessed)
-            {
-                if (assignment == "makeHappy")
-                {
-                    chitHappiness++;
-                    isObsessed = false;
-                }
-                if(assignment == "fishtank")
-                {
-                    MoveToLocation(childTask.transform.position);
-                }
-                if(assignment == "die")
-                {
-                    Destroy(gameObject);
-                    UIMgr.inst.numChit--;
-                }
-                else
-                {
-                    isObsessed = false;
-                }
-
-            }
-            else if (decisionTime < timePassed)
+            if (decisionTime < timePassed)
             {
                 NewTask();
                 if (isWandering)
@@ -85,11 +59,6 @@ public class ChitAI : MonoBehaviour
                 decisionTime = Random.value * 7 + 3;
             }
         }
-        if(depressTime > depression)
-        {
-            chitHappiness--;
-            depressTime = 0;
-        }
     }
 
     void NewTask()
@@ -100,7 +69,7 @@ public class ChitAI : MonoBehaviour
             timeSince[i] = task[i].UpdateTaskWeight(this.gameObject, timeSince[i]);
             if (task[i].GetWeight() > bestWeight)
             {
-                if (task[i].BeingUsed() == false || task[i].CheckOccupant(this.gameObject))
+                if (task[i].BeingUsed() == false || task[i].CheckOccupant(gameObject))
                 {
                     bestWeight = task[i].GetWeight();
                     newTask = i;
@@ -122,23 +91,14 @@ public class ChitAI : MonoBehaviour
     {
         if (other.gameObject.tag == "Task")
         {
-            if (other.gameObject.GetComponent<Task>().taskResume == false)
-            {
-                other.gameObject.GetComponent<Task>().taskResume = true;
-                other.gameObject.GetComponent<TaskWeight>().SetOccupant(this.gameObject);
-            }
+            other.gameObject.GetComponent<Task>().taskResume = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Task")
         {
-            
-            if(other.gameObject.GetComponent<TaskWeight>().CheckOccupant(this.gameObject))
-            {
-                other.gameObject.GetComponent<Task>().taskResume = false;
-                other.gameObject.GetComponent<TaskWeight>().SetOccupant(null);
-            }
+            other.gameObject.GetComponent<Task>().taskResume = false;
         }
     }
 }

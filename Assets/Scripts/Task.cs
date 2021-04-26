@@ -5,15 +5,12 @@ using UnityEngine.AI;
 
 public class Task : MonoBehaviour
 {
-    public static event System.EventHandler<ChitAIEventArgs> Event_TaskComplete;
+
     public bool taskResume;
     public bool taskComplete;
     public float taskTime;
     public float compTime;
     public TaskWeight weigher;
-    public string assignment;
-    public ChitAI chit;
-    public Task childTask;
 
     // Start is called before the first frame update
     void Start()
@@ -41,18 +38,9 @@ public class Task : MonoBehaviour
         if(taskTime >= compTime)
         {
             Debug.Log("TASK COMPLETE!");
-            chit = weigher.occupant.GetComponent<ChitAI>();
-            if(childTask)
-            {
-                chit.childTask = childTask;
-            }
-            chit.isObsessed = true;
-            chit.assignment = assignment;
             taskTime = 0;
         }
     }
-
-
 
 
 }
