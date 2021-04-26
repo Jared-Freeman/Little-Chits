@@ -60,6 +60,7 @@ public class Leaderboard : MonoBehaviour
     {
         if (args.level-1 >= 0 && args.level-1 < LeaderboardStaticList.leaderboard_lists.Count)
         {
+            if (flag_debug) Debug.Log("Adding entry to Leaderboard list: " + args.la_arg.player_name.ToString() + " " + args.la_arg.score.ToString());
             LeaderboardStaticList.leaderboard_lists[args.level - 1].Add(args.la_arg);
         }
     }
