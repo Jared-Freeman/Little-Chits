@@ -152,7 +152,7 @@ MonoBehaviour:
   taskResume: 0
   taskComplete: 0
   taskTime: 0
-  compTime: 10
+  compTime: 8
   weigher: {fileID: 0}
   assignment: 
   chit: {fileID: 0}
