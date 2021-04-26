@@ -13,7 +13,12 @@ public class LeaderboardAttributes
 {
     public int score;
     public string player_name;
-
+    
+    public LeaderboardAttributes(string name, int scr)
+    {
+        player_name = name;
+        score = scr;
+    }
 }
 
 public class Leaderboard : MonoBehaviour
@@ -24,7 +29,6 @@ public class Leaderboard : MonoBehaviour
 
     [SerializeField]
     private int current_level_index = 0;
-    public static List<List<LeaderboardAttributes>> leaderboard_lists; //stored across scenes. Eventually want to initialize this with some text file data or smthn
 
     //for display in scene
     public Text display_cur_level;
@@ -43,28 +47,29 @@ public class Leaderboard : MonoBehaviour
     #region EVENT SUBSCRIPTIONS
     private void OnEnable()
     {
-        
+        Timer.Event_GameOver += UpdateLeaderboardList;
     }
     private void OnDisable()
     {
-        
+        Timer.Event_GameOver -= UpdateLeaderboardList;
     }
     #endregion
 
     #region EVENT HANDLERS
     private void UpdateLeaderboardList(object sender, LeaderboardAttributesEventArgs args)
     {
-
+        if (args.level-1 >= 0 && args.level-1 < LeaderboardStaticList.leaderboard_lists.Count)
+        {
+            LeaderboardStaticList.leaderboard_lists[args.level - 1].Add(args.la_arg);
+        }
     }
     #endregion
 
     #region INIT
-    private void Awake()
+    
+    private void Start()
     {
-        if(leaderboard_lists == null)
-        {
-            leaderboard_lists = new List<List<LeaderboardAttributes>>();
-        }
+        UpdateDisplayElements();
     }
     #endregion
 
@@ -73,7 +78,7 @@ public class Leaderboard : MonoBehaviour
     {
         int i = 1;
         string print_string = "";
-        foreach(List<LeaderboardAttributes> attr_list in leaderboard_lists)
+        foreach(List<LeaderboardAttributes> attr_list in LeaderboardStaticList.leaderboard_lists)
         {
             print_string = "level " + i.ToString() + ": ";
             foreach (LeaderboardAttributes attr in attr_list)
@@ -87,13 +92,13 @@ public class Leaderboard : MonoBehaviour
     public void IncrementCurrentLevelIndex()
     {
         current_level_index++;
-        current_level_index = Mathf.Clamp(current_level_index, 0, leaderboard_lists.Count);
+        current_level_index = Mathf.Clamp(current_level_index, 0, LeaderboardStaticList.leaderboard_lists.Count);
         UpdateDisplayElements();
     }
     public void DecrementCurrentLevelIndex()
     {
         current_level_index--;
-        current_level_index = Mathf.Clamp(current_level_index, 0, leaderboard_lists.Count);
+        current_level_index = Mathf.Clamp(current_level_index, 0, LeaderboardStaticList.leaderboard_lists.Count);
         UpdateDisplayElements();
     }
     //this works VV
@@ -101,16 +106,18 @@ public class Leaderboard : MonoBehaviour
     {
         //if (flag_debug) PrintLeaderboard();
 
-        /*        if (leaderboard_lists != null && leaderboard_lists.Count > current_level_index) ; // fix edge case methinks
-                {
-                    //fancy lambda expression that I only partially know how to use
-                    leaderboard_lists[current_level_index].OrderBy(x => x.score);
-                }*/
+        if (LeaderboardStaticList.leaderboard_lists != null && LeaderboardStaticList.leaderboard_lists.Count > current_level_index) // fix edge case methinks
+        {
+            //fancy lambda expression that I only partially know how to use
+            LeaderboardStaticList.leaderboard_lists[current_level_index].OrderBy(x => x.score);
+        }
 
         string score_text = "Score: ";
-
-        display_cur_level.text = (current_level_index + 1).ToString();
-        display_gold_name.text = "Jared";
-        display_gold_score.text = score_text + "33";
+        if (flag_debug)
+        {
+            display_cur_level.text = (current_level_index + 1).ToString();
+            display_gold_name.text = "Jared";
+            display_gold_score.text = score_text + "33";
+        }
     }
 }

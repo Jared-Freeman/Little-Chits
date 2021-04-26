@@ -4,11 +4,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+
 public class Timer : MonoBehaviour
 {
+    public static event System.EventHandler<LeaderboardAttributesEventArgs> Event_GameOver;
+    public int level_number = -1; 
+
     // Start is called before the first frame update
     void Start()
     {
+        //prevent designer error of not setting level number in an instance
+        if(level_number < 1)
+        {
+            Debug.LogError("ERROR: Please enter a valid level_number in Timer.cs script!");
+        }
+
         //Timer 
         if (UIMgr.inst.timerText != null)
         {
@@ -45,4 +55,16 @@ public class Timer : MonoBehaviour
         }
     }
 
+    //appended code by Jared
+    private void DoGameOver()
+    {
+        Event_GameOver?.Invoke(this, new LeaderboardAttributesEventArgs(new LeaderboardAttributes("Player", CalculateScore() ), level_number));
+    }
+
+    //appended code by Jared
+    //dummy formula that may need changing...
+    private int CalculateScore()
+    {
+        return (int)Mathf.Clamp((UIMgr.inst.time * 2 + (100 - (UIMgr.inst.numChit * 10))), 0, Mathf.Infinity);
+    }
 }

@@ -18,9 +18,11 @@ public class MonobehaviourEventArgs : System.EventArgs
 public class LeaderboardAttributesEventArgs : System.EventArgs
 {
     public LeaderboardAttributes la_arg;
+    public int level;
 
-    public LeaderboardAttributesEventArgs(LeaderboardAttributes a)
+    public LeaderboardAttributesEventArgs(LeaderboardAttributes a, int lvl_number)
     {
         la_arg = a;
+        level = lvl_number;
     }
 }
