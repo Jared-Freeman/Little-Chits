@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5489236322435457673}
   - component: {fileID: 5489236322435457674}
   - component: {fileID: 5489236322435457679}
+  - component: {fileID: 4728270874073983993}
+  - component: {fileID: 4821903845901800298}
   m_Layer: 0
   m_Name: Chit
   m_TagString: Untagged
@@ -161,4 +163,52 @@ MonoBehaviour:
   decisionTime: 5
   timePassed: 0
   bestWeight: 0
+  wander: {x: 0, y: 0, z: 0}
   isGrabbed: 0
+  isObsessed: 0
+  isWandering: 0
+  chitAttention: 0
+--- !u!114 &4728270874073983993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489236322435457664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b82f02736b15c45acf368fcda1caa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusText: 
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+  onToolInteraction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4821903845901800298}
+        m_MethodName: Disable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4821903845901800298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489236322435457664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2988ddd5cc9d1c1478e2cfd1df9888e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsBeforeEnableAttempt: 2
+  minSpeedBeforeEnable: 1
