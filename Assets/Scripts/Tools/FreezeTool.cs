@@ -10,7 +10,7 @@ using UnityEngine;
  */
 
 
-public class GravityTool : Tool
+public class FreezeTool : Tool
 {
     public InteractionSystem playerInteractionSystem;
 
@@ -57,20 +57,11 @@ public class GravityTool : Tool
                 toolInteractable = (ToolInteractable) interactable;
                 toolInteractable.onToolInteraction.Invoke();
             }
-            gi = interactable.gameObject.AddComponent<GravityInterceptor>();
-            gi.target = cameraInterceptTarget.transform;
-        } else
-        {
-            EndAction();
-        }
+        } 
     }
 
     public override void EndAction()
     {
-        base.EndAction();
-        if (gi != null)
-        {
-            Destroy(gi);
-        }
+
     }
 }

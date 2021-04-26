@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 8509711741428021560}
   - component: {fileID: 7816654361154812424}
   m_Layer: 0
-  m_Name: GravityTool
+  m_Name: Gravity Manipulator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,10 +173,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusText: 
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
   pickupSound: {fileID: 8300000, guid: 912409a6b0ff6cd4db3ed0af828d6f1b, type: 3}
   putDownSound: {fileID: 8300000, guid: 912409a6b0ff6cd4db3ed0af828d6f1b, type: 3}
   actionSound: {fileID: 8300000, guid: 69e9cfc3c667b5d449bd32fd2fa5c3a5, type: 3}
+  audioLoopStart: 0
+  audioLoopEnd: 0
   coolDown: 0
+  onPickup:
+    m_PersistentCalls:
+      m_Calls: []
   playerInteractionSystem: {fileID: 0}
   hoverDistanceFromCamera: 2
 --- !u!54 &543618900112518316

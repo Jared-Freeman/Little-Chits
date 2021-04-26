@@ -10,7 +10,7 @@ using UnityEngine;
  */
 
 
-public class GravityTool : Tool
+public class PushTool : Tool
 {
     public InteractionSystem playerInteractionSystem;
 
