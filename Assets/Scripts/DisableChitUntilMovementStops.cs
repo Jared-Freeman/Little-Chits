@@ -29,6 +29,8 @@ public class DisableChitUntilMovementStops : MonoBehaviour
     {
         rb.isKinematic = false;
         chitAI.enabled = false;
+        chitAI.isGrabbed = true;
+        chitAI.isObsessed = false;
         navAgent.enabled = false;
         active = true;
         timer = secondsBeforeEnableAttempt;
@@ -38,6 +40,7 @@ public class DisableChitUntilMovementStops : MonoBehaviour
     {
         rb.isKinematic = true;
         chitAI.enabled = true;
+        chitAI.isGrabbed = false;
         navAgent.enabled = true;
         active = false;
     }
