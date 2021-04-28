@@ -69,3 +69,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Developer Prototyping/Arena Shooter Stuff/Arena.meta
 Packages/packages-lock.json
+ProjectSettings/Packages/com.unity.probuilder/Settings.json
