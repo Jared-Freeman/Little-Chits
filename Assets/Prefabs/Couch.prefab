@@ -155,6 +155,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusText: 
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!208 &8200469900545908747
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -283,6 +286,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusText: 
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &847177353665045804
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -425,6 +431,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusText: 
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &8347927908074414304
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -580,6 +589,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusText: 
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!208 &1102764097181342842
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -704,8 +716,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.118802, y: 0.27531368, z: 1.7909541}
-  m_Center: {x: -0.354403, y: 3.6084886, z: 0.60388696}
+  m_Size: {x: 1.118802, y: 0.37447742, z: 1.3255695}
+  m_Center: {x: -0.35440296, y: 3.5589225, z: 0.3711961}
 --- !u!65 &294311260
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -717,8 +729,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.118802, y: 0.370701, z: 1.3399469}
-  m_Center: {x: -0.35440066, y: -0.3897735, z: 0.3783816}
+  m_Size: {x: 1.118802, y: 0.36970386, z: 1.3399469}
+  m_Center: {x: -0.3544007, y: -0.39027303, z: 0.3783825}
 --- !u!65 &294311261
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -730,8 +742,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.44195947, y: 4.3212714, z: 1.7909541}
-  m_Center: {x: 0.17819452, y: 1.5855143, z: 0.6038822}
+  m_Size: {x: 0.41239548, y: 3.5535836, z: 1.7909541}
+  m_Center: {x: 0.004770279, y: 1.5902113, z: 0.6038996}
 --- !u!114 &467159311847884702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,7 +770,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.083333336
+  m_VoxelSize: 0.016666668
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &6835812939736177355

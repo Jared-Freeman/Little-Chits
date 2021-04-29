@@ -19,6 +19,10 @@ public class ChitAI : MonoBehaviour
     public bool isGrabbed;
     public bool isObsessed;
     public bool isWandering;
+    public int escapeChance;
+    public int escapeGrowth;
+    public int defaultEscapeChance;
+    public bool isTrapped;
     public float chitAttention;
     //private GameObject chit;
     public string assignment;
@@ -35,6 +39,7 @@ public class ChitAI : MonoBehaviour
     {
         //chit = GetComponent<GameObject>();
         agent = GetComponent<NavMeshAgent>();
+        escapeChance = defaultEscapeChance;
     }
 
     // Update is called once per frame
@@ -47,6 +52,7 @@ public class ChitAI : MonoBehaviour
         if (!isGrabbed)
         {
             if (decisionTime < timePassed)
+            {
                 if (isObsessed)
                 {
                     if (assignment == "makeHappy")
@@ -70,24 +76,49 @@ public class ChitAI : MonoBehaviour
                     }
 
                 }
+                else if(isTrapped)
+                {
+
+                    wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
+                    float rollEscape = Random.value * 100;
+                    if(rollEscape < escapeChance)
+                    {
+                        agent.enabled = false;
+                        Rigidbody body = this.gameObject.GetComponent<Rigidbody>();
+                        body.isKinematic = false;
+                        Vector3 launch = new Vector3(Random.value * 500 - 250, 250, Random.value * 500 - 250);
+                        Debug.Log(launch);
+                        body.AddForce(launch);
+                        //agent.enabled = true;
+                    }
+                    else
+                    {
+                        MoveToLocation(wander);
+                        escapeChance += 5;
+                    }
+                }
                 else if (decisionTime < timePassed)
                 {
+                    agent.enabled = true;
+                    Rigidbody body = this.gameObject.GetComponent<Rigidbody>();
+                    body.isKinematic = true;
                     NewTask();
                     if (isWandering)
                     {
-                    wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
-                    MoveToLocation(wander);
-                    chitAttention -= 5;
-                }
-                else
-                {
-                    MoveToLocation(task[newTask].GetComponent<Transform>().position);
-                    
-                    chitAttention += 5;
+                        wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
+                        MoveToLocation(wander);
+                        chitAttention -= 5;
+                    }
+                    else
+                    {
+                        MoveToLocation(task[newTask].GetComponent<Transform>().position);
+
+                        chitAttention += 5;
+                    }
                 }
                 timePassed = 0;
-                    decisionTime = Random.value * 4 + 1;
-                }
+                decisionTime = Random.value * 4 + 1;
+            }
         }
         if (depressTime > depression)
         {
@@ -132,6 +163,10 @@ public class ChitAI : MonoBehaviour
                 other.gameObject.GetComponent<TaskWeight>().SetOccupant(this.gameObject);
             }
         }
+        if (other.gameObject.tag == "Cage")
+        {
+            isTrapped = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -144,6 +179,10 @@ public class ChitAI : MonoBehaviour
                 other.gameObject.GetComponent<Task>().taskResume = false;
                 other.gameObject.GetComponent<TaskWeight>().SetOccupant(null);
             }
+        }
+        if (other.gameObject.tag == "Cage")
+        {
+            isTrapped = false;
         }
     }
 }

@@ -169,6 +169,10 @@ MonoBehaviour:
   isGrabbed: 0
   isObsessed: 0
   isWandering: 0
+  escapeChance: 50
+  escapeGrowth: 0
+  defaultEscapeChance: 50
+  isTrapped: 0
   chitAttention: 100
   assignment: 
   childTask: {fileID: 0}
