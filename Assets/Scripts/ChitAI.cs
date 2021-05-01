@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class ChitAI : MonoBehaviour
 {
+    public static ChitAI inst;
+
     //commit
     public TaskWeight[] task;
     public int newTask;
@@ -29,6 +31,13 @@ public class ChitAI : MonoBehaviour
     private NavMeshAgent agent;
     public Task childTask;
 
+    //Sounds
+    public AudioSource chitIdleSound;
+    public AudioSource chitDeathSound;
+    public AudioSource chitCageSound;
+    public AudioSource chitPlaySound;
+    public AudioSource chitBadSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +46,7 @@ public class ChitAI : MonoBehaviour
 
     private void Awake()
     {
+        inst = this;
         //chit = GetComponent<GameObject>();
         agent = GetComponent<NavMeshAgent>();
         escapeChance = defaultEscapeChance;
@@ -105,6 +115,7 @@ public class ChitAI : MonoBehaviour
                     NewTask();
                     if (isWandering)
                     {
+<<<<<<< Updated upstream
                         wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
                         MoveToLocation(wander);
                         chitAttention -= 5;
@@ -115,6 +126,18 @@ public class ChitAI : MonoBehaviour
 
                         chitAttention += 5;
                     }
+=======
+                        chitIdleSound.Play(); 
+                    wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
+                    MoveToLocation(wander);
+                    chitAttention -= 5;
+                }
+                else
+                {
+                    MoveToLocation(task[newTask].GetComponent<Transform>().position);
+                    
+                    chitAttention += 5;
+>>>>>>> Stashed changes
                 }
                 timePassed = 0;
                 decisionTime = Random.value * 4 + 1;

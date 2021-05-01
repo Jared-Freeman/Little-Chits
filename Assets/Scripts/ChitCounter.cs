@@ -9,18 +9,18 @@ public class ChitCounter : MonoBehaviour
     {
         //Change Bottle to Chits. Done for testing purposes.
         if (other.gameObject.tag == "Chit")
-        {
-            if(gameObject.tag == "Kill")
+        {            
+            if (gameObject.tag == "Kill")
             {
+               ChitAI.inst.chitDeathSound.Play();
                 Destroy(other.gameObject);                
-            }
-      
-            UIMgr.inst.numChit -= 1; 
+            }      
+            UIMgr.inst.numChit -= 1;
+            ChitAI.inst.chitCageSound.Play();
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        //Change Bottle to Chits. Done for testing purposes.
         if (other.gameObject.tag == "Chit")
         {
             if (gameObject.tag != "Kill")

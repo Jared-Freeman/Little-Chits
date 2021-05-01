@@ -1,0 +1,292 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!243 &-9129738753002213548
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Chit Idle
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: b9cc2afaabaa8c248bd7734cdf35613a
+  m_Children: []
+  m_Volume: bc26c9dc594e0b04d90ab976f7428250
+  m_Pitch: 1b7f652de06cfd54bb893c1c89cf89af
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -2322156310926502628}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-7321867312955537409
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 46fcf39f015f02140a9472521aeee541
+  m_EffectName: Attenuation
+  m_MixLevel: b3e592833ad8cf3459b865c3f741593d
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-6789324732872941206
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: b9557179408983745b2b287f293f7a13
+  m_EffectName: Attenuation
+  m_MixLevel: a1036f4fed50aa7488a78141b71793ec
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-6280911409187386683
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 7635d68ab69e1cd44ab9487b486f1818
+  m_EffectName: Attenuation
+  m_MixLevel: d73fbfedd74ae3c408198ff4eba6c5cf
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-4707059000035951291
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: c1de9ada0556574409ce8c3804974fdc
+  m_EffectName: Attenuation
+  m_MixLevel: 45e5e3b7909abc34b96a360479455ecb
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &-3658825408483500629
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Chit Cage
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: c71557d79c4349b42a809a8e44c388b1
+  m_Children: []
+  m_Volume: 8d96b3eef361891438804b34cc131429
+  m_Pitch: b60738cf7cd9d8e459c3b82faf933c82
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -7321867312955537409}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &-3341024522179839131
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Chit Death
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 531c25c1334a4054ebf4abd9bf218151
+  m_Children: []
+  m_Volume: 7c7d2aa171ab5114e9e37a172c3fb14b
+  m_Pitch: df7b7e624305c5e44b3140f59b551112
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -6789324732872941206}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-2322156310926502628
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 053ff656a2af8984898162795575dffb
+  m_EffectName: Attenuation
+  m_MixLevel: 9b48aa6be2beff34da75713ebcd0a6ed
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &-789973827669647892
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Music
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: caf3021437d1aa54497bf35e38b10f22
+  m_Children: []
+  m_Volume: 38679e11c2d304348ba6b11cdeeac473
+  m_Pitch: c3511d9b2bbdf2f4780b806cbea51f15
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 4090074781725577267}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AudioMxr
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300002}
+  m_Snapshots:
+  - {fileID: 24500006}
+  m_StartSnapshot: {fileID: 24500006}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_UpdateMode: 0
+  m_ExposedParameters:
+  - guid: 8d9cd06a31ee7ae49997dff482a47763
+    name: badVol
+  - guid: 8d96b3eef361891438804b34cc131429
+    name: cageVol
+  - guid: 7c7d2aa171ab5114e9e37a172c3fb14b
+    name: deathVol
+  - guid: bc26c9dc594e0b04d90ab976f7428250
+    name: idleVol
+  - guid: 43bdaeeea8857f549bc9909ce2a9e659
+    name: playVol
+  - guid: 4afd7e54fd7b1c048bbb25213067515f
+    name: masterVol
+  - guid: 38679e11c2d304348ba6b11cdeeac473
+    name: musicVol
+  m_AudioMixerGroupViews:
+  - guids:
+    - f51afb9a3cf9b8a48a478306fa8846e6
+    - caf3021437d1aa54497bf35e38b10f22
+    - b9cc2afaabaa8c248bd7734cdf35613a
+    - 8a95a6f2c72632444b6441d3ab06af9b
+    - 74f2ede7a45ab514d8cc3e3f41eeec74
+    - 531c25c1334a4054ebf4abd9bf218151
+    - c71557d79c4349b42a809a8e44c388b1
+    name: View
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500006}
+--- !u!243 &24300002
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: f51afb9a3cf9b8a48a478306fa8846e6
+  m_Children:
+  - {fileID: -789973827669647892}
+  - {fileID: -9129738753002213548}
+  - {fileID: 8656451144807629298}
+  - {fileID: 3988470326154093408}
+  - {fileID: -3341024522179839131}
+  - {fileID: -3658825408483500629}
+  m_Volume: 4afd7e54fd7b1c048bbb25213067515f
+  m_Pitch: 433b9ef148de61543aefe4c54bfd336f
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 24400004}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400004
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 19c203771741b2f439909a5e03363182
+  m_EffectName: Attenuation
+  m_MixLevel: 51da11d3631d99441bbbc2e61daa0322
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500006
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Snapshot
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: ac72b2b2bc1e32a4795753b21fd9ce9c
+  m_FloatValues: {}
+  m_TransitionOverrides: {}
+--- !u!243 &3988470326154093408
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Chit Bad
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 74f2ede7a45ab514d8cc3e3f41eeec74
+  m_Children: []
+  m_Volume: 8d9cd06a31ee7ae49997dff482a47763
+  m_Pitch: fc0d90e65ac4f0047a874927a1a1efdc
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -4707059000035951291}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &4090074781725577267
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 4116e62d2d5737d4094e34ff98ad0d35
+  m_EffectName: Attenuation
+  m_MixLevel: a0beeea801b8c944e99249c8e41ae800
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &8656451144807629298
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Chit Playing
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 8a95a6f2c72632444b6441d3ab06af9b
+  m_Children: []
+  m_Volume: 43bdaeeea8857f549bc9909ce2a9e659
+  m_Pitch: c808c4002c229a448bb1500207d49c80
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -6280911409187386683}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
