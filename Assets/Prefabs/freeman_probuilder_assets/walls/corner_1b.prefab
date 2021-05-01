@@ -4543,6 +4543,7 @@ GameObject:
   - component: {fileID: 7010853161326100082}
   - component: {fileID: 6838649233549350401}
   - component: {fileID: 8559996918632683440}
+  - component: {fileID: 4015274362257627192}
   m_Layer: 0
   m_Name: ceil_molding (1)
   m_TagString: Untagged
@@ -7208,11 +7209,24 @@ MeshCollider:
   m_GameObject: {fileID: 5963486430550451174}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!65 &4015274362257627192
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963486430550451174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5069959, y: 0.5095851, z: 5.000001}
+  m_Center: {x: 0.25258744, y: -0.25386336, z: 2.5}
 --- !u!1 &7166878954959430896
 GameObject:
   m_ObjectHideFlags: 0
