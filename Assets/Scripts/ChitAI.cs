@@ -115,7 +115,7 @@ public class ChitAI : MonoBehaviour
                     NewTask();
                     if (isWandering)
                     {
-<<<<<<< Updated upstream
+
                         wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
                         MoveToLocation(wander);
                         chitAttention -= 5;
@@ -126,7 +126,7 @@ public class ChitAI : MonoBehaviour
 
                         chitAttention += 5;
                     }
-=======
+
                         chitIdleSound.Play(); 
                     wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
                     MoveToLocation(wander);
@@ -137,7 +137,7 @@ public class ChitAI : MonoBehaviour
                     MoveToLocation(task[newTask].GetComponent<Transform>().position);
                     
                     chitAttention += 5;
->>>>>>> Stashed changes
+
                 }
                 timePassed = 0;
                 decisionTime = Random.value * 4 + 1;
