@@ -18,10 +18,15 @@ public abstract class Tool : Interactable
     public AudioClip putDownSound;
 
     public AudioClip actionSound;
-    public float audioLoopStart;
-    public float audioLoopEnd;
 
-    public float coolDown;
+    public bool fullChargeRestart; // if the player needs to wait until the tool is fully recharged before using
+
+    [Range(0f,1f)]
+    public float charge = 1;
+    [Range(0f, 1f)]
+    public float discargeRate = 0.1f; // the rate of charge rate per second when using
+    [Range(0f, 1f)]
+    public float rechargeRate = 0.1f; // the rate of charge rate per second when not using
 
     private Vector3 defaultLocalScale;
     private Vector3 defaultLocalPos;
@@ -29,9 +34,9 @@ public abstract class Tool : Interactable
 
     private Rigidbody rb;
     private Collider collider;
-    private GameObject inventorySystem;
+    private bool doingAction;
 
-    protected AudioSource audioSource;
+    private InventorySystem inventorySystem;
 
     #endregion
 
@@ -39,7 +44,7 @@ public abstract class Tool : Interactable
     {
         base.Awake();
 
-        focusText = "[e] to pickup " + gameObject.name;
+        focusText = "[E] to pickup " + gameObject.name;
         rb = transform.GetComponent<Rigidbody>();
         rb.interpolation = RigidbodyInterpolation.Extrapolate;
 
@@ -49,23 +54,23 @@ public abstract class Tool : Interactable
         {
             collider = transform.GetComponentInChildren<Collider>();
         }
-
-        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     [System.Serializable]
     public class PickupEvent : UnityEvent { }
     public PickupEvent onPickup = new PickupEvent();
 
-    public virtual void Pickup(GameObject player)
+    public virtual void Pickup(GameObject player, InventorySystem inventory)
     {
         rb.isKinematic = true;
         collider.enabled = false;
 
+        inventorySystem = inventory;
+
         if (pickupSound != null)
         {
-            audioSource.clip = pickupSound;
-            audioSource.Play();
+            inventorySystem.audioSource.clip = pickupSound;
+            inventorySystem.audioSource.Play();
         }
 
         onPickup.Invoke();
@@ -100,8 +105,8 @@ public abstract class Tool : Interactable
 
         if (pickupSound != null)
         {
-            audioSource.clip = pickupSound;
-            audioSource.Play();
+            inventorySystem.audioSource.clip = pickupSound;
+            inventorySystem.audioSource.Play();
         }
 
         onEquip.Invoke();
@@ -115,8 +120,8 @@ public abstract class Tool : Interactable
         EndAction();
         if (pickupSound != null)
         {
-            audioSource.clip = pickupSound;
-            audioSource.Play();
+            inventorySystem.audioSource.clip = pickupSound;
+            inventorySystem.audioSource.Play();
         }
 
         onUnequip.Invoke();
@@ -132,19 +137,73 @@ public abstract class Tool : Interactable
         }
     }
 
-    public virtual void StartAction()
+    IEnumerator IncreasePitch()
     {
-        audioSource.clip = actionSound;
-        audioSource.Play();
+        for (; inventorySystem.audioSource.pitch < 1; inventorySystem.audioSource.pitch += 0.01f)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+        inventorySystem.audioSource.pitch = 1f;
+
+    }
+
+    IEnumerator DecreasePitch()
+    {
+        for (; inventorySystem.audioSource.pitch >= 0; inventorySystem.audioSource.pitch -= 0.01f)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+        inventorySystem.audioSource.pitch = 0f;
+        inventorySystem.audioSource.Stop();
+    }
+
+    public virtual bool StartAction()
+    {
+        if (fullChargeRestart)
+        {
+            if (charge != 1f)
+            {
+                return false;
+            }
+        }
+        doingAction = true;
+        inventorySystem.audioSource.clip = actionSound;
+        //inventorySystem.audioSource.pitch = 0;
+        inventorySystem.audioSource.Play();
+        //StartCoroutine("IncreasePitch");
+        return true;
     }
 
     public virtual void ContinueAction()
     {
-        
+        charge -= discargeRate * Time.deltaTime;
+        inventorySystem.audioSource.pitch = charge;
+/*        if (charge < .2f)
+        {
+            inventorySystem.audioSource.pitch -= discargeRate * Time.deltaTime * 5f;
+        }*/
+        if (charge < 0)
+        {
+            charge = 0;
+            EndAction();
+        }
     }
 
     public virtual void EndAction()
     {
-        audioSource.Stop();
+        doingAction = false;
+        inventorySystem.audioSource.Stop();
+    }
+
+    public virtual void Update()
+    {
+        if (!doingAction)
+        {
+            charge += rechargeRate * Time.deltaTime;
+            if (charge > 1f)
+            {
+                charge = 1f;
+            }
+        }
     }
 }

@@ -40,21 +40,24 @@ public class FreezeTool : Tool
         }
     }
 
-    public override void Pickup(GameObject player)
+    public override void Pickup(GameObject player, InventorySystem inventory)
     {
         base.Interact(player);
+        base.Pickup(player, inventory);
         playerInteractionSystem = player.GetComponentInChildren<InteractionSystem>();
     }
 
-    public override void StartAction()
+    public override bool StartAction()
     {
-        base.StartAction();
+        if (!base.StartAction())
+            return false;
+        
         interactable = playerInteractionSystem.focusedInteractable;
         if (interactable)
         {
-            print("FREEZING");
             interactable.gameObject.AddComponent<Freeze>();
         }
+        return true;
     }
 
     public override void EndAction()

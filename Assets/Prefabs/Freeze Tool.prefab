@@ -103,9 +103,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5130405898585620346}
+  - component: {fileID: 5510449187008013761}
   - component: {fileID: 1410114393788825419}
   - component: {fileID: 7062339852592622303}
-  - component: {fileID: 5510449187008013761}
   - component: {fileID: 8674140319114357231}
   m_Layer: 0
   m_Name: Freeze Tool
@@ -130,6 +130,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5510449187008013761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510449187008013760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc4102090491ee409399004e9b36728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusText: 
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+  pickupSound: {fileID: 8300000, guid: 912409a6b0ff6cd4db3ed0af828d6f1b, type: 3}
+  putDownSound: {fileID: 8300000, guid: 912409a6b0ff6cd4db3ed0af828d6f1b, type: 3}
+  actionSound: {fileID: 8300000, guid: e1c60f03ed508bf4dbafa7ed04c00160, type: 3}
+  audioLoopStart: 0
+  audioLoopEnd: 0
+  fullChargeRestart: 0
+  charge: 1
+  discargeRate: 0.1
+  rechargeRate: 0.1
+  onPickup:
+    m_PersistentCalls:
+      m_Calls: []
+  playerInteractionSystem: {fileID: 0}
+  hoverDistanceFromCamera: 2
 --- !u!54 &1410114393788825419
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -159,33 +189,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5510449187008013761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5510449187008013760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abc4102090491ee409399004e9b36728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  focusText: 
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls: []
-  pickupSound: {fileID: 8300000, guid: 912409a6b0ff6cd4db3ed0af828d6f1b, type: 3}
-  putDownSound: {fileID: 8300000, guid: 912409a6b0ff6cd4db3ed0af828d6f1b, type: 3}
-  actionSound: {fileID: 8300000, guid: e1c60f03ed508bf4dbafa7ed04c00160, type: 3}
-  audioLoopStart: 0
-  audioLoopEnd: 0
-  coolDown: 0
-  onPickup:
-    m_PersistentCalls:
-      m_Calls: []
-  playerInteractionSystem: {fileID: 0}
-  hoverDistanceFromCamera: 2
 --- !u!114 &8674140319114357231
 MonoBehaviour:
   m_ObjectHideFlags: 0
