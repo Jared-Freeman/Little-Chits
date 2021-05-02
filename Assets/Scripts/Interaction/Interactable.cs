@@ -16,8 +16,6 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    
-
     public string focusText = "";
 
     private Outline focusHighlight;
