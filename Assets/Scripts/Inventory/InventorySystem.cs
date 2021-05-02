@@ -22,7 +22,18 @@ public class InventorySystem : MonoBehaviour
     public GameObject toolbarUI;
     public GameObject toolUI;
 
+    private GameObject toolSoundSource;
+    public AudioSource audioSource;
+
     private Dictionary<int, GameObject> toolUIObjects;
+
+    private void Awake()
+    {
+        toolSoundSource = new GameObject();
+        toolSoundSource.transform.parent = this.transform;
+        toolSoundSource.name = "ToolSoundSource";
+        audioSource = toolSoundSource.AddComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -116,7 +127,7 @@ public class InventorySystem : MonoBehaviour
                 {
                     UpdateToolUI(pair.Key, newTool.name);
                     inventory[pair.Key] = newTool;
-                    newTool.Pickup(transform.parent.gameObject);
+                    newTool.Pickup(transform.parent.gameObject, this);
 
                     int key = pair.Key;
                     Equip(key);
