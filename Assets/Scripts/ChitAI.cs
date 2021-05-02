@@ -63,6 +63,9 @@ public class ChitAI : MonoBehaviour
         {
             if (decisionTime < timePassed)
             {
+                agent.enabled = true;
+                Rigidbody body = this.gameObject.GetComponent<Rigidbody>();
+                body.isKinematic = true;
                 if (isObsessed)
                 {
                     if (assignment == "makeHappy")
@@ -86,15 +89,14 @@ public class ChitAI : MonoBehaviour
                     }
 
                 }
-                else if(isTrapped)
+                else if (isTrapped)
                 {
 
                     wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
                     float rollEscape = Random.value * 100;
-                    if(rollEscape < escapeChance)
+                    if (rollEscape < escapeChance)
                     {
                         agent.enabled = false;
-                        Rigidbody body = this.gameObject.GetComponent<Rigidbody>();
                         body.isKinematic = false;
                         Vector3 launch = new Vector3(Random.value * 500 - 250, 250, Random.value * 500 - 250);
                         Debug.Log(launch);
@@ -110,39 +112,49 @@ public class ChitAI : MonoBehaviour
                 else if (decisionTime < timePassed)
                 {
                     agent.enabled = true;
-                    Rigidbody body = this.gameObject.GetComponent<Rigidbody>();
                     body.isKinematic = true;
                     NewTask();
                     if (isWandering)
                     {
-
-                        wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
-                        MoveToLocation(wander);
+                        float jumproll = Random.value * 100;
+                        if (jumproll <= 75)
+                        {
+                            wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
+                            MoveToLocation(wander);
+                            Debug.Log(agent.pathStatus + "[" + wander + "]");
+                        }
+                        else
+                        {
+                            agent.enabled = false;
+                            body.isKinematic = false;
+                            Vector3 launch = new Vector3(Random.value * 200 - 100, 100, Random.value * 200 - 100);
+                            Debug.Log(launch);
+                            body.AddForce(launch);
+                        }
                         chitAttention -= 5;
+
                     }
                     else
                     {
                         MoveToLocation(task[newTask].GetComponent<Transform>().position);
-
+                        Debug.Log(agent.pathStatus + "[" + task[newTask].GetComponent<Transform>().position + "]");
                         chitAttention += 5;
                     }
-
-                        chitIdleSound.Play(); 
-                    wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
-                    MoveToLocation(wander);
-                    chitAttention -= 5;
-                }
-                else
-                {
-                    MoveToLocation(task[newTask].GetComponent<Transform>().position);
-                    
-                    chitAttention += 5;
-
+                    if (agent.pathStatus != NavMeshPathStatus.PathComplete)
+                    {
+                        agent.enabled = false;
+                        body.isKinematic = false;
+                        Vector3 launch = new Vector3(Random.value * 200 - 100, 100, Random.value * 200 - 100);
+                        Debug.Log(launch);
+                        body.AddForce(launch);
+                        //agent.enabled = true;
+                    }
                 }
                 timePassed = 0;
                 decisionTime = Random.value * 4 + 1;
             }
         }
+
         if (depressTime > depression)
         {
             chitHappiness--;
@@ -164,7 +176,7 @@ public class ChitAI : MonoBehaviour
                     newTask = i;
                 }
             }
-            if(bestWeight < chitAttention)
+            if (bestWeight < chitAttention)
                 isWandering = true;
             else
                 isWandering = false;
@@ -179,7 +191,7 @@ public class ChitAI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Task")
-        { 
+        {
             if (other.gameObject.GetComponent<Task>().taskResume == false)
             {
                 other.gameObject.GetComponent<Task>().taskResume = true;
@@ -195,7 +207,7 @@ public class ChitAI : MonoBehaviour
     {
         if (other.gameObject.tag == "Task")
         {
-          
+
 
             if (other.gameObject.GetComponent<TaskWeight>().CheckOccupant(this.gameObject))
             {
