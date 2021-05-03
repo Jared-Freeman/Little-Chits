@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.Events;
 public class ChitAI : MonoBehaviour
 {
     public static ChitAI inst;
@@ -30,19 +30,21 @@ public class ChitAI : MonoBehaviour
     public string assignment;
     private NavMeshAgent agent;
     public Task childTask;
+    private Rigidbody body;
 
     //Sounds
-    public AudioSource chitIdleSound;
-    public AudioSource chitDeathSound;
-    public AudioSource chitCageSound;
-    public AudioSource chitPlaySound;
-    public AudioSource chitBadSound;
-    public AudioSource chitStuckSound;
+    public AudioClip chitJumpSound;
+    public AudioClip chitDeathSound;
+    public AudioClip chitCagedSound;
+    public AudioClip chitHappySound;
+    public AudioClip chitBadSound;
+    public AudioClip chitGrabbedSound;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-
+       
     }
 
     private void Awake()
@@ -51,6 +53,90 @@ public class ChitAI : MonoBehaviour
         //chit = GetComponent<GameObject>();
         agent = GetComponent<NavMeshAgent>();
         escapeChance = defaultEscapeChance;
+        body = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    [System.Serializable]
+    public class HappyEvent : UnityEvent { }
+    public HappyEvent onHappy = new HappyEvent();
+
+    public void Happy()
+    {
+        audioSource.clip = chitHappySound;
+        audioSource.Play(); 
+        chitHappiness++;
+        isObsessed = false;
+        onHappy.Invoke();
+    }
+
+    [System.Serializable]
+    public class JumpEvent : UnityEvent { }
+    public JumpEvent onJump = new JumpEvent();
+
+    public void Jump()
+    {
+        audioSource.clip = chitJumpSound;
+        audioSource.Play();
+        agent.enabled = false;
+        body.isKinematic = false;
+        Vector3 launch = new Vector3(Random.value * 200 - 100, 100, Random.value * 200 - 100);
+        Debug.Log(launch);
+        body.AddForce(launch);
+        onJump.Invoke();
+    }
+
+    [System.Serializable]
+    public class DeathEvent : UnityEvent { }
+    public DeathEvent onDeath = new DeathEvent();
+
+    IEnumerator Remove()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+
+    }
+    public void Death()
+    {
+        audioSource.clip = chitDeathSound;
+        audioSource.Play();
+        StartCoroutine("Remove");
+        UIMgr.inst.numChit -= 1;
+        onDeath.Invoke();
+    }
+
+    [System.Serializable]
+    public class CagedEvent : UnityEvent { }
+    public CagedEvent onCaged = new CagedEvent();
+
+    public void Caged()
+    {
+        audioSource.clip = chitCagedSound;
+        audioSource.Play();
+        UIMgr.inst.numChit -= 1;
+        onCaged.Invoke();
+    }
+
+    [System.Serializable]
+    public class GrabbedEvent : UnityEvent { }
+    public GrabbedEvent onGrabbed = new GrabbedEvent();
+
+    public void Grabbed()
+    {
+        audioSource.clip = chitGrabbedSound;
+        audioSource.Play();        
+        onGrabbed.Invoke();
+    }
+
+    [System.Serializable]
+    public class BadEvent : UnityEvent { }
+    public BadEvent onBad = new BadEvent();
+
+    public void Bad()
+    {
+        audioSource.clip = chitBadSound;
+        audioSource.Play();        
+        onBad.Invoke();
     }
 
     // Update is called once per frame
@@ -65,15 +151,13 @@ public class ChitAI : MonoBehaviour
             if (decisionTime < timePassed)
             {
                 agent.enabled = true;
-                Rigidbody body = this.gameObject.GetComponent<Rigidbody>();
                 body.isKinematic = true;
                 if (isObsessed)
                 {
                     if (assignment == "makeHappy")
                     {
-                        chitPlaySound.Play();
-                        chitHappiness++;
-                        isObsessed = false;
+                        Happy();               
+                        
                     }
                     else if (assignment == "newTask")
                     {                        
@@ -81,10 +165,8 @@ public class ChitAI : MonoBehaviour
                         MoveToLocation(childTask.transform.position);
                     }
                     else if (assignment == "die")
-                    {                        
-                        Destroy(gameObject);
-                        UIMgr.inst.numChit--;
-                        chitDeathSound.Play();
+                    {
+                        Death();                        
                     }
                     else
                     {
@@ -128,12 +210,8 @@ public class ChitAI : MonoBehaviour
                         }
                         else
                         {
-                            chitIdleSound.Play();
-                            agent.enabled = false;
-                            body.isKinematic = false;
-                            Vector3 launch = new Vector3(Random.value * 200 - 100, 100, Random.value * 200 - 100);
-                            Debug.Log(launch);
-                            body.AddForce(launch);
+                            Jump();
+                            
                         }
                         chitAttention -= 5;
 
