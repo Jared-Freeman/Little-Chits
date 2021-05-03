@@ -13793,9 +13793,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: bb3ac91f92ebf1c499f05c9b7984e33b, type: 2}
   masterVolume: 1
-  musicVolume: 0.903
+  musicVolume: 0.862
   chitIdleVolume: 0.755
-  chitPlayingVolume: 0.755
+  chitPlayingVolume: 1
   chitBadVolume: 0.75
   chitDeathVolume: 1
   chitCageVolume: 0.76
@@ -14711,7 +14711,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-39152
+  m_Name: pb_Mesh-3832
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22479,13 +22479,14 @@ MonoBehaviour:
   maxSize: 9
   toolbarUI: {fileID: 0}
   toolUI: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!43 &1002481644
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-39146
+  m_Name: pb_Mesh-3826
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

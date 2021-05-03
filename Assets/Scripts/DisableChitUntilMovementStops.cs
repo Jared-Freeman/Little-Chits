@@ -27,6 +27,7 @@ public class DisableChitUntilMovementStops : MonoBehaviour
 
     public void Disable()
     {
+        ChitAI.inst.chitStuckSound.Play();
         rb.isKinematic = false;
         chitAI.enabled = false;
         navAgent.enabled = false;

@@ -37,6 +37,7 @@ public class ChitAI : MonoBehaviour
     public AudioSource chitCageSound;
     public AudioSource chitPlaySound;
     public AudioSource chitBadSound;
+    public AudioSource chitStuckSound;
 
     // Start is called before the first frame update
     void Start()
@@ -70,18 +71,20 @@ public class ChitAI : MonoBehaviour
                 {
                     if (assignment == "makeHappy")
                     {
+                        chitPlaySound.Play();
                         chitHappiness++;
                         isObsessed = false;
                     }
                     else if (assignment == "newTask")
-                    {
+                    {                        
                         Debug.Log("moving to " + childTask);
                         MoveToLocation(childTask.transform.position);
                     }
                     else if (assignment == "die")
-                    {
+                    {                        
                         Destroy(gameObject);
                         UIMgr.inst.numChit--;
+                        chitDeathSound.Play();
                     }
                     else
                     {
@@ -91,7 +94,6 @@ public class ChitAI : MonoBehaviour
                 }
                 else if (isTrapped)
                 {
-
                     wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
                     float rollEscape = Random.value * 100;
                     if (rollEscape < escapeChance)
@@ -116,15 +118,17 @@ public class ChitAI : MonoBehaviour
                     NewTask();
                     if (isWandering)
                     {
+                        
                         float jumproll = Random.value * 100;
                         if (jumproll <= 75)
-                        {
+                        {                            
                             wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
                             MoveToLocation(wander);
                             Debug.Log(agent.pathStatus + "[" + wander + "]");
                         }
                         else
                         {
+                            chitIdleSound.Play();
                             agent.enabled = false;
                             body.isKinematic = false;
                             Vector3 launch = new Vector3(Random.value * 200 - 100, 100, Random.value * 200 - 100);

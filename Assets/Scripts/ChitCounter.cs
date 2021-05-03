@@ -11,9 +11,9 @@ public class ChitCounter : MonoBehaviour
         if (other.gameObject.tag == "Chit")
         {            
             if (gameObject.tag == "Kill")
-            {
-               ChitAI.inst.chitDeathSound.Play();
-                Destroy(other.gameObject);                
+            {               
+                Destroy(other.gameObject);
+                ChitAI.inst.chitDeathSound.Play();
             }      
             UIMgr.inst.numChit -= 1;
             ChitAI.inst.chitCageSound.Play();
