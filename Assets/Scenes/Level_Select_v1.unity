@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusText: 
+  focusText: '[E] to interact'
   onInteraction:
     m_PersistentCalls:
       m_Calls:
@@ -21578,7 +21578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusText: 
+  focusText: '[E] to interact'
   onInteraction:
     m_PersistentCalls:
       m_Calls:
@@ -21948,7 +21948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusText: 
+  focusText: '[E] to interact'
   onInteraction:
     m_PersistentCalls:
       m_Calls:
@@ -52426,7 +52426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusText: 
+  focusText: '[E] to interact'
   onInteraction:
     m_PersistentCalls:
       m_Calls:
