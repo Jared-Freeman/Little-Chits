@@ -12,6 +12,7 @@ public class EyeChanger : MonoBehaviour
     public List<Sprite> sadEyes;
     public List<Sprite> stressedEyes;
     public List<Sprite> thinkingEyes;
+    public List<Sprite> deadEyes;
 
     private float counter;
 
@@ -42,6 +43,11 @@ public class EyeChanger : MonoBehaviour
         {
             sr.sprite = thinkingEyes[(int)Random.Range(0, thinkingEyes.Count - 1)];
         }
+        else if (typeID == 5)
+        {
+            sr.sprite = deadEyes[(int)Random.Range(0, thinkingEyes.Count - 1)];
+        }
+
     }
 
     public void ChangeEyes(string type)
@@ -64,6 +70,10 @@ public class EyeChanger : MonoBehaviour
         else if (type == "thinking")
         {
             ChangeEyes(4);
+        }
+        if (type == "dead")
+        {
+            ChangeEyes(5);
         }
     }
 

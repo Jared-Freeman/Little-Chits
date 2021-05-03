@@ -133,6 +133,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: eddae678170f178408c2967395c87c2b, type: 3}
   - {fileID: 21300000, guid: 34a0642b94a1fdf4983bc6cd36a22b7d, type: 3}
   - {fileID: 21300000, guid: 34eecd4511fa9944891eb322a98c50c4, type: 3}
+  deadEyes:
+  - {fileID: 21300000, guid: daf509730ef44824591ba500b97c876e, type: 3}
+  - {fileID: 21300000, guid: 1822f8f3b4989d944acb14ffd4f91c61, type: 3}
+  - {fileID: 21300000, guid: db8746c6381d9c04abce9fcfe7a830b2, type: 3}
+  - {fileID: 21300000, guid: f54299fc1cf26664e995c027a5695bd0, type: 3}
+  - {fileID: 21300000, guid: efa5916c983cf8e4eb77eb8084677dd0, type: 3}
+  - {fileID: 21300000, guid: 84693867242b1854e92fff0bcefade45, type: 3}
 --- !u!212 &4419889813225838515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -369,22 +376,88 @@ MonoBehaviour:
   chitGrabbedSound: {fileID: 8300000, guid: 62557d38c0f8aee48a9a81e02f3841e5, type: 3}
   onHappy:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5345754448220246457}
+        m_MethodName: ChangeEyes
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: neutral
+          m_BoolArgument: 0
+        m_CallState: 2
   onJump:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5345754448220246457}
+        m_MethodName: ChangeEyes
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: neutral
+          m_BoolArgument: 0
+        m_CallState: 2
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5345754448220246457}
+        m_MethodName: ChangeEyes
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: dead
+          m_BoolArgument: 0
+        m_CallState: 2
   onCaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5345754448220246457}
+        m_MethodName: ChangeEyes
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sad
+          m_BoolArgument: 0
+        m_CallState: 2
   onGrabbed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5345754448220246457}
+        m_MethodName: ChangeEyes
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sad
+          m_BoolArgument: 0
+        m_CallState: 2
   onBad:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5345754448220246457}
+        m_MethodName: ChangeEyes
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: mad
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4728270874073983993
 MonoBehaviour:
   m_ObjectHideFlags: 0
