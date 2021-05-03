@@ -43,10 +43,6 @@ public class UIMgr : MonoBehaviour
 
     public void LaunchScene(string sceneName)
     {
-        if (sceneName != "Level1")
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
         SceneManager.LoadScene(sceneName);
     }
 
