@@ -23,6 +23,11 @@ public class UIMgr : MonoBehaviour
     public GameObject menuButtonPanel;
     public GameObject mmWaningPanel;
     public GameObject lbWaningPanel;
+
+    public Slider masterVolSlider;
+    public Slider musicVolSlider;
+    public Slider chitVolSlider;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

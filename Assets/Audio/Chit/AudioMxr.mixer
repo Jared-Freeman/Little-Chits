@@ -6,7 +6,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Chit Idle
+  m_Name: Chit Jump
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: b9cc2afaabaa8c248bd7734cdf35613a
   m_Children: []
@@ -81,7 +81,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Chit Cage
+  m_Name: Chit Caged
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: c71557d79c4349b42a809a8e44c388b1
   m_Children: []
@@ -127,6 +127,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-2135367177352538045
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Chit Sounds
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 66c8f2373596f0f4f96d2628dbd11f36
+  m_Children: []
+  m_Volume: 64d0428160065054ea7075ee2c660dae
+  m_Pitch: 3d95b444f5227414fa4f2bf8d561d3bd
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 7164346692906127353}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &-789973827669647892
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -165,15 +184,17 @@ AudioMixerController:
   - guid: 8d9cd06a31ee7ae49997dff482a47763
     name: badVol
   - guid: 8d96b3eef361891438804b34cc131429
-    name: cageVol
+    name: cagedVol
   - guid: 7c7d2aa171ab5114e9e37a172c3fb14b
     name: deathVol
-  - guid: bc26c9dc594e0b04d90ab976f7428250
-    name: idleVol
-  - guid: 43bdaeeea8857f549bc9909ce2a9e659
-    name: playVol
   - guid: d73430e1c798861428edd3b3205271ad
-    name: stuckVol
+    name: grabbedVol
+  - guid: 43bdaeeea8857f549bc9909ce2a9e659
+    name: happyVol
+  - guid: bc26c9dc594e0b04d90ab976f7428250
+    name: jumpVol
+  - guid: 64d0428160065054ea7075ee2c660dae
+    name: chitVol
   - guid: 4afd7e54fd7b1c048bbb25213067515f
     name: masterVol
   - guid: 38679e11c2d304348ba6b11cdeeac473
@@ -182,12 +203,7 @@ AudioMixerController:
   - guids:
     - f51afb9a3cf9b8a48a478306fa8846e6
     - caf3021437d1aa54497bf35e38b10f22
-    - b9cc2afaabaa8c248bd7734cdf35613a
-    - 8a95a6f2c72632444b6441d3ab06af9b
-    - 74f2ede7a45ab514d8cc3e3f41eeec74
-    - 531c25c1334a4054ebf4abd9bf218151
-    - c71557d79c4349b42a809a8e44c388b1
-    - f62b43a8c5139dc448181438bdd959e0
+    - 66c8f2373596f0f4f96d2628dbd11f36
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -202,6 +218,7 @@ AudioMixerGroupController:
   m_GroupID: f51afb9a3cf9b8a48a478306fa8846e6
   m_Children:
   - {fileID: -789973827669647892}
+  - {fileID: -2135367177352538045}
   - {fileID: -9129738753002213548}
   - {fileID: 8656451144807629298}
   - {fileID: 3988470326154093408}
@@ -248,7 +265,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Chit Stuck
+  m_Name: Chit Grabbed
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: f62b43a8c5139dc448181438bdd959e0
   m_Children: []
@@ -308,13 +325,27 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &7164346692906127353
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 9bfe56dc6559ad24381665b9ae7ed2d5
+  m_EffectName: Attenuation
+  m_MixLevel: 8966448b8fc447942bd4654dd9cf1815
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &8656451144807629298
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Chit Playing
+  m_Name: Chit Happy
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 8a95a6f2c72632444b6441d3ab06af9b
   m_Children: []

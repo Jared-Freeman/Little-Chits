@@ -20,15 +20,19 @@ public class SoundMgr : MonoBehaviour
     [Range(0f,1)]
     public float musicVolume;
     [Range(0f, 1)]
-    public float chitIdleVolume;
+    public float chitVolume;
+    /*[Range(0f, 1)]
+    public float chitJumpVolume;
     [Range(0f, 1)]
-    public float chitPlayingVolume;
+    public float chitHappyVolume;
     [Range(0f, 1)]
     public float chitBadVolume;
     [Range(0f, 1)]
     public float chitDeathVolume;
     [Range(0f, 1)]
-    public float chitCageVolume;
+    public float chitCagedVolume;
+    [Range(0f, 1)]
+    public float chitGrabbedVolume;*/
 
 
 
@@ -37,15 +41,29 @@ public class SoundMgr : MonoBehaviour
     {
         SetVolume("masterVol", masterVolume);
         SetVolume("musicVol", musicVolume);
-        SetVolume("idleVol", chitIdleVolume);
-        SetVolume("playVol", chitPlayingVolume);
+        SetVolume("chitVol", chitVolume);
+        /*SetVolume("jumpVol", chitJumpVolume);
+        SetVolume("happyVol", chitHappyVolume);
         SetVolume("badVol", chitBadVolume);
         SetVolume("deathVol", chitDeathVolume);
-        SetVolume("cageVol", chitCageVolume);
+        SetVolume("cagedVol", chitCagedVolume);
+        SetVolume("grabbedVol", chitGrabbedVolume);*/
     }
 
     public void SetVolume(string exposedParam, float value)
     {
         audioMixer.SetFloat(exposedParam, thresholdVolume * (1f - value));
+    }
+    public void SetMasterVolume()
+    {
+        masterVolume = UIMgr.inst.masterVolSlider.value;
+    }
+    public void SetMusicVolume()
+    {
+        musicVolume = UIMgr.inst.musicVolSlider.value;
+    }
+    public void SetChitVolume()
+    {
+        chitVolume = UIMgr.inst.chitVolSlider.value;
     }
 }
