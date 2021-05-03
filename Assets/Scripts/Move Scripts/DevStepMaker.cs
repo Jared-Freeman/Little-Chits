@@ -27,6 +27,6 @@ public class DevStepMaker : MonoBehaviour
     {
         index += Random.Range(1,3);
         index %= stepSounds.Count;
-        AudioSource.PlayClipAtPoint(stepSounds[index].clip, transform.position);
+        AudioSource.PlayClipAtPoint(stepSounds[index].clip, transform.position, .4f);
     }
 }
