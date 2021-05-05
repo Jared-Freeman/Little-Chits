@@ -113,6 +113,9 @@ public class Leaderboard : MonoBehaviour
             LeaderboardStaticList.leaderboard_lists[current_level_index] = LeaderboardStaticList.leaderboard_lists[current_level_index].OrderByDescending(x => x.score).ToList();
         }
 
+        if (display_cur_level == null)
+            return;
+
         string score_text = "Score: ";
         if (flag_debug)
         {
