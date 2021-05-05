@@ -4,9 +4,13 @@
 
 Download Unity 2019.4.19f1
 
-# Contributors
+# Meta
 
-Jared Freeman
-Elizabeth Kish
-Quinn Schoenfeld
-Bryan Dedeurwaerder
+A CS481 Advanced Game Design Project  
+at the University of Nevada, Reno
+
+By:
+Jared Freeman  
+Elizabeth Kish  
+Quinn Schoenfeld  
+Bryan Dedeurwaerder  
