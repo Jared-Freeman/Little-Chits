@@ -7,26 +7,24 @@ public class DevStepMaker : MonoBehaviour
 {
     public List<AudioSource> stepSounds;
     public List<AudioSource> fallSounds;
-    public Transform transformReference;
+    //public Transform transformReference;
     int index = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public void DoFall()
     {
         index += Random.Range(1, 3);
         index %= fallSounds.Count;
-        AudioSource.PlayClipAtPoint(fallSounds[index].clip, transform.position);
+
+        fallSounds[index].Play();
+        //AudioSource.PlayClipAtPoint(fallSounds[index].clip, transform.position);
     }
 
     public void DoStep()
     {
         index += Random.Range(1,3);
         index %= stepSounds.Count;
-        AudioSource.PlayClipAtPoint(stepSounds[index].clip, transform.position, .4f);
+
+        stepSounds[index].Play();
+        //AudioSource.PlayClipAtPoint(stepSounds[index].clip, transform.position, .4f);
     }
 }
