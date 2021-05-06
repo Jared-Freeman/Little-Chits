@@ -41,10 +41,22 @@ public class ChitAI : MonoBehaviour
     public AudioClip chitGrabbedSound;
     private AudioSource audioSource;
 
-    // Start is called before the first frame update
+
+    #region EVENTS
+    public static event System.EventHandler<ChitAIEventArgs> event_chit_spawn;
+    public static event System.EventHandler<ChitAIEventArgs> event_chit_despawn;
+    #endregion
+
+    #region INIT
     void Start()
     {
-       
+        event_chit_spawn?.Invoke(this, new ChitAIEventArgs(this));
+    }
+    #endregion
+
+    private void OnDestroy()
+    {
+        event_chit_despawn?.Invoke(this, new ChitAIEventArgs(this));
     }
 
     private void Awake()

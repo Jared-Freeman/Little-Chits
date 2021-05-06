@@ -26,3 +26,13 @@ public class LeaderboardAttributesEventArgs : System.EventArgs
         level = lvl_number;
     }
 }
+
+public class ChitAIEventArgs : System.EventArgs
+{
+    public ChitAI chit;
+
+    public ChitAIEventArgs(ChitAI a)
+    {
+        chit = a;
+    }
+}
