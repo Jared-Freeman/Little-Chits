@@ -361,9 +361,9 @@ MonoBehaviour:
   isGrabbed: 0
   isObsessed: 0
   isWandering: 0
-  escapeChance: 50
-  escapeGrowth: 0
-  defaultEscapeChance: 50
+  escapeChance: 10
+  escapeGrowth: 5
+  defaultEscapeChance: 10
   isTrapped: 0
   chitAttention: 100
   assignment: 

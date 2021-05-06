@@ -114,6 +114,8 @@ public class ChitAI : MonoBehaviour
         audioSource.clip = chitCagedSound;
         audioSource.Play();
         UIMgr.inst.numChit -= 1;
+        isTrapped = true;
+        escapeChance = defaultEscapeChance;
         onCaged.Invoke();
     }
 
@@ -180,6 +182,8 @@ public class ChitAI : MonoBehaviour
                     float rollEscape = Random.value * 100;
                     if (rollEscape < escapeChance)
                     {
+                        audioSource.clip = chitJumpSound;
+                        audioSource.Play();
                         agent.enabled = false;
                         body.isKinematic = false;
                         Vector3 launch = new Vector3(Random.value * 500 - 250, 250, Random.value * 500 - 250);
@@ -190,7 +194,7 @@ public class ChitAI : MonoBehaviour
                     else
                     {
                         MoveToLocation(wander);
-                        escapeChance += 5;
+                        escapeChance += escapeGrowth;
                     }
                 }
                 else if (decisionTime < timePassed)
@@ -222,14 +226,9 @@ public class ChitAI : MonoBehaviour
                         Debug.Log(agent.pathStatus + "[" + task[newTask].GetComponent<Transform>().position + "]");
                         chitAttention += 5;
                     }
-                    if (agent.pathStatus != NavMeshPathStatus.PathComplete)
+                    if (agent.pathStatus != NavMeshPathStatus.PathComplete && !isTrapped)
                     {
-                        agent.enabled = false;
-                        body.isKinematic = false;
-                        Vector3 launch = new Vector3(Random.value * 200 - 100, 100, Random.value * 200 - 100);
-                        Debug.Log(launch);
-                        body.AddForce(launch);
-                        //agent.enabled = true;
+                        Jump();
                     }
                 }
                 timePassed = 0;
@@ -282,7 +281,7 @@ public class ChitAI : MonoBehaviour
         }
         if (other.gameObject.tag == "Cage")
         {
-            isTrapped = true;
+            //isTrapped = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -299,7 +298,7 @@ public class ChitAI : MonoBehaviour
         }
         if (other.gameObject.tag == "Cage")
         {
-            isTrapped = false;
+            ///isTrapped = false;
         }
     }
 }

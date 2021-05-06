@@ -69071,6 +69071,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cage
       objectReference: {fileID: 0}
+    - target: {fileID: 7259902311879488107, guid: 478253610c258be4bbe78ecb00eeda01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Cage
+      objectReference: {fileID: 0}
     - target: {fileID: 8037669815943260369, guid: 478253610c258be4bbe78ecb00eeda01,
         type: 3}
       propertyPath: m_RootOrder

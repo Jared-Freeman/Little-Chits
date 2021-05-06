@@ -19,6 +19,7 @@ public class Cage : MonoBehaviour
         {
             ChitAI chit = other.gameObject.GetComponent<ChitAI>();
                 UIMgr.inst.numChit += 1;
+            chit.isTrapped = false;
         }
     }
 }
