@@ -229,6 +229,7 @@ public class ChitAI : MonoBehaviour
                     if (agent.pathStatus != NavMeshPathStatus.PathComplete && !isTrapped)
                     {
                         Jump();
+                        isObsessed = false;
                     }
                 }
                 timePassed = 0;
