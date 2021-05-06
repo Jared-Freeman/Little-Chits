@@ -21,6 +21,8 @@ public class SoundMgr : MonoBehaviour
     public float musicVolume;
     [Range(0f, 1)]
     public float chitVolume;
+    [Range(0f, 1)]
+    public float footstepVolume;
     /*[Range(0f, 1)]
     public float chitJumpVolume;
     [Range(0f, 1)]
@@ -42,6 +44,8 @@ public class SoundMgr : MonoBehaviour
         SetVolume("masterVol", masterVolume);
         SetVolume("musicVol", musicVolume);
         SetVolume("chitVol", chitVolume);
+        SetVolume("footstepVol", footstepVolume);
+        Debug.Log("footSteps: " + footstepVolume);
         /*SetVolume("jumpVol", chitJumpVolume);
         SetVolume("happyVol", chitHappyVolume);
         SetVolume("badVol", chitBadVolume);
@@ -65,5 +69,9 @@ public class SoundMgr : MonoBehaviour
     public void SetChitVolume()
     {
         chitVolume = UIMgr.inst.chitVolSlider.value;
+    }
+    public void SetFootStepVolume()
+    {
+        footstepVolume = UIMgr.inst.footstepVolSlider.value;
     }
 }

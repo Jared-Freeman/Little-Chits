@@ -27,6 +27,7 @@ public class UIMgr : MonoBehaviour
     public Slider masterVolSlider;
     public Slider musicVolSlider;
     public Slider chitVolSlider;
+    public Slider footstepVolSlider;
 
     private void Update()
     {
