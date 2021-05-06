@@ -45,25 +45,11 @@ public class Leaderboard : MonoBehaviour
     #endregion
 
     #region EVENT SUBSCRIPTIONS
-    private void OnEnable()
-    {
-        Timer.Event_GameOver += UpdateLeaderboardList;
-    }
-    private void OnDisable()
-    {
-        Timer.Event_GameOver -= UpdateLeaderboardList;
-    }
+
     #endregion
 
     #region EVENT HANDLERS
-    private void UpdateLeaderboardList(object sender, LeaderboardAttributesEventArgs args)
-    {
-        if (args.level-1 >= 0 && args.level-1 < LeaderboardStaticList.leaderboard_lists.Count)
-        {
-            if (flag_debug) Debug.Log("Adding entry to Leaderboard list: " + args.la_arg.player_name.ToString() + " " + args.la_arg.score.ToString());
-            LeaderboardStaticList.leaderboard_lists[args.level - 1].Add(args.la_arg);
-        }
-    }
+
     #endregion
 
     #region INIT
@@ -102,6 +88,7 @@ public class Leaderboard : MonoBehaviour
         current_level_index = Mathf.Clamp(current_level_index, 0, LeaderboardStaticList.leaderboard_lists.Count-1);
         UpdateDisplayElements();
     }
+
     //this works VV
     public void UpdateDisplayElements()
     {
