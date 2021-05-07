@@ -44,8 +44,7 @@ public class SoundMgr : MonoBehaviour
         SetVolume("masterVol", masterVolume);
         SetVolume("musicVol", musicVolume);
         SetVolume("chitVol", chitVolume);
-        SetVolume("footstepVol", footstepVolume);
-        Debug.Log("footSteps: " + footstepVolume);
+        SetVolume("footstepVol", footstepVolume);        
         /*SetVolume("jumpVol", chitJumpVolume);
         SetVolume("happyVol", chitHappyVolume);
         SetVolume("badVol", chitBadVolume);

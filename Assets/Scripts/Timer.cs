@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
       
         if (UIMgr.inst.time <= 0) //0 minutes terminates
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            UIMgr.inst.LevelOverAction();
             DoGameOver();
         }
         UIMgr.inst.chitsCountTxt.text = UIMgr.inst.numChit.ToString("0"); ;
@@ -40,7 +40,7 @@ public class Timer : MonoBehaviour
         //terminate program when you reach 0
         if (UIMgr.inst.numChit == 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            UIMgr.inst.LevelOverAction();
             DoGameOver();
         }
     }
