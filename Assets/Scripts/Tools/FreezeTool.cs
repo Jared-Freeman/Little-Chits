@@ -43,16 +43,29 @@ public class FreezeTool : Tool
         base.Pickup(player, inventory);
     }
 
+    IEnumerator Freeze(ChitAI chit)
+    {
+        chit.body.velocity = Vector3.zero;
+        yield return new WaitForSeconds(3f);
+        chit.Released();
+    }
+
     public override bool StartAction()
     {
         if (!base.StartAction())
             return false;
         
+        if (chit != null)
+        {
+            chit.Grabbed();
+            StartCoroutine("Freeze", chit);
+        }
+
         return true;
     }
 
     public override void EndAction()
     {
-
+        base.EndAction();
     }
 }

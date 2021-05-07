@@ -205,8 +205,8 @@ GameObject:
   - component: {fileID: 5489236322435457673}
   - component: {fileID: 5489236322435457674}
   - component: {fileID: 5489236322435457679}
-  - component: {fileID: 4728270874073983993}
   - component: {fileID: 113425248580106193}
+  - component: {fileID: 2430085558741574424}
   m_Layer: 0
   m_Name: Chit
   m_TagString: Untagged
@@ -367,6 +367,7 @@ MonoBehaviour:
   chitAttention: 100
   assignment: 
   childTask: {fileID: 0}
+  body: {fileID: 0}
   chitJumpSound: {fileID: 8300000, guid: b59cdcd437c65bd45b08a77f01a40efe, type: 3}
   chitDeathSound: {fileID: 8300000, guid: 69a97a9a29cb14c4db8508554a156392, type: 3}
   chitCagedSound: {fileID: 8300000, guid: c7c8d27e04a90a24c8513ab70c491d38, type: 3}
@@ -458,50 +459,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: mad
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4728270874073983993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5489236322435457664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b82f02736b15c45acf368fcda1caa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  focusText: 
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls: []
-  onToolInteraction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5489236322435457679}
-        m_MethodName: Grabbed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onToolInteractionEnded:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5489236322435457679}
-        m_MethodName: Released
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!82 &113425248580106193
@@ -601,3 +558,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2430085558741574424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489236322435457664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b13ad4652252124dae745d8d7a8c7e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusText: 
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
