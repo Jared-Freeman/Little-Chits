@@ -53,6 +53,11 @@ public class GravityTool : Tool
             gi.target = cameraInterceptTarget.transform;
         }
 
+        if (chit != null)
+        {
+            chit.Grabbed();
+        }
+
         return true;
     }
 
@@ -62,6 +67,11 @@ public class GravityTool : Tool
         if (gi != null)
         {
             Destroy(gi);
+        }
+
+        if (chit != null)
+        {
+            chit.Released();
         }
     }
 }

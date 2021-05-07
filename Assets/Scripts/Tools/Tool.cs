@@ -40,8 +40,8 @@ public abstract class Tool : Interactable
 
     protected Interactable interactable;
     private InventorySystem inventorySystem;
-    private ToolInteractable toolInteractable;
 
+    protected ChitAI chit;
 
     #endregion
 
@@ -182,10 +182,9 @@ public abstract class Tool : Interactable
         interactable = playerInteractionSystem.focusedInteractable;
         if (interactable)
         {
-            if (interactable is ToolInteractable)
+            if (interactable.tag == "Chit")
             {
-                toolInteractable = (ToolInteractable) interactable;
-                toolInteractable.onToolInteraction.Invoke();
+                chit = interactable.GetComponent<ChitAI>();
             }
         }
         else
@@ -200,10 +199,6 @@ public abstract class Tool : Interactable
     {
         charge -= discargeRate * Time.deltaTime;
         inventorySystem.audioSource.pitch = charge;
-/*        if (charge < .2f)
-        {
-            inventorySystem.audioSource.pitch -= discargeRate * Time.deltaTime * 5f;
-        }*/
         if (charge < 0)
         {
             charge = 0;
@@ -215,11 +210,6 @@ public abstract class Tool : Interactable
     {
         doingAction = false;
         inventorySystem.audioSource.Stop();
-
-        if (toolInteractable != null)
-        {
-            toolInteractable.ToolInteractEnded(transform.parent.gameObject);
-        }
     }
 
     public virtual void Update()

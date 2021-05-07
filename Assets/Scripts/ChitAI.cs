@@ -30,7 +30,7 @@ public class ChitAI : MonoBehaviour
     public string assignment;
     private NavMeshAgent agent;
     public Task childTask;
-    private Rigidbody body;
+    public Rigidbody body;
 
     //Sounds
     public AudioClip chitJumpSound;
@@ -140,6 +140,7 @@ public class ChitAI : MonoBehaviour
         audioSource.Play();        
         onGrabbed.Invoke();
         isGrabbed = true;
+        print("Grabbed");
         DisableAI();
     }
 
@@ -168,14 +169,12 @@ public class ChitAI : MonoBehaviour
     }
     public void DisableAI()
     {
-        print("Disabled");
         agent.enabled = false;
         body.isKinematic = false;
     }
 
     public void EnableAI()
     {
-        print("Enabled");
         agent.enabled = true;
         body.isKinematic = true;
     }
