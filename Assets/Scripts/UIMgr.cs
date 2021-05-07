@@ -32,17 +32,21 @@ public class UIMgr : MonoBehaviour
     public Slider chitVolSlider;
     public Slider footstepVolSlider;
 
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             menuPanel.gameObject.SetActive(!menuPanel.gameObject.activeSelf);
-            menuButtonPanel.gameObject.SetActive(true);
-            timerText2.gameObject.SetActive(true);
-            mmWaningPanel.gameObject.SetActive(false);
-            lbWaningPanel.gameObject.SetActive(false);
-            settingPanel.gameObject.SetActive(false);
             MenuPopUpFunctions();
+            if (SceneManager.GetActiveScene().name == "Level1" || SceneManager.GetActiveScene().name == "Level2")
+            {
+                menuButtonPanel.gameObject.SetActive(true);
+                timerText2.gameObject.SetActive(true);
+                mmWaningPanel.gameObject.SetActive(false);
+                lbWaningPanel.gameObject.SetActive(false);
+                settingPanel.gameObject.SetActive(false);                
+            }
         }
     }
 
