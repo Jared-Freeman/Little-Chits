@@ -139,6 +139,21 @@ public class ChitAI : MonoBehaviour
         audioSource.clip = chitGrabbedSound;
         audioSource.Play();        
         onGrabbed.Invoke();
+        isGrabbed = true;
+        DisableAI();
+    }
+
+    [System.Serializable]
+    public class ReleasedEvent : UnityEvent { }
+    public ReleasedEvent onReleased = new ReleasedEvent();
+
+    public void Released()
+    {
+        audioSource.clip = chitGrabbedSound;
+        audioSource.Play();
+        onGrabbed.Invoke();
+        isGrabbed = false;
+        decisionTime = 0;
     }
 
     [System.Serializable]
@@ -153,12 +168,14 @@ public class ChitAI : MonoBehaviour
     }
     public void DisableAI()
     {
+        print("Disabled");
         agent.enabled = false;
         body.isKinematic = false;
     }
 
     public void EnableAI()
     {
+        print("Enabled");
         agent.enabled = true;
         body.isKinematic = true;
     }

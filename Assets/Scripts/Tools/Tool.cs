@@ -14,6 +14,8 @@ public abstract class Tool : Interactable
 {
     #region members
 
+    public InteractionSystem playerInteractionSystem;
+
     public AudioClip pickupSound;
     public AudioClip putDownSound;
 
@@ -36,7 +38,10 @@ public abstract class Tool : Interactable
     private Collider collider;
     private bool doingAction;
 
+    protected Interactable interactable;
     private InventorySystem inventorySystem;
+    private ToolInteractable toolInteractable;
+
 
     #endregion
 
@@ -72,6 +77,8 @@ public abstract class Tool : Interactable
             inventorySystem.audioSource.clip = pickupSound;
             inventorySystem.audioSource.Play();
         }
+
+        playerInteractionSystem = player.GetComponentInChildren<InteractionSystem>();
 
         onPickup.Invoke();
     }
@@ -171,6 +178,21 @@ public abstract class Tool : Interactable
         //inventorySystem.audioSource.pitch = 0;
         inventorySystem.audioSource.Play();
         //StartCoroutine("IncreasePitch");
+
+        interactable = playerInteractionSystem.focusedInteractable;
+        if (interactable)
+        {
+            if (interactable is ToolInteractable)
+            {
+                toolInteractable = (ToolInteractable) interactable;
+                toolInteractable.onToolInteraction.Invoke();
+            }
+        }
+        else
+        {
+            EndAction();
+        }
+
         return true;
     }
 
@@ -193,6 +215,11 @@ public abstract class Tool : Interactable
     {
         doingAction = false;
         inventorySystem.audioSource.Stop();
+
+        if (toolInteractable != null)
+        {
+            toolInteractable.ToolInteractEnded(transform.parent.gameObject);
+        }
     }
 
     public virtual void Update()

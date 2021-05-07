@@ -12,7 +12,6 @@ using UnityEngine;
 
 public class FreezeTool : Tool
 {
-    public InteractionSystem playerInteractionSystem;
 
     [Range(1, 10)]
     public float hoverDistanceFromCamera = 2;
@@ -20,8 +19,6 @@ public class FreezeTool : Tool
     private Rigidbody otherRB;
     private GravityInterceptor gi;
     private GameObject cameraInterceptTarget;
-    private Interactable interactable;
-    private ToolInteractable toolInteractable;
 
     public void Awake()
     {
@@ -44,7 +41,6 @@ public class FreezeTool : Tool
     {
         base.Interact(player);
         base.Pickup(player, inventory);
-        playerInteractionSystem = player.GetComponentInChildren<InteractionSystem>();
     }
 
     public override bool StartAction()
@@ -52,11 +48,6 @@ public class FreezeTool : Tool
         if (!base.StartAction())
             return false;
         
-        interactable = playerInteractionSystem.focusedInteractable;
-        if (interactable)
-        {
-            interactable.gameObject.AddComponent<Freeze>();
-        }
         return true;
     }
 

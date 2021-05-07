@@ -31,4 +31,13 @@ public class ToolInteractable : Interactable
         onToolInteraction.Invoke();
     }
 
+    [System.Serializable]
+    public class ToolInteractionEndedEvent : UnityEvent { }
+    public ToolInteractionEndedEvent onToolInteractionEnded = new ToolInteractionEndedEvent();
+
+    public virtual void ToolInteractEnded(GameObject player)
+    {
+        onToolInteractionEnded.Invoke();
+    }
+
 }

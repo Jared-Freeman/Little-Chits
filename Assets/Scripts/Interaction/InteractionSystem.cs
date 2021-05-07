@@ -217,8 +217,6 @@ public class InteractionSystem : MonoBehaviour
                 ContinueFocusing();
             }
         }
-
-
     }
 
     #endregion

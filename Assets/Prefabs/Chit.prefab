@@ -206,7 +206,6 @@ GameObject:
   - component: {fileID: 5489236322435457674}
   - component: {fileID: 5489236322435457679}
   - component: {fileID: 4728270874073983993}
-  - component: {fileID: 4821903845901800298}
   - component: {fileID: 113425248580106193}
   m_Layer: 0
   m_Name: Chit
@@ -444,6 +443,9 @@ MonoBehaviour:
           m_StringArgument: sad
           m_BoolArgument: 0
         m_CallState: 2
+  onReleased:
+    m_PersistentCalls:
+      m_Calls: []
   onBad:
     m_PersistentCalls:
       m_Calls:
@@ -477,8 +479,8 @@ MonoBehaviour:
   onToolInteraction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821903845901800298}
-        m_MethodName: Disable
+      - m_Target: {fileID: 5489236322435457679}
+        m_MethodName: Grabbed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -488,20 +490,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4821903845901800298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5489236322435457664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2988ddd5cc9d1c1478e2cfd1df9888e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  secondsBeforeEnableAttempt: 2
-  minSpeedBeforeEnable: 1
+  onToolInteractionEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5489236322435457679}
+        m_MethodName: Released
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &113425248580106193
 AudioSource:
   m_ObjectHideFlags: 0
