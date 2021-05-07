@@ -24,4 +24,5 @@ public class LeaderboardUpdateProxy : MonoBehaviour
         }
     }
     #endregion
+
 }

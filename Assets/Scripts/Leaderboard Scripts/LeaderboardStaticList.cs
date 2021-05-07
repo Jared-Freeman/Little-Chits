@@ -23,7 +23,7 @@ public static class LeaderboardStaticList
             {
                 List<LeaderboardAttributes> new_list = new List<LeaderboardAttributes>();
 
-                if(flag_dev)
+                if(flag_dev) //just randomly seeding a few score values for fun
                 {
                     new_list.Add(new LeaderboardAttributes("Quinn", 10 + (int)(10 * Random.value)));
                     new_list.Add(new LeaderboardAttributes("Elizabeth", 10 + (int)(10 * Random.value)));
@@ -39,6 +39,9 @@ public static class LeaderboardStaticList
 
     public static void AddLeaderboardEntry(LeaderboardAttributes attr, int level)
     {
-
+        if (level - 1 >= 0 && level - 1 < leaderboard_lists.Count)
+        {
+            leaderboard_lists[level - 1].Add(attr);
+        }
     }
 }
