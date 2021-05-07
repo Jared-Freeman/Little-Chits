@@ -90,8 +90,7 @@ public class ChitAI : MonoBehaviour
     {
         audioSource.clip = chitJumpSound;
         audioSource.Play();
-        agent.enabled = false;
-        body.isKinematic = false;
+        DisableAI();
         Vector3 launch = new Vector3(Random.value * 200 - 100, 100, Random.value * 200 - 100);
         Debug.Log(launch);
         body.AddForce(launch);
@@ -152,6 +151,17 @@ public class ChitAI : MonoBehaviour
         audioSource.Play();        
         onBad.Invoke();
     }
+    public void DisableAI()
+    {
+        agent.enabled = false;
+        body.isKinematic = false;
+    }
+
+    public void EnableAI()
+    {
+        agent.enabled = true;
+        body.isKinematic = true;
+    }
 
     // Update is called once per frame
     void Update()
@@ -164,8 +174,7 @@ public class ChitAI : MonoBehaviour
         {
             if (decisionTime < timePassed)
             {
-                agent.enabled = true;
-                body.isKinematic = true;
+                EnableAI();
                 if (isObsessed)
                 {
                     if (assignment == "makeHappy")
@@ -196,8 +205,7 @@ public class ChitAI : MonoBehaviour
                     {
                         audioSource.clip = chitJumpSound;
                         audioSource.Play();
-                        agent.enabled = false;
-                        body.isKinematic = false;
+                        DisableAI();
                         Vector3 launch = new Vector3(Random.value * 500 - 250, 250, Random.value * 500 - 250);
                         Debug.Log(launch);
                         body.AddForce(launch);
@@ -211,8 +219,7 @@ public class ChitAI : MonoBehaviour
                 }
                 else if (decisionTime < timePassed)
                 {
-                    agent.enabled = true;
-                    body.isKinematic = true;
+                    EnableAI();
                     NewTask();
                     if (isWandering)
                     {
