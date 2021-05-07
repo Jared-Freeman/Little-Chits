@@ -23,6 +23,9 @@ public class UIMgr : MonoBehaviour
     public GameObject menuButtonPanel;
     public GameObject mmWaningPanel;
     public GameObject lbWaningPanel;
+    public GameObject settingPanel;
+    public GameObject levelOverPanel;
+
 
     public Slider masterVolSlider;
     public Slider musicVolSlider;
@@ -37,13 +40,30 @@ public class UIMgr : MonoBehaviour
             menuButtonPanel.gameObject.SetActive(true);
             timerText2.gameObject.SetActive(true);
             mmWaningPanel.gameObject.SetActive(false);
-            lbWaningPanel.gameObject.SetActive(false);            
+            lbWaningPanel.gameObject.SetActive(false);
+            settingPanel.gameObject.SetActive(false);
             MenuPopUpFunctions();
         }
     }
 
     public void LaunchScene(string sceneName)
     {
+        if(sceneName != "Leaderboard" || sceneName != "MainMenu")
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            ResumeGame();
+        }
+        if (sceneName == "Level1" || sceneName == "Level2" || sceneName == "Level3")
+        {
+            Debug.Log("SHould Unlock");
+            Cursor.lockState = CursorLockMode.Locked;
+            ResumeGame();
+        }
+        if (sceneName == "Leaderboard" || sceneName == "MainMenu")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            ResumeGame();
+        }
         SceneManager.LoadScene(sceneName);
     }
 
@@ -75,5 +95,11 @@ public class UIMgr : MonoBehaviour
             ResumeGame();
             
         }
+    }
+     public void LevelOverAction()
+    {
+        levelOverPanel.gameObject.SetActive(true);
+        PauseGame();
+        Cursor.lockState = CursorLockMode.None;
     }
 }
