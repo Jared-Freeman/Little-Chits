@@ -140,7 +140,6 @@ public class ChitAI : MonoBehaviour
         audioSource.Play();        
         onGrabbed.Invoke();
         isGrabbed = true;
-        print("Grabbed");
         DisableAI();
     }
 
