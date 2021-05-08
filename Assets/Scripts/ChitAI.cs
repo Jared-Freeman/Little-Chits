@@ -125,7 +125,11 @@ public class ChitAI : MonoBehaviour
     public void Caged()
     {
         audioSource.clip = chitCagedSound;
-        audioSource.Play();
+        if (!SoundMgr.inst.played)
+        {
+            audioSource.Play();
+            SoundMgr.inst.played = true;
+        }
         UIMgr.inst.numChit -= 1;
         isTrapped = true;
         escapeChance = defaultEscapeChance;

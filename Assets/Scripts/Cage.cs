@@ -18,8 +18,9 @@ public class Cage : MonoBehaviour
         if (other.gameObject.tag == "Chit")
         {
             ChitAI chit = other.gameObject.GetComponent<ChitAI>();
-                UIMgr.inst.numChit += 1;
+            UIMgr.inst.numChit += 1;
             chit.isTrapped = false;
+            SoundMgr.inst.played = false;
         }
     }
 }

@@ -36,7 +36,7 @@ public class SoundMgr : MonoBehaviour
     [Range(0f, 1)]
     public float chitGrabbedVolume;*/
 
-
+    public bool played = false;
 
     // Update is called once per frame
     void Update()
