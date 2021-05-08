@@ -24,6 +24,7 @@ public class UIMgr : MonoBehaviour
     public GameObject mmWaningPanel;
     public GameObject lbWaningPanel;
     public GameObject settingPanel;
+    public GameObject controlPanel;
     public GameObject levelOverPanel;
 
 
@@ -45,7 +46,8 @@ public class UIMgr : MonoBehaviour
                 timerText2.gameObject.SetActive(true);
                 mmWaningPanel.gameObject.SetActive(false);
                 lbWaningPanel.gameObject.SetActive(false);
-                settingPanel.gameObject.SetActive(false);                
+                settingPanel.gameObject.SetActive(false);
+                controlPanel.gameObject.SetActive(false);
             }
         }
     }
@@ -90,19 +92,28 @@ public class UIMgr : MonoBehaviour
     {        
         if (menuPanel.gameObject == menuPanel.gameObject.activeSelf)
         {
-            PauseGame();
-            Cursor.lockState = CursorLockMode.None;
+            UnlockTheCursor();
         }
         else if (menuPanel.gameObject == !menuPanel.gameObject.activeSelf)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            ResumeGame();
-            
+            LockTheCursor();
+
+
         }
     }
      public void LevelOverAction()
     {
         levelOverPanel.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void LockTheCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        ResumeGame();
+    }
+    public void UnlockTheCursor()
+    {
         PauseGame();
         Cursor.lockState = CursorLockMode.None;
     }
