@@ -60,7 +60,7 @@ public class TaskWeight : MonoBehaviour
     {
         ChitAI chitAI = chit.GetComponent<ChitAI>();
         distanceSq = (transform.position - chit.transform.position).sqrMagnitude;
-        HappinessWeight = happinessMultiplier * chitAI.chitHappiness/4;
+        HappinessWeight = (happinessMultiplier * chitAI.chitHappiness)/4;
         TimeWeight = temptation * Mathf.Log10(timeSince);
         distInt = (int) Mathf.Sqrt(distanceSq);
         DistWeight = 7 * 10/ Mathf.Sqrt(distInt/10+1);

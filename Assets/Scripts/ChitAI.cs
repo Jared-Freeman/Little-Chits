@@ -12,6 +12,7 @@ public class ChitAI : MonoBehaviour
     public int newTask;
     public float[] timeSince;
     public float chitHappiness;
+    public float maxHappiness = 5;
     public float decisionTime;
     public float timePassed;
     public float depressTime;
@@ -26,6 +27,7 @@ public class ChitAI : MonoBehaviour
     public int defaultEscapeChance;
     public bool isTrapped;
     public float chitAttention;
+
     //private GameObject chit;
     public string assignment;
     private NavMeshAgent agent;
@@ -76,8 +78,8 @@ public class ChitAI : MonoBehaviour
     public void Happy()
     {
         audioSource.clip = chitHappySound;
-        audioSource.Play(); 
-        chitHappiness++;
+        audioSource.Play();
+        MoreHappy(1);
         isObsessed = false;
         onHappy.Invoke();
     }
@@ -177,6 +179,27 @@ public class ChitAI : MonoBehaviour
         agent.enabled = true;
         body.isKinematic = true;
     }
+    public void MoreHappy(int val)
+    {
+        chitHappiness += val;
+        if (chitHappiness > maxHappiness)
+            chitHappiness = maxHappiness;
+    }
+
+    public void LessHappy(int val)
+    {
+        chitHappiness -= val;
+        if (chitHappiness < -maxHappiness)
+            chitHappiness = -maxHappiness;
+    }
+    public void SetHappiness(int val)
+    {
+        chitHappiness = val;
+        if (chitHappiness > maxHappiness)
+            chitHappiness = maxHappiness;
+        else if (chitHappiness < -maxHappiness)
+            chitHappiness = -maxHappiness;
+    }
 
     // Update is called once per frame
     void Update()
@@ -273,7 +296,7 @@ public class ChitAI : MonoBehaviour
 
         if (depressTime > depression)
         {
-            chitHappiness--;
+            LessHappy(1);
             depressTime = 0;
         }
     }
