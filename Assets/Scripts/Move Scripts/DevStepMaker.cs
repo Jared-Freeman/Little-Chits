@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+//author: Jared Freeman
+//desc: helper class to make random step sounds. Now supports audio mixing (see commented out code if you want to laugh at me)
 public class DevStepMaker : MonoBehaviour
 {
     public List<AudioSource> stepSounds;

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//author: Jared Freeman
+//desc: creates and maintains a static list of all instantiated Chits in a scene. Useful for making global modifications or otherwise managing Chits!
 public class ChitStaticList : MonoBehaviour
 {
     #region MEMBERS
@@ -27,6 +29,7 @@ public class ChitStaticList : MonoBehaviour
     #endregion
 
     #region EVENT HANDLERS
+    //Add and remove chits from our list when they spawn/despawn!
     private void OnChitSpawn(object o, ChitAIEventArgs args)
     {
         chits_list.Add(args.chit);
@@ -42,7 +45,7 @@ public class ChitStaticList : MonoBehaviour
     {
         if (chits_list == null)
             chits_list = new List<ChitAI>();
-        chits_list.Clear();
+        chits_list.Clear(); //removes any chits tracked from a prev scene (any remaining pointers would be dangerous to use!)
     }
     #endregion
 }

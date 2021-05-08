@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 //classes are for use in defining event arguments in inter-monobehaviour communications
-
+//leverages c# events
 public class MonobehaviourEventArgs : System.EventArgs
 {
     public MonoBehaviour mono;
