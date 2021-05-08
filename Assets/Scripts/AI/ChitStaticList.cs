@@ -4,6 +4,8 @@ using UnityEngine;
 
 //author: Jared Freeman
 //desc: creates and maintains a static list of all instantiated Chits in a scene. Useful for making global modifications or otherwise managing Chits!
+//      currently one of these NEEDS to be instantiated for the level to track Chits. 
+//      This could kinda be changed but honestly I think it's better to explicitely reinstantiate this to call Start() again.
 public class ChitStaticList : MonoBehaviour
 {
     #region MEMBERS
