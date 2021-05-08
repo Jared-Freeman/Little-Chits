@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 5489236322435457679}
   - component: {fileID: 113425248580106193}
   - component: {fileID: 2430085558741574424}
+  - component: {fileID: 4702953441838705784}
   m_Layer: 0
   m_Name: Chit
   m_TagString: Untagged
@@ -351,6 +352,7 @@ MonoBehaviour:
   - 0
   - 0
   chitHappiness: 2
+  maxHappiness: 5
   decisionTime: 2
   timePassed: 0
   depressTime: 0
@@ -574,3 +576,20 @@ MonoBehaviour:
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4702953441838705784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489236322435457664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a2748ca1ace754ab57e10f87ede33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  happy_material: {fileID: 2100000, guid: 40591385b5d141049be2fc09ade7e3ee, type: 2}
+  angry_material: {fileID: 2100000, guid: 7799f09bf7816834da3136e22ff74840, type: 2}
+  rend: {fileID: 5489236322435457677}
+  realtime_update_interval: 0.05
+  attached_chit: {fileID: 5489236322435457679}
