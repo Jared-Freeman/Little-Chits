@@ -5,6 +5,8 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 public class ChitAI : MonoBehaviour
 {
+    public static bool flag_debug = false; //addition by Jared to limit Debug.Log()'s 
+
     public static ChitAI inst;
 
     //commit
@@ -94,7 +96,7 @@ public class ChitAI : MonoBehaviour
         audioSource.Play();
         DisableAI();
         Vector3 launch = new Vector3(Random.value * 200 - 100, 100, Random.value * 200 - 100);
-        Debug.Log(launch);
+        if(flag_debug) Debug.Log(launch);
         body.AddForce(launch);
         onJump.Invoke();
     }
@@ -225,8 +227,8 @@ public class ChitAI : MonoBehaviour
                         
                     }
                     else if (assignment == "newTask")
-                    {                        
-                        Debug.Log("moving to " + childTask);
+                    {
+                        if (flag_debug) Debug.Log("moving to " + childTask);
                         MoveToLocation(childTask.transform.position);
                     }
                     else if (assignment == "die")
@@ -249,7 +251,7 @@ public class ChitAI : MonoBehaviour
                         audioSource.Play();
                         DisableAI();
                         Vector3 launch = new Vector3(Random.value * 500 - 250, 250, Random.value * 500 - 250);
-                        Debug.Log(launch);
+                        if (flag_debug) Debug.Log(launch);
                         body.AddForce(launch);
                         //agent.enabled = true;
                     }
@@ -271,7 +273,7 @@ public class ChitAI : MonoBehaviour
                         {                            
                             wander = transform.position + new Vector3(Random.value * 4 - 2, Random.value * 4 - 2);
                             MoveToLocation(wander);
-                            Debug.Log(agent.pathStatus + "[" + wander + "]");
+                            if (flag_debug) Debug.Log(agent.pathStatus + "[" + wander + "]");
                         }
                         else
                         {
@@ -284,7 +286,7 @@ public class ChitAI : MonoBehaviour
                     else
                     {
                         MoveToLocation(task[newTask].GetComponent<Transform>().position);
-                        Debug.Log(agent.pathStatus + "[" + task[newTask].GetComponent<Transform>().position + "]");
+                        if (flag_debug) Debug.Log(agent.pathStatus + "[" + task[newTask].GetComponent<Transform>().position + "]");
                         chitAttention += 5;
                     }
                     if (agent.pathStatus != NavMeshPathStatus.PathComplete && !isTrapped)
