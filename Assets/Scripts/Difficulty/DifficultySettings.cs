@@ -9,21 +9,21 @@ using UnityEngine;
 //TODO: add more settings!
 public class DifficultySetting
 {
-    public DifficultySetting(float time, int chit_count, float t_scale = 1)
+    public DifficultySetting(int time, int chit_count, float t_scale = 1)
     {
         level_time = Mathf.Abs(time);
         number_of_chits = chit_count;
         time_scale = Mathf.Abs(t_scale);
     }
 
-    public float level_time; //time in seconds (yeah i dunno why i chose to use float either...)
+    public int level_time; //time in seconds
     public float time_scale; //typically defined to be 1. Could scale slightly for easier/harder experience. Probably not gonna impl this one in time so just ignore
     public int number_of_chits;
 }
-//desc:     Container class for diffculty settings. Needs to be defined across all difficulties (easy, meduim...)
-public class DifficultySettings
+//desc:     Container class for diffculty settings. Needs to be defined across all difficulties (easy, medium...)
+public class DifficultyCollection
 {
-    public DifficultySettings(DifficultySetting easy, DifficultySetting medium, DifficultySetting hard) //hooray for auto garbage collection
+    public DifficultyCollection(DifficultySetting easy, DifficultySetting medium, DifficultySetting hard) //hooray for auto garbage collection
     {
         setting_easy = easy;
         setting_medium = medium;
@@ -40,31 +40,62 @@ public class DifficultySettings
 //note:     Need to clean up any weird edits we make (such as changing global timescale) when tweaking difficulty.
 public static class DifficultyManager
 {
+    public enum Difficulty {Easy = 0, Medium = 1, Hard = 2};
+
     #region CONSTRUCTOR
     static DifficultyManager() //can change initialization values here
     {
-        settings_level_1 = new DifficultySettings(
+        if(difficulty_settings_list == null)
+        {
+            difficulty_settings_list = new List<DifficultyCollection>();
+        }
+        difficulty_settings_list.Clear();
+
+        
+        //level 1
+        difficulty_settings_list.Add( new DifficultyCollection(
             new DifficultySetting(300, 3)          //easy
             , new DifficultySetting(120, 4)        //medium
-            , new DifficultySetting(75, 6));      //hard
+            , new DifficultySetting(75, 6) ));      //hard
 
-        settings_level_2 = new DifficultySettings(
+        //level 2
+        difficulty_settings_list.Add( new DifficultyCollection(
             new DifficultySetting(300, 6)          //easy
             , new DifficultySetting(240, 8)        //medium
-            , new DifficultySetting(180, 12));      //hard
+            , new DifficultySetting(180, 12) ));      //hard
 
-        settings_level_3 = new DifficultySettings(
+        //level 3
+        difficulty_settings_list.Add( new DifficultyCollection(
             new DifficultySetting(360, 10)          //easy
             , new DifficultySetting(300, 12)        //medium
-            , new DifficultySetting(240, 18));      //hard
+            , new DifficultySetting(240, 18) ));      //hard
     }
     #endregion
 
     #region MEMBERS
     //define new scene DifficultySettings if needed here
-    public static DifficultySettings settings_level_1;
-    public static DifficultySettings settings_level_2;
-    public static DifficultySettings settings_level_3;
+    public static List<DifficultyCollection> difficulty_settings_list;
+    public static Difficulty current_difficulty;
     #endregion
 
+    public static DifficultySetting CurrentDifficultySetting(int level_id)
+    {
+        if (current_difficulty == Difficulty.Easy)
+        {
+            return difficulty_settings_list[level_id].setting_easy;
+        }
+        else if (current_difficulty == Difficulty.Medium)
+        {
+            return difficulty_settings_list[level_id].setting_medium;
+        }
+        else if (current_difficulty == Difficulty.Hard)
+        {
+            return difficulty_settings_list[level_id].setting_hard;
+        }
+        else
+        {
+            Debug.LogError("DifficultyManager: ERROR! No implementation exists for the selected difficulty! Did we go out of bounds?");
+            return null;
+        }
+    }
 }
