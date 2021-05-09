@@ -21,6 +21,9 @@ public abstract class Tool : Interactable
 
     public AudioClip actionSound;
 
+    public Sprite icon;
+    public Sprite highlight;
+
     public bool fullChargeRestart; // if the player needs to wait until the tool is fully recharged before using
 
     [Range(0f,1f)]
