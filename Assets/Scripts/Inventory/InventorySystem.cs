@@ -60,19 +60,28 @@ public class InventorySystem : MonoBehaviour
         highlight.gameObject.SetActive(state);
     }
 
-    private void UpdateToolUI(int id, string toolName)
+    private void UpdateToolUI(int id, Tool tool)
     {
         GameObject toolUI = toolUIObjects[id];
         toolUI.SetActive(true);
 
         Transform idUI = toolUI.transform.Find("NumID");
         Transform nameUI = toolUI.transform.Find("Name");
+        Transform imageUI = toolUI.transform.Find("Image");
+        Transform highlightUI = toolUI.transform.Find("Highlight");
+
 
         Text idText = idUI.GetComponent<Text>();
         idText.text = id.ToString();
 
         Text nameText = nameUI.GetComponent<Text>();
-        nameText.text = toolName;
+        nameText.text = tool.transform.name;
+
+        Image image = imageUI.GetComponent<Image>();
+        image.sprite = tool.icon;
+
+        Image highlight = highlightUI.GetComponent<Image>();
+        highlight.sprite = tool.highlight;
 
         ToggleHighlightToolUI(toolUIObjects[id], true);
     }
@@ -125,7 +134,7 @@ public class InventorySystem : MonoBehaviour
             {
                 if (pair.Value == null)
                 {
-                    UpdateToolUI(pair.Key, newTool.name);
+                    UpdateToolUI(pair.Key, newTool);
                     inventory[pair.Key] = newTool;
                     newTool.Pickup(transform.parent.gameObject, this);
 
