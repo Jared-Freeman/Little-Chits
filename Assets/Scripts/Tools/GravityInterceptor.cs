@@ -15,6 +15,7 @@ public class GravityInterceptor : MonoBehaviour
     private void Awake()
     {
         rb = transform.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
     }
 
     // Update is called once per frame

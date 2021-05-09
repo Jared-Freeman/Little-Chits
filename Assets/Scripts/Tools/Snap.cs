@@ -26,6 +26,7 @@ public class Snap : MonoBehaviour
         transform.rotation = snapTarget.transform.rotation;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
     }
 
     private bool InSnapDistance()
