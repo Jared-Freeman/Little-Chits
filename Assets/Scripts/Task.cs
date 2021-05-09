@@ -10,6 +10,7 @@ public class Task : MonoBehaviour
     public float taskTime;
     public float compTime;
     public TaskWeight weigher;
+    public float decayRate = 30;
     public string assignment;
     public ChitAI chit;
     public Task childTask;
@@ -33,7 +34,7 @@ public class Task : MonoBehaviour
             weigher.beingUsed = true;
             if(taskTime > 0)
             {
-                taskTime -= Time.deltaTime / 50;
+                taskTime -= Time.deltaTime / decayRate;
             }
         }
 
