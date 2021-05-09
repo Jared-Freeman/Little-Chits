@@ -340,11 +340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55588bca7893c2b48b557c5bad76faaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  task:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  taskObj: []
+  task: []
   newTask: 0
   timeSince:
   - 0
