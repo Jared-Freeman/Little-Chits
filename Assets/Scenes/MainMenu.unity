@@ -883,8 +883,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ecb8ab6c9516bc547a84b4cf8f651e33, type: 3}
-    m_FontSize: 27
+    m_Font: {fileID: 12800000, guid: 08023d323b297e847870b6d5ec0a82b1, type: 3}
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -1568,7 +1568,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ecb8ab6c9516bc547a84b4cf8f651e33, type: 3}
+    m_Font: {fileID: 12800000, guid: 08023d323b297e847870b6d5ec0a82b1, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -2226,8 +2226,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ecb8ab6c9516bc547a84b4cf8f651e33, type: 3}
-    m_FontSize: 20
+    m_Font: {fileID: 12800000, guid: 08023d323b297e847870b6d5ec0a82b1, type: 3}
+    m_FontSize: 25
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -3654,8 +3654,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ecb8ab6c9516bc547a84b4cf8f651e33, type: 3}
-    m_FontSize: 25
+    m_Font: {fileID: 12800000, guid: 08023d323b297e847870b6d5ec0a82b1, type: 3}
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -3732,8 +3732,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ecb8ab6c9516bc547a84b4cf8f651e33, type: 3}
-    m_FontSize: 35
+    m_Font: {fileID: 12800000, guid: 08023d323b297e847870b6d5ec0a82b1, type: 3}
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -5690,7 +5690,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ecb8ab6c9516bc547a84b4cf8f651e33, type: 3}
+    m_Font: {fileID: 12800000, guid: 08023d323b297e847870b6d5ec0a82b1, type: 3}
     m_FontSize: 25
     m_FontStyle: 1
     m_BestFit: 0
@@ -5702,7 +5702,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: ' Quit'
 --- !u!222 &1922347074
 CanvasRenderer:
   m_ObjectHideFlags: 0

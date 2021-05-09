@@ -23613,6 +23613,7 @@ MonoBehaviour:
   mmWaningPanel: {fileID: 0}
   lbWaningPanel: {fileID: 0}
   settingPanel: {fileID: 0}
+  controlPanel: {fileID: 0}
   levelOverPanel: {fileID: 0}
   masterVolSlider: {fileID: 0}
   musicVolSlider: {fileID: 0}
@@ -42553,6 +42554,7 @@ MonoBehaviour:
   musicVolume: 1
   chitVolume: 0
   footstepVolume: 0
+  played: 0
 --- !u!4 &1575154515
 Transform:
   m_ObjectHideFlags: 0
@@ -54904,13 +54906,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: 08023d323b297e847870b6d5ec0a82b1, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MaxSize: 50
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -54959,7 +54961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7, y: 135}
+  m_AnchoredPosition: {x: 5.5, y: 135}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &769161146900671028
