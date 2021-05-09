@@ -51,7 +51,8 @@ public static class DifficultyManager
         }
         difficulty_settings_list.Clear();
 
-        
+        //You can modify difficulty settings by simply changing the constructor args below! Note that for number of chits you NEED to have at LEAST that many chit instances in the scene!
+
         //level 1
         difficulty_settings_list.Add( new DifficultyCollection(
             new DifficultySetting(300, 3)          //easy
