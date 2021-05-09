@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//author: Jared Freeman
+//desc:     applies difficulty settings to the current scene. Note there are some things that need to be referenced to actually do that
 public class DifficultyProxy : MonoBehaviour
 {
 
