@@ -146,11 +146,12 @@ MonoBehaviour:
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
+  playerInteractionSystem: {fileID: 0}
   pickupSound: {fileID: 8300000, guid: 912409a6b0ff6cd4db3ed0af828d6f1b, type: 3}
   putDownSound: {fileID: 8300000, guid: 912409a6b0ff6cd4db3ed0af828d6f1b, type: 3}
   actionSound: {fileID: 8300000, guid: e1c60f03ed508bf4dbafa7ed04c00160, type: 3}
-  audioLoopStart: 0
-  audioLoopEnd: 0
+  icon: {fileID: 21300000, guid: b63a83088191ca84590dd84cd1dae929, type: 3}
+  highlight: {fileID: 21300000, guid: 3c7043001b8db9949be4d0d6b9eb1ce9, type: 3}
   fullChargeRestart: 0
   charge: 1
   discargeRate: 0.1
@@ -158,7 +159,6 @@ MonoBehaviour:
   onPickup:
     m_PersistentCalls:
       m_Calls: []
-  playerInteractionSystem: {fileID: 0}
   hoverDistanceFromCamera: 2
 --- !u!54 &1410114393788825419
 Rigidbody:
