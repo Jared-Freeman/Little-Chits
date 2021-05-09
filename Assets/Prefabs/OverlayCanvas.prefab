@@ -537,10 +537,12 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '-E to interact with gun and in level menus
 
-    -WASD to move
+    -T to toggle Task Bar
 
-    -Space
-    to Jump
+    -WASD
+    to move
+
+    -Space to Jump
 
     -With gun and object inside, right click mouse'
 --- !u!1 &6842994970515226431
