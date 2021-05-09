@@ -44,19 +44,19 @@ public static class DifficultyManager
     static DifficultyManager() //can change initialization values here
     {
         settings_level_1 = new DifficultySettings(
-            new DifficultySetting(1, 1)          //easy
-            , new DifficultySetting(1, 1)        //medium
-            , new DifficultySetting(1, 1));      //hard
+            new DifficultySetting(300, 3)          //easy
+            , new DifficultySetting(120, 4)        //medium
+            , new DifficultySetting(75, 6));      //hard
 
         settings_level_2 = new DifficultySettings(
-            new DifficultySetting(1, 1)          //easy
-            , new DifficultySetting(1, 1)        //medium
-            , new DifficultySetting(1, 1));      //hard
+            new DifficultySetting(300, 6)          //easy
+            , new DifficultySetting(240, 8)        //medium
+            , new DifficultySetting(180, 12));      //hard
 
         settings_level_3 = new DifficultySettings(
-            new DifficultySetting(1, 1)          //easy
-            , new DifficultySetting(1, 1)        //medium
-            , new DifficultySetting(1, 1));      //hard
+            new DifficultySetting(360, 10)          //easy
+            , new DifficultySetting(300, 12)        //medium
+            , new DifficultySetting(240, 18));      //hard
     }
     #endregion
 
