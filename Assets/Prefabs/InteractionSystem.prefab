@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 265245129678921955}
   - component: {fileID: 265245129678921952}
   m_Layer: 9
-  m_Name: Interaction
+  m_Name: InteractionSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 08023d323b297e847870b6d5ec0a82b1, type: 3}
     m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0

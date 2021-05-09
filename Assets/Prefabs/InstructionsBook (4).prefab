@@ -164,9 +164,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 08023d323b297e847870b6d5ec0a82b1, type: 3}
+    m_FontSize: 29
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
@@ -278,8 +278,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.1056443, z: 1.4748327}
-  m_Center: {x: -0.0000000047959907, y: 0.052822553, z: 0.11102805}
+  m_Size: {x: 2, y: 1.1681502, z: 1.2873014}
+  m_Center: {x: 3.290649e-10, y: 0.028184181, z: -0.025721952}
 --- !u!54 &5191768263081850637
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -311,7 +311,29 @@ MonoBehaviour:
   focusText: 
   onInteraction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!208 &5191768263081850635
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -490,8 +512,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 136.2362, y: 103.05954, z: 199.26808}
-  m_Center: {x: 2.9188962, y: 1.9685175, z: 60.715034}
+  m_Size: {x: 95.7016, y: 109.427956, z: 125.84755}
+  m_Center: {x: 3.0334423, y: 5.1528053, z: 48.348694}
 --- !u!114 &5191768263148599754
 MonoBehaviour:
   m_ObjectHideFlags: 0
