@@ -26,6 +26,7 @@ public class UIMgr : MonoBehaviour
     public GameObject settingPanel;
     public GameObject controlPanel;
     public GameObject levelOverPanel;
+    public GameObject taskPanel;
 
 
     public Slider masterVolSlider;
@@ -49,6 +50,10 @@ public class UIMgr : MonoBehaviour
                 settingPanel.gameObject.SetActive(false);
                 controlPanel.gameObject.SetActive(false);
             }
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            taskPanel.gameObject.SetActive(!taskPanel.gameObject.activeSelf);
         }
     }
 

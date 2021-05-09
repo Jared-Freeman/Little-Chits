@@ -242,7 +242,7 @@ MonoBehaviour:
     up a different menu
 
 
-    Mouse down while pointed at object to activate gun'
+    T: Toggle Task List'
 --- !u!1 &6611031219415217343
 GameObject:
   m_ObjectHideFlags: 0
