@@ -9,7 +9,7 @@ using UnityEngine;
 public class ChitStaticList : MonoBehaviour
 {
     #region MEMBERS
-    private bool flag_debug;
+    private bool flag_debug = true;
 
     public static List<ChitAI> chits_list;
     #endregion
@@ -35,10 +35,12 @@ public class ChitStaticList : MonoBehaviour
     private void OnChitSpawn(object o, ChitAIEventArgs args)
     {
         chits_list.Add(args.chit);
+        if (flag_debug) Debug.Log("Chit added to static list: " + args.chit.ToString());
     }
     private void OnChitDespawn(object o, ChitAIEventArgs args)
     {
         chits_list.Remove(args.chit);
+        if (flag_debug) Debug.Log("Chit removed from static list: " + args.chit.ToString());
     }
     #endregion
 

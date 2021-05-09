@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     #endregion
 
     #region members
-    bool flag_debug = true;
+    bool flag_debug = false;
     public int level_number = -1;
     public int level_time = 300;
     #endregion
@@ -70,7 +70,7 @@ public class Timer : MonoBehaviour
             UIMgr.inst.chitsCountTxt.text = UIMgr.inst.numChit.ToString("0"); ;
 
             //terminate program when you reach 0
-            if (UIMgr.inst.numChit == 0)
+            if (UIMgr.inst.numChit <= 0)
             {
                 UIMgr.inst.LevelOverAction();
                 DoGameOver();

@@ -91,7 +91,7 @@ public class UIMgr : MonoBehaviour
 
     public void ResumeGame()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1; //would need to change timescale here too if we decided to have timescale be a factor of difficulty (maybe thru a global var of some kind)
     }
     public void MenuPopUpFunctions()
     {        
