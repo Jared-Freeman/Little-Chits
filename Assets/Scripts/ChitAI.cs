@@ -10,6 +10,7 @@ public class ChitAI : MonoBehaviour
     public static ChitAI inst;
 
     //commit
+    public GameObject[] taskObj;
     public TaskWeight[] task;
     public int newTask;
     public float[] timeSince;
@@ -67,10 +68,17 @@ public class ChitAI : MonoBehaviour
     {
         inst = this;
         //chit = GetComponent<GameObject>();
+        taskObj = GameObject.FindGameObjectsWithTag("Task");
         agent = GetComponent<NavMeshAgent>();
         escapeChance = defaultEscapeChance;
         body = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        timeSince = new float[taskObj.Length];
+        task = new TaskWeight[taskObj.Length];
+        for(int i = 0; i< taskObj.Length; i++)
+        {
+            task[i] = taskObj[i].GetComponent<TaskWeight>();
+        }
     }
 
     [System.Serializable]
