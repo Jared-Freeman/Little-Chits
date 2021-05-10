@@ -62,12 +62,12 @@ PrefabInstance:
     - target: {fileID: 5607815857755878776, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: temptation
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5607815857755878776, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: happinessMultiplier
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5607815857755878778, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}

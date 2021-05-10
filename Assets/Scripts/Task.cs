@@ -40,7 +40,7 @@ public class Task : MonoBehaviour
 
         if (taskTime >= compTime)
         {
-            //Debug.Log("TASK COMPLETE!");
+            Debug.Log("TASK COMPLETE!");
             chit = weigher.occupant.GetComponent<ChitAI>();
             if (childTask)
             {
