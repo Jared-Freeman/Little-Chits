@@ -47,7 +47,7 @@ public class EyeChanger : MonoBehaviour
             }
             else if (typeID == 5)
             {
-                sr.sprite = deadEyes[(int)Random.Range(0, thinkingEyes.Count - 1)];
+                sr.sprite = deadEyes[(int)Random.Range(0, deadEyes.Count - 1)];
             }
         }
     }
