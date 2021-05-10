@@ -17,7 +17,7 @@ public class FreezeTool : Tool
     [Range(1, 10)]
     public float hoverDistanceFromCamera = 2;
     public GameObject ice;
-    public float duration = 10; // time added per second. a bit of a misnomer now honestly
+    public float duration = 30; // time added per second. a bit of a misnomer now honestly
 
     private Rigidbody otherRB;
     private GravityInterceptor gi;
