@@ -1063,12 +1063,12 @@ PrefabInstance:
     - target: {fileID: 5607815857755878776, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: temptation
-      value: 30
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5607815857755878776, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: happinessMultiplier
-      value: -20
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5607815857755878780, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
@@ -14463,6 +14463,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249284596553512061, guid: 6095573a73f44c942b0af3a0df78b545,
+        type: 3}
+      propertyPath: temptation
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249284596553512061, guid: 6095573a73f44c942b0af3a0df78b545,
+        type: 3}
+      propertyPath: happinessMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6095573a73f44c942b0af3a0df78b545, type: 3}
 --- !u!4 &496463808 stripped
@@ -23227,12 +23237,12 @@ PrefabInstance:
     - target: {fileID: 5607815857755878776, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: temptation
-      value: 60
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5607815857755878776, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: happinessMultiplier
-      value: -20
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5607815857755878778, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
@@ -24714,6 +24724,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ball Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249284596553512061, guid: 6095573a73f44c942b0af3a0df78b545,
+        type: 3}
+      propertyPath: temptation
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249284596553512061, guid: 6095573a73f44c942b0af3a0df78b545,
+        type: 3}
+      propertyPath: happinessMultiplier
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6095573a73f44c942b0af3a0df78b545, type: 3}
@@ -40671,6 +40691,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3249284596553512061, guid: 6095573a73f44c942b0af3a0df78b545,
+        type: 3}
+      propertyPath: temptation
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249284596553512061, guid: 6095573a73f44c942b0af3a0df78b545,
+        type: 3}
+      propertyPath: happinessMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3249284596553512063, guid: 6095573a73f44c942b0af3a0df78b545,
         type: 3}
       propertyPath: m_Enabled
@@ -41994,12 +42024,12 @@ PrefabInstance:
     - target: {fileID: 5607815857755878776, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: temptation
-      value: 30
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5607815857755878776, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: happinessMultiplier
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5607815857755878780, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
@@ -42093,12 +42123,12 @@ PrefabInstance:
     - target: {fileID: 5607815857755878776, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: temptation
-      value: 30
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5607815857755878776, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
       propertyPath: happinessMultiplier
-      value: -10
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5607815857755878780, guid: db158cdab7ac0e143b8dcfc2f9d0116c,
         type: 3}
