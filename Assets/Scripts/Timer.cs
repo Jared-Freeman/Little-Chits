@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     #endregion
 
     #region members
-    bool flag_debug = true;
+    bool flag_debug = false;
     public int level_number = -1;
     public int level_time = 300;
     public int score = -1; //modified upon gameover 
