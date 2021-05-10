@@ -154,12 +154,14 @@ MonoBehaviour:
   highlight: {fileID: 21300000, guid: 3c7043001b8db9949be4d0d6b9eb1ce9, type: 3}
   fullChargeRestart: 0
   charge: 1
-  discargeRate: 0.1
-  rechargeRate: 0.1
+  discargeRate: 1
+  rechargeRate: 0.5
   onPickup:
     m_PersistentCalls:
       m_Calls: []
   hoverDistanceFromCamera: 2
+  ice: {fileID: 2945323194988559088, guid: 85e51f3cc543a2c4aa20dfb030221d70, type: 3}
+  duration: 10
 --- !u!54 &1410114393788825419
 Rigidbody:
   m_ObjectHideFlags: 0
