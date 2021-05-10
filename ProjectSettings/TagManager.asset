@@ -8,6 +8,7 @@ TagManager:
   - Kill
   - Task
   - Cage
+  - ChitCorpse
   layers:
   - Default
   - TransparentFX
