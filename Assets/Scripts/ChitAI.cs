@@ -167,7 +167,7 @@ public class ChitAI : MonoBehaviour
     {
         audioSource.clip = chitGrabbedSound;
         audioSource.Play();
-        onGrabbed.Invoke();
+        onReleased.Invoke();
         isGrabbed = false;
         decisionTime = 0;
     }
