@@ -15,6 +15,7 @@ public class Timer : MonoBehaviour
     bool flag_debug = false;
     public int level_number = -1;
     public int level_time = 300;
+    public int score = -1; //modified upon gameover 
     #endregion
 
     #region event subscriptions
@@ -64,16 +65,18 @@ public class Timer : MonoBehaviour
         {
             if (UIMgr.inst.time <= 0) //0 minutes terminates
             {
+                CalculateScore();
                 UIMgr.inst.LevelOverAction();
-                DoGameOver();
+                //DoGameOver();
             }
             UIMgr.inst.chitsCountTxt.text = UIMgr.inst.numChit.ToString("0"); ;
 
             //terminate program when you reach 0
             if (UIMgr.inst.numChit <= 0)
             {
+                CalculateScore();
                 UIMgr.inst.LevelOverAction();
-                DoGameOver();
+                //DoGameOver();
             }
 
             yield return null;
@@ -92,6 +95,7 @@ public class Timer : MonoBehaviour
         }
     }
 
+    //THIS IS DEPRECATED
     //appended code by Jared
     //TODO: Make playername custom
     private void DoGameOver()
@@ -104,6 +108,10 @@ public class Timer : MonoBehaviour
     //TODO: update to new formula
     private int CalculateScore()
     {
-        return (int)Mathf.Clamp((UIMgr.inst.time * 2 + (100 - (UIMgr.inst.numChit * 10))), 0, Mathf.Infinity);
+        score = (int)Mathf.Clamp((
+            (DifficultyManager.difficulty_settings_list[(int)Mathf.Clamp(level_number - 1, 0, Mathf.Infinity)].setting_easy.level_time - DifficultyManager.CurrentDifficultySetting((int)Mathf.Clamp(level_number - 1, 0, Mathf.Infinity)).level_time)
+            + UIMgr.inst.time + (UIMgr.inst.numChit * 20))
+            , 0, Mathf.Infinity);
+        return score;
     }
 }

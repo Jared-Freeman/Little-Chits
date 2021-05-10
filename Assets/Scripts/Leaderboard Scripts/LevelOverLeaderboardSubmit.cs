@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LevelOverLeaderboardSubmit : MonoBehaviour
 {
     public InputField inputfield_name;
-    public int score;
+    public Timer timer;
     public int level = -1;
 
     private void Start()
@@ -17,7 +17,7 @@ public class LevelOverLeaderboardSubmit : MonoBehaviour
 
     public void SubmitLeaderboardAttributes()
     {
-        LeaderboardStaticList.AddLeaderboardEntry(new LeaderboardAttributes(inputfield_name.text, score), level);
+        LeaderboardStaticList.AddLeaderboardEntry(new LeaderboardAttributes(inputfield_name.text, timer.score), level);
     }
 
 }
