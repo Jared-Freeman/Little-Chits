@@ -9,7 +9,7 @@ using UnityEngine;
 public class ChitStaticList : MonoBehaviour
 {
     #region MEMBERS
-    private bool flag_debug = true;
+    private bool flag_debug = false;
 
     public static List<ChitAI> chits_list;
     #endregion

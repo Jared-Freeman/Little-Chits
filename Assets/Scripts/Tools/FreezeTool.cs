@@ -62,7 +62,20 @@ public class FreezeTool : Tool
         
         if (chit != null)
         {
-            StartCoroutine("Freeze", chit);
+            //StartCoroutine("Freeze", chit);
+
+            FrozenChit attached_frozen_modifier = chit.GetComponent<FrozenChit>();
+            if (attached_frozen_modifier == null)
+            {
+                attached_frozen_modifier = chit.gameObject.AddComponent<FrozenChit>();
+                attached_frozen_modifier.ice = ice;
+                attached_frozen_modifier.duration = duration;
+            }
+            else
+            {
+                attached_frozen_modifier.duration += duration;
+            }
+
         }
 
         return true;

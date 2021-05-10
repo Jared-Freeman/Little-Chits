@@ -6,7 +6,6 @@ using UnityEngine;
 
 #region helper classes
 //desc:     Container class for one difficulty setting. Multiple should exist per level, defined in DifficultySettings
-//TODO: add more settings!
 public class DifficultySetting
 {
     public DifficultySetting(int time, int chit_count, float t_scale = 1)
