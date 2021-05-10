@@ -171,7 +171,7 @@ public class ChitAI : MonoBehaviour
         audioSource.Play();
         onGrabbed.Invoke();
         isGrabbed = false;
-        decisionTime = 0;
+        timePassed = 0;
     }
 
     [System.Serializable]
