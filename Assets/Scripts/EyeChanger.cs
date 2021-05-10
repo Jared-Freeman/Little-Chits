@@ -23,31 +23,33 @@ public class EyeChanger : MonoBehaviour
 
     public void ChangeEyes(int typeID)
     {
-        if (typeID == 0)
+        if(sr != null)
         {
-            sr.sprite = neutralEyes[(int)Random.Range(0, neutralEyes.Count - 1)];
+            if (typeID == 0)
+            {
+                sr.sprite = neutralEyes[(int)Random.Range(0, neutralEyes.Count - 1)];
+            }
+            else if (typeID == 1)
+            {
+                sr.sprite = sadEyes[(int)Random.Range(0, sadEyes.Count - 1)];
+            }
+            else if (typeID == 2)
+            {
+                sr.sprite = madEyes[(int)Random.Range(0, madEyes.Count - 1)];
+            }
+            else if (typeID == 3)
+            {
+                sr.sprite = stressedEyes[(int)Random.Range(0, stressedEyes.Count - 1)];
+            }
+            else if (typeID == 4)
+            {
+                sr.sprite = thinkingEyes[(int)Random.Range(0, thinkingEyes.Count - 1)];
+            }
+            else if (typeID == 5)
+            {
+                sr.sprite = deadEyes[(int)Random.Range(0, thinkingEyes.Count - 1)];
+            }
         }
-        else if (typeID == 1)
-        {
-            sr.sprite = sadEyes[(int)Random.Range(0, sadEyes.Count - 1)];
-        }
-        else if (typeID == 2)
-        {
-            sr.sprite = madEyes[(int)Random.Range(0, madEyes.Count - 1)];
-        }
-        else if (typeID == 3)
-        {
-            sr.sprite = stressedEyes[(int)Random.Range(0, stressedEyes.Count - 1)];
-        }
-        else if (typeID == 4)
-        {
-            sr.sprite = thinkingEyes[(int)Random.Range(0, thinkingEyes.Count - 1)];
-        }
-        else if (typeID == 5)
-        {
-            sr.sprite = deadEyes[(int)Random.Range(0, thinkingEyes.Count - 1)];
-        }
-
     }
 
     public void ChangeEyes(string type)
