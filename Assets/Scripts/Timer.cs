@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     #endregion
 
     #region members
-    bool flag_debug = false;
+    bool flag_debug = true;
     public int level_number = -1;
     public int level_time = 300;
     public int score = -1; //modified upon gameover 
@@ -109,9 +109,12 @@ public class Timer : MonoBehaviour
     private int CalculateScore()
     {
         score = (int)Mathf.Clamp((
-            (DifficultyManager.difficulty_settings_list[(int)Mathf.Clamp(level_number - 1, 0, Mathf.Infinity)].setting_easy.level_time - DifficultyManager.CurrentDifficultySetting((int)Mathf.Clamp(level_number - 1, 0, Mathf.Infinity)).level_time)
+            (DifficultyManager.difficulty_settings_list[level_number - 1].setting_easy.level_time - DifficultyManager.CurrentDifficultySetting(level_number - 1).level_time) * 1.25f
             + UIMgr.inst.time + (UIMgr.inst.numChit * 20))
             , 0, Mathf.Infinity);
+
+        if (flag_debug) Debug.Log(score);
+
         return score;
     }
 }
