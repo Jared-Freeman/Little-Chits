@@ -152,16 +152,14 @@ MonoBehaviour:
   actionSound: {fileID: 8300000, guid: e1c60f03ed508bf4dbafa7ed04c00160, type: 3}
   icon: {fileID: 21300000, guid: b63a83088191ca84590dd84cd1dae929, type: 3}
   highlight: {fileID: 21300000, guid: 3c7043001b8db9949be4d0d6b9eb1ce9, type: 3}
-  fullChargeRestart: 1
+  fullChargeRestart: 0
   charge: 1
-  discargeRate: 1
-  rechargeRate: 0.5
+  discargeRate: 0.1
+  rechargeRate: 0.1
   onPickup:
     m_PersistentCalls:
       m_Calls: []
   hoverDistanceFromCamera: 2
-  ice: {fileID: 433048159249596136, guid: 85e51f3cc543a2c4aa20dfb030221d70, type: 3}
-  duration: 10
 --- !u!54 &1410114393788825419
 Rigidbody:
   m_ObjectHideFlags: 0
