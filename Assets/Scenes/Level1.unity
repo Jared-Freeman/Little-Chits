@@ -5427,7 +5427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputfield_name: {fileID: 220448486}
-  timer: {fileID: 0}
+  timer: {fileID: 430235141}
   level: 1
 --- !u!1001 &220448473
 PrefabInstance:

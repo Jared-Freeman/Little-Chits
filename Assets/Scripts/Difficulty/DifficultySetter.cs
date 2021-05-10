@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DifficultySetter : MonoBehaviour
 {
-    private bool flag_debug = true;
+    private bool flag_debug = false;
     public AudioSource attached_confirmation_sound_easy;
     public AudioSource attached_confirmation_sound_medium;
     public AudioSource attached_confirmation_sound_hard;
