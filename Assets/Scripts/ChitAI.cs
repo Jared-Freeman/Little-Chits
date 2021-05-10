@@ -152,6 +152,7 @@ public class ChitAI : MonoBehaviour
 
     public void Grabbed()
     {
+        print("Grabbed");
         audioSource.clip = chitGrabbedSound;
         audioSource.Play();        
         onGrabbed.Invoke();
@@ -165,6 +166,7 @@ public class ChitAI : MonoBehaviour
 
     public void Released()
     {
+        print("Released");
         audioSource.clip = chitGrabbedSound;
         audioSource.Play();
         onGrabbed.Invoke();

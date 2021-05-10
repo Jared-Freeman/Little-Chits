@@ -72,6 +72,7 @@ public class GravityTool : Tool
         if (chit != null)
         {
             chit.Released();
+            chit = null;
         }
     }
 }

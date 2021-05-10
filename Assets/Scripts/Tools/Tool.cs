@@ -213,7 +213,6 @@ public abstract class Tool : Interactable
     {
         doingAction = false;
         inventorySystem.audioSource.Stop();
-        chit = null;
         interactable = null;
     }
 
