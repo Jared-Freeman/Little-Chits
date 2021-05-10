@@ -13,7 +13,7 @@ public class TaskWeight : MonoBehaviour
     public float TimeWeight;
     public float AtTaskWeight;
     public float DistWeight;
-    public float DistMultiplier = 10;
+    public float DistMultiplier = 8;
     public bool beingUsed;
     public GameObject occupant;
     public Task task;
@@ -60,13 +60,13 @@ public class TaskWeight : MonoBehaviour
     {
         ChitAI chitAI = chit.GetComponent<ChitAI>();
         distanceSq = (transform.position - chit.transform.position).sqrMagnitude;
-        HappinessWeight = (happinessMultiplier * chitAI.chitHappiness)/4;
-        TimeWeight = temptation * Mathf.Log10(timeSince);
+        HappinessWeight = Mathf.Clamp(happinessMultiplier * chitAI.chitHappiness*2+10, 0, 50);
+        TimeWeight = Mathf.Clamp(temptation * Mathf.Log10(timeSince)*10, 0, 50);
         distInt = (int) Mathf.Sqrt(distanceSq);
-        DistWeight = 7 * 10/ Mathf.Sqrt(distInt/10+1);
+        DistWeight = DistMultiplier * 10/ Mathf.Sqrt(distInt/10+1);
         AtTaskWeight = 30 *(task.taskTime / task.compTime);
         if (isRandom)
-            RandomWeight = Random.value * 50;
+            RandomWeight = Random.value * 30;
         else
             RandomWeight = 0;
         if (AtTask())

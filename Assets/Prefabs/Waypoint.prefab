@@ -116,7 +116,7 @@ MonoBehaviour:
   TimeWeight: 0
   AtTaskWeight: 0
   DistWeight: 0
-  DistMultiplier: 10
+  DistMultiplier: 8
   beingUsed: 0
   occupant: {fileID: 0}
   task: {fileID: 0}
@@ -154,6 +154,7 @@ MonoBehaviour:
   taskTime: 0
   compTime: 8
   weigher: {fileID: 0}
+  decayRate: 30
   assignment: 
   chit: {fileID: 0}
   childTask: {fileID: 0}

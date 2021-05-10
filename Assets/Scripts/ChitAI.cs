@@ -227,6 +227,8 @@ public class ChitAI : MonoBehaviour
             if (decisionTime < timePassed)
             {
                 EnableAI();
+                agent.enabled = true;
+                body.isKinematic = true;
                 if (isObsessed)
                 {
                     if (assignment == "makeHappy")
@@ -258,7 +260,7 @@ public class ChitAI : MonoBehaviour
                         audioSource.clip = chitJumpSound;
                         audioSource.Play();
                         DisableAI();
-                        Vector3 launch = new Vector3(Random.value * 500 - 250, 250, Random.value * 500 - 250);
+                        Vector3 launch = new Vector3(Random.value * 300 - 150, 250, Random.value * 300 - 150);
                         if (flag_debug) Debug.Log(launch);
                         body.AddForce(launch);
                         //agent.enabled = true;
