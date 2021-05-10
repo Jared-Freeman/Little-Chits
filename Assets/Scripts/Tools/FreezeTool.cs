@@ -15,6 +15,9 @@ public class FreezeTool : Tool
 
     [Range(1, 10)]
     public float hoverDistanceFromCamera = 2;
+    public GameObject ice;
+
+    public float duration = 10;
 
     private Rigidbody otherRB;
     private GravityInterceptor gi;
@@ -45,8 +48,10 @@ public class FreezeTool : Tool
 
     IEnumerator Freeze(ChitAI chit)
     {
-        chit.body.velocity = Vector3.zero;
-        yield return new WaitForSeconds(3f);
+        chit.Grabbed();
+        GameObject newIce = Instantiate(ice, chit.transform);
+        yield return new WaitForSeconds(duration);
+        Destroy(newIce);
         chit.Released();
     }
 
@@ -57,7 +62,6 @@ public class FreezeTool : Tool
         
         if (chit != null)
         {
-            chit.Grabbed();
             StartCoroutine("Freeze", chit);
         }
 
