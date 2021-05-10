@@ -12,11 +12,12 @@ using UnityEngine;
 
 public class FreezeTool : Tool
 {
+    private bool flag_debug = true;
 
     [Range(1, 10)]
     public float hoverDistanceFromCamera = 2;
     public GameObject ice;
-    public float duration = 10;
+    public float duration = 10; // time added per second. a bit of a misnomer now honestly
 
     private Rigidbody otherRB;
     private GravityInterceptor gi;
@@ -69,16 +70,39 @@ public class FreezeTool : Tool
             {
                 attached_frozen_modifier = chit.gameObject.AddComponent<FrozenChit>();
                 attached_frozen_modifier.ice = ice;
-                attached_frozen_modifier.duration = duration;
+                attached_frozen_modifier.duration = duration * Time.deltaTime;
             }
             else
             {
-                attached_frozen_modifier.duration += duration;
+                attached_frozen_modifier.duration += duration * Time.deltaTime;
             }
 
         }
 
         return true;
+    }
+
+
+    public override void ContinueAction()
+    {
+        base.ContinueAction();
+
+        if(chit != null)
+        {
+            //slightly messy but EH whatever
+            FrozenChit attached_frozen_modifier = chit.GetComponent<FrozenChit>();
+            if (attached_frozen_modifier == null) //likely never to travel to this branch
+            {
+                attached_frozen_modifier = chit.gameObject.AddComponent<FrozenChit>();
+                attached_frozen_modifier.ice = ice;
+                attached_frozen_modifier.duration = duration * Time.deltaTime;
+            }
+            else
+            {
+                if (flag_debug) Debug.Log("adding frozen timer: " + attached_frozen_modifier.duration.ToString());
+                attached_frozen_modifier.duration += duration * Time.deltaTime;
+            }
+        }
     }
 
     public override void EndAction()

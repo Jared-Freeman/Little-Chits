@@ -13,7 +13,7 @@ public class DifficultyProxy : MonoBehaviour
 
     #region members
     public Timer timer;
-    private bool flag_debug = true;
+    private bool flag_debug = false;
     #endregion
 
     IEnumerator Start()
