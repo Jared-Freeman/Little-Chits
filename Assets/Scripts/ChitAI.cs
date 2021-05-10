@@ -9,6 +9,8 @@ public class ChitAI : MonoBehaviour
 
     public static ChitAI inst;
 
+    public Material ghostMaterial;
+
     //commit
     public GameObject[] taskObj;
     public TaskWeight[] task;
@@ -113,19 +115,22 @@ public class ChitAI : MonoBehaviour
     public class DeathEvent : UnityEvent { }
     public DeathEvent onDeath = new DeathEvent();
 
-    IEnumerator Remove()
-    {
-        yield return new WaitForSeconds(3f);
-        Destroy(gameObject);
-
-    }
     public void Death()
     {
         audioSource.clip = chitDeathSound;
         audioSource.Play();
-        StartCoroutine("Remove");
+        ChitMoodMaterialLerp lerp = gameObject.GetComponent<ChitMoodMaterialLerp>();
+        if (lerp != null)
+        {
+            Destroy(lerp);
+        }
+        GetComponent<MeshRenderer>().material = ghostMaterial;
+        Destroy(GameObject.Find("Eyes").GetComponent<EyeChanger>());
+        tag = "ChitCorpse";
         UIMgr.inst.numChit -= 1;
         onDeath.Invoke();
+        Destroy(agent);
+        Destroy(this);
     }
 
     [System.Serializable]
@@ -169,7 +174,7 @@ public class ChitAI : MonoBehaviour
         audioSource.Play();
         onGrabbed.Invoke();
         isGrabbed = false;
-        decisionTime = 0;
+        timePassed = 0;
     }
 
     [System.Serializable]

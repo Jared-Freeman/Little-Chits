@@ -10,7 +10,7 @@ public class MouseLookAspect : MoveAspect
     [Header("MouseLook Aspect Settings")]
     public bool smoothMouse;
     public bool clampSmoothUpper;
-    public float mouseSensitivity;
+    public static float mouseSensitivity = 75f;
     [Range(-90f, 0f)]
     public float lowerLookBoundary;
     [Range(0f, 90f)]
@@ -24,6 +24,11 @@ public class MouseLookAspect : MoveAspect
     private Queue<float> axisStackX = new Queue<float>();
     private Queue<float> axisStackY = new Queue<float>();
     #endregion
+
+    public void SetMouseSensitivity(float sens)
+    {
+        mouseSensitivity = sens;
+    }
 
     public override void InitializeMoveAspect()
     {

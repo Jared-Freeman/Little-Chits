@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55588bca7893c2b48b557c5bad76faaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostMaterial: {fileID: 2100000, guid: ca68b07cd006de54ba91a20edc47a080, type: 2}
   taskObj: []
   task: []
   newTask: 0
@@ -361,7 +362,7 @@ MonoBehaviour:
   isWandering: 0
   escapeChance: 10
   escapeGrowth: 5
-  defaultEscapeChance: 10
+  defaultEscapeChance: 35
   isTrapped: 0
   chitAttention: 100
   assignment: 
