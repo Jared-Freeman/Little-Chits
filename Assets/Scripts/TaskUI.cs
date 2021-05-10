@@ -5,34 +5,26 @@ using UnityEngine.UI;
 
 public class TaskUI : MonoBehaviour
 {
-    public string objective;
     public int goal = 1;
 
-    private int progress;
+    private int progress = 0;
 
     private Text statusUI;
-    private Text objectiveUI;
-    private Text progressUI;
 
     private void Awake()
     {
-        statusUI = transform.Find("Status").GetComponent<Text>();
-        objectiveUI = transform.Find("Objective").GetComponent<Text>();
-        progressUI = transform.Find("Progress").GetComponent<Text>();
-
-        objectiveUI.text = objective;
-        progressUI.text = progress.ToString() + "/" + goal.ToString();
-        statusUI.text = "";
+        statusUI = GetComponent<Text>();
     }
 
     private void MarkCompleted()
     {
-        statusUI.text = "✓";
+        statusUI.color = new Color(0, 1, 0);
+        Destroy(this);
     }
 
     private void UpdateProgress()
     {
-        progressUI.text = progress.ToString() + "/" + goal.ToString();
+        /*progressUI.text = progress.ToString() + "/" + goal.ToString();*/
     }
 
 
